@@ -17,7 +17,7 @@
 Resources::Resources()
 {
     // Load images
-    Gem = Iw2DCreateImage("textures/sparkle_tomato.png");
+    Gem = Iw2DCreateImage("textures/dodo-head.png");
     MenuBG = Iw2DCreateImage("textures/menu_bkg.jpg");
     GameBG = Iw2DCreateImage("textures/bkg.jpg");
     MenuButton = Iw2DCreateImage("textures/button_bg.png");
@@ -29,9 +29,9 @@ Resources::Resources()
     Font = Iw2DCreateFont("fonts/arial8.gxfont");
 
     // Create gem atlas
-    int frame_w = (int)(Gem->GetWidth() / 5);
-    int frame_h = (int)(Gem->GetHeight() / 3);
-    GemAtlas = new CAtlas(frame_w, frame_h, 15, Gem);
+    // int frame_w = (int)(Gem->GetWidth() / 5);
+    // int frame_h = (int)(Gem->GetHeight() / 3);
+    // GemAtlas = new CAtlas(frame_w, frame_h, 15, Gem);
 }
 
 Resources::~Resources()
