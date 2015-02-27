@@ -1,0 +1,283 @@
+-- START TRACE TO FILE --
+tracing to: ''
+MarmaladeSDK v7.5.1 [422112] (S3E Loader v4.40.0)
+Copyright (C) 2001-2014 Marmalade Technologies Ltd.
+System Info:
+ OS           : WINDOWS (3)
+ OS Version   : Windows 6.1 (6.1)
+ Device ID    : QEMU (0x1)
+ Device Class : WINDOWS_GENERIC (3000)
+ Phone Number : 0044123456789
+ Unique ID    : SIMULATOR_ID
+ Device Name  : My Computer
+ Memory       : 1048576KiB
+27/02/15 12:48:23.450: [0x00000dd8] DEVICE: Initialising THREAD
+27/02/15 12:48:23.450: [0x00000dd8] THREAD: s3eThreadCreateMain
+27/02/15 12:48:23.450: [0x00000fa0] DEVICE: Initialising SURFACE
+27/02/15 12:48:23.450: [0x00000fa0] SURFACE: s3eSurfaceSetup: PixelType=RGB888, pitch=0, ptr=0x00000000, blit=0
+27/02/15 12:48:23.451: [0x00000fa0] SURFACE: s3eSurfaceSetup: matches native type
+27/02/15 12:48:23.451: [0x00000fa0] SURFACE: s3eSurfaceSetup: no user surface needed
+27/02/15 12:48:23.451: [0x00000fa0] SURFACE: done s3eSurfaceInit: 800x600 p:1600 (800x600 p:1600) o:0
+27/02/15 12:48:23.452: [0x00000fa0] DEVICE: Initialising EXT
+27/02/15 12:48:23.452: [0x00000fa0] EXT: registering extension: s3eLibrary [0xe6dd6ce5]
+27/02/15 12:48:23.452: [0x00000fa0] EXT: registering extension: s3eExtLoadLibaray [0xf23d6d85]
+27/02/15 12:48:23.453: [0x00000fa0] EXT: registering extension: s3eCamera [0xa3e23039]
+27/02/15 12:48:23.453: [0x00000fa0] EXT: registering extension: s3eWindow [0xd31aa8a8]
+27/02/15 12:48:23.453: [0x00000fa0] EXT: registering extension: s3eVFS [0x17f48c9f]
+27/02/15 12:48:23.453: [0x00000fa0] EXT: registering extension: s3eContacts [0x5e39d2af]
+27/02/15 12:48:23.454: [0x00000fa0] EXT: registering extension: s3eSoundRecord [0x579dbf78]
+27/02/15 12:48:23.454: [0x00000fa0] EXT: registering extension: s3eTouchpad [0x1dbd7ce8]
+27/02/15 12:48:23.454: [0x00000fa0] EXT: registering extension: s3eCompass [0x40d632c6]
+27/02/15 12:48:23.455: [0x00000fa0] EXT: registering extension: Compass [0xd3653f1b]
+27/02/15 12:48:23.455: [0x00000fa0] EXT: registering extension: s3eDebugHeap [0xc667a795]
+27/02/15 12:48:23.455: [0x00000fa0] EXT: registering extension: s3eExtDebugHeap [0xff96de46]
+27/02/15 12:48:23.456: [0x00000fa0] EXT: registering extension: s3eClipboard [0xd68f3420]
+27/02/15 12:48:23.456: [0x00000fa0] EXT: registering extension: s3eOSExec [0xc121bcf7]
+27/02/15 12:48:23.456: [0x00000fa0] EXT: registering extension: s3eExtOSExec [0x20380948]
+27/02/15 12:48:23.457: [0x00000fa0] EXT: registering extension: s3eEval [0x167d1038]
+27/02/15 12:48:23.457: [0x00000fa0] EXT: registering extension: s3eExtEval [0xf0421449]
+27/02/15 12:48:23.458: [0x00000fa0] EXT: registering extension: s3eHighResTimer [0x41f2dedb]
+27/02/15 12:48:23.458: [0x00000fa0] EXT: registering extension: s3eOSReadString [0x9fe3ea45]
+27/02/15 12:48:23.458: [0x00000fa0] EXT: registering extension: s3eCameraCapture [0xd36aceed]
+27/02/15 12:48:23.459: [0x00000fa0] EXT: registering extension: s3eTestEmulatorConfig [0x4a0d0a4f]
+27/02/15 12:48:23.459: [0x00000fa0] EXT: registering extension: s3eThread [0xcc0b4a28]
+27/02/15 12:48:23.460: [0x00000fa0] EXT: registering extension: s3eSocketOpt [0x09cdcdec]
+27/02/15 12:48:23.460: [0x00000fa0] EXT: registering extension: s3eExtSocketOpt [0x42fd049d]
+27/02/15 12:48:23.460: [0x00000fa0] EXT: registering extension: s3eImagePicker [0xd2fc1d51]
+27/02/15 12:48:23.461: [0x00000fa0] EXT: registering extension: s3eTest [0x168503f0]
+27/02/15 12:48:23.461: [0x00000fa0] EXT: registering extension: s3eSMS [0x17f480c3]
+27/02/15 12:48:23.461: [0x00000fa0] EXT: registering extension: s3eMetrics [0x2bc8e047]
+27/02/15 12:48:23.462: [0x00000fa0] EXT: registering extension: Metrics [0xbe57ec9c]
+27/02/15 12:48:23.462: [0x00000fa0] EXT: registering extension: s3eLocation [0x91944229]
+27/02/15 12:48:23.463: [0x00000fa0] EXT: registering extension: Location [0x7604d91e]
+27/02/15 12:48:23.463: [0x00000fa0] DEVICE: Initialising CONFIG
+27/02/15 12:48:23.463: [0x00000fa0] DEVICE: Initialising TIMER
+27/02/15 12:48:23.464: [0x00000fa0] DEVICE: Initialising COMPRESSION
+27/02/15 12:48:23.464: [0x00000fa0] DEVICE: DeviceInit done: services=0x0a216148
+27/02/15 12:48:23.464: [0x00000fa0] EXT: s3eExtGetHash: 0xd31aa8a8 [0x00000000 size=0]
+27/02/15 12:48:23.464: [0x00000fa0] EXT: initializing extension: s3eWindow
+27/02/15 12:48:23.465: [0x00000fa0] EXT: initializing extension: s3eWindow 0x00edfee0
+27/02/15 12:48:23.465: [0x00000fa0] DEVICE: SetupPaths: NULL
+27/02/15 12:48:23.465: [0x00000fa0] LOADER: ParseCommandLineData [-via:"C:\Users\timmy\AppData\Local\Temp\ARMtargetdll.icf" -waitfordebugger:1]
+27/02/15 12:48:23.466: [0x00000fa0] LOADER: setting [commandline]  via=C:\Users\timmy\AppData\Local\Temp\ARMtargetdll.icf
+27/02/15 12:48:23.466: [0x00000fa0] LOADER: setting [commandline]  waitfordebugger=1
+27/02/15 12:48:23.467: [0x00000fa0] LOADER: parsing via file: C:\Users\timmy\AppData\Local\Temp\ARMtargetdll.icf
+27/02/15 12:48:23.467: [0x00000fa0] FILE: s3eFileOpen('C:\Users\timmy\AppData\Local\Temp\ARMtargetdll.icf', 'r') succeeded, id=16456200 p=0x00fb1a08
+27/02/15 12:48:23.467: [0x00000fa0] LOADER: reading 1089 bytes from via files
+27/02/15 12:48:23.468: [0x00000fa0] FILE: s3eFileClose h=0x00fb1a08
+27/02/15 12:48:23.468: [0x00000fa0] LOADER: ParseCommandLineData [-via:"C:\Users\timmy\AppData\Local\Temp\ARMtargetdll.icf" -waitfordebugger:1 --dll="c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\build_stage4_vc12\Debug_Stage4_VC12_gcc_arm\Stage4.s3e
+27/02/15 12:48:23.469: [0x00000fa0] LOADER: setting [commandline]  via=C:\Users\timmy\AppData\Local\Temp\ARMtargetdll.icf
+27/02/15 12:48:23.469: [0x00000fa0] LOADER: setting [commandline]  waitfordebugger=1
+27/02/15 12:48:23.469: [0x00000fa0] LOADER: setting [commandline]  dll=c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\build_stage4_vc12\Debug_Stage4_VC12_gcc_arm\Stage4.s3e
+27/02/15 12:48:23.470: [0x00000fa0] LOADER: setting [commandline]  data=c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\data
+27/02/15 12:48:23.470: [0x00000fa0] LOADER: setting [commandline]  app-icf1=c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/data/app.icf
+27/02/15 12:48:23.470: [0x00000fa0] LOADER: setting [commandline]  win32-ext-dll1=c:/marmalade/7.5/extensions/pvrtextool/lib/win32/PVRTexTool.dll
+27/02/15 12:48:23.471: [0x00000fa0] LOADER: setting [commandline]  config-txt1=c:/marmalade/7.5/examples/gametutorial/cpp/modules/soundengine/docs/iwsound.config.txt
+27/02/15 12:48:23.471: [0x00000fa0] LOADER: setting [commandline]  config-txt2=c:/marmalade/7.5/modules/iw2d/docs/iw2d.config.txt
+27/02/15 12:48:23.472: [0x00000fa0] LOADER: setting [commandline]  config-txt3=c:/marmalade/7.5/modules/iwgeom/docs/iwgeom.config.txt
+27/02/15 12:48:23.472: [0x00000fa0] LOADER: setting [commandline]  config-txt4=c:/marmalade/7.5/modules/iwgl/docs/iwgl.config.txt
+27/02/15 12:48:23.473: [0x00000fa0] LOADER: setting [commandline]  config-txt5=c:/marmalade/7.5/modules/iwgx/docs/iwgx.config.txt
+27/02/15 12:48:23.473: [0x00000fa0] LOADER: setting [commandline]  config-txt6=c:/marmalade/7.5/modules/iwgxfont/docs/iwgxfont.config.txt
+27/02/15 12:48:23.473: [0x00000fa0] LOADER: setting [commandline]  config-txt7=c:/marmalade/7.5/modules/iwresmanager/docs/iwresmanager.config.txt
+27/02/15 12:48:23.474: [0x00000fa0] LOADER: setting [commandline]  config-txt8=c:/marmalade/7.5/modules/iwutil/docs/iwutil.config.txt
+27/02/15 12:48:23.474: [0x00000fa0] LOADER: setting [commandline]  config-txt9=c:/marmalade/7.5/s3e/s3e.config.txt
+27/02/15 12:48:23.474: [0x00000fa0] LOADER: setting [commandline]  config-txt10=c:/marmalade/7.5/s3e\s3e.config.txt
+27/02/15 12:48:23.475: [0x00000fa0] LOADER: setting [commandline]  s3e-dir=c:/marmalade/7.5/s3e
+27/02/15 12:48:23.475: [0x00000fa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+27/02/15 12:48:23.475: [0x00000fa0] FILE: fs[00]: system[rom://] 'c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\data'
+27/02/15 12:48:23.476: [0x00000fa0] FILE: fs[03]: system[raw://] ''
+27/02/15 12:48:23.477: [0x00000fa0] FILE: listed 2 active filesystems
+27/02/15 12:48:23.477: [0x00000fa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+27/02/15 12:48:23.477: [0x00000fa0] FILE: fs[00]: system[rom://] 'c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\data'
+27/02/15 12:48:23.478: [0x00000fa0] FILE: fs[01]: system[ram://] 'c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\data-ram'
+27/02/15 12:48:23.478: [0x00000fa0] FILE: fs[03]: system[raw://] ''
+27/02/15 12:48:23.479: [0x00000fa0] FILE: listed 3 active filesystems
+27/02/15 12:48:23.481: [0x00000fa0] FILE: new filesystem: drive=0 type=0 ro=1 name=rom://
+27/02/15 12:48:23.482: [0x00000fa0] FILE: new filesystem: drive=1 type=0 ro=0 name=ram://
+27/02/15 12:48:23.482: [0x00000fa0] LOADER: Using data directory c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\data as ROM drive
+27/02/15 12:48:23.482: [0x00000fa0] LOADER: Using directory c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\data-ram as RAM drive
+27/02/15 12:48:23.483: [0x00000fa0] FILE: s3eFileOpen('raw://c:/marmalade/7.5/examples/gametutorial/cpp/modules/soundengine/docs/iwsound.config.txt', 'r') succeeded, id=1000 p=0x00fb30dc
+27/02/15 12:48:23.483: [0x00000fa0] FILE: s3eFileClose h=0x00fb30dc
+27/02/15 12:48:23.484: [0x00000fa0] FILE: s3eFileOpen('raw://c:/marmalade/7.5/modules/iw2d/docs/iw2d.config.txt', 'r') succeeded, id=1001 p=0x00fb31f8
+27/02/15 12:48:23.484: [0x00000fa0] FILE: s3eFileClose h=0x00fb31f8
+27/02/15 12:48:23.484: [0x00000fa0] FILE: s3eFileOpen('raw://c:/marmalade/7.5/modules/iwgeom/docs/iwgeom.config.txt', 'r') succeeded, id=1002 p=0x00fb3314
+27/02/15 12:48:23.484: [0x00000fa0] FILE: s3eFileClose h=0x00fb3314
+27/02/15 12:48:23.485: [0x00000fa0] FILE: s3eFileOpen('raw://c:/marmalade/7.5/modules/iwgl/docs/iwgl.config.txt', 'r') succeeded, id=1003 p=0x00fb3430
+27/02/15 12:48:23.485: [0x00000fa0] FILE: s3eFileClose h=0x00fb3430
+27/02/15 12:48:23.485: [0x00000fa0] FILE: s3eFileOpen('raw://c:/marmalade/7.5/modules/iwgx/docs/iwgx.config.txt', 'r') succeeded, id=1004 p=0x00fb354c
+27/02/15 12:48:23.486: [0x00000fa0] FILE: s3eFileClose h=0x00fb354c
+27/02/15 12:48:23.486: [0x00000fa0] FILE: s3eFileOpen('raw://c:/marmalade/7.5/modules/iwgxfont/docs/iwgxfont.config.txt', 'r') succeeded, id=1005 p=0x00fb3668
+27/02/15 12:48:23.487: [0x00000fa0] FILE: s3eFileClose h=0x00fb3668
+27/02/15 12:48:23.487: [0x00000fa0] FILE: s3eFileOpen('raw://c:/marmalade/7.5/modules/iwresmanager/docs/iwresmanager.config.txt', 'r') succeeded, id=1006 p=0x00fb3784
+27/02/15 12:48:23.487: [0x00000fa0] FILE: s3eFileClose h=0x00fb3784
+27/02/15 12:48:23.488: [0x00000fa0] FILE: s3eFileOpen('raw://c:/marmalade/7.5/modules/iwutil/docs/iwutil.config.txt', 'r') succeeded, id=1007 p=0x00fb38a0
+27/02/15 12:48:23.488: [0x00000fa0] FILE: s3eFileClose h=0x00fb38a0
+27/02/15 12:48:23.488: [0x00000fa0] FILE: s3eFileOpen('raw://c:/marmalade/7.5/s3e/s3e.config.txt', 'r') succeeded, id=1008 p=0x00fb39bc
+27/02/15 12:48:23.492: [0x00000fa0] FILE: s3eFileClose h=0x00fb39bc
+27/02/15 12:48:23.492: [0x00000fa0] FILE: s3eFileOpen('raw://c:/marmalade/7.5/s3e\s3e.config.txt', 'r') succeeded, id=1009 p=0x00fb3ad8
+27/02/15 12:48:23.495: [0x00000fa0] FILE: s3eFileClose h=0x00fb3ad8
+27/02/15 12:48:23.496: [0x00000fa0] LOADER: s3eExecReadConfigFromS3EFiles()
+27/02/15 12:48:23.496: [0x00000fa0] FILE: s3eFileOpen('raw://c:\marmalade\7.5\s3e/s3e.icf', 'rb') succeeded, id=1010 p=0x00fb3bf4
+27/02/15 12:48:23.497: [0x00000fa0] LOADER: Loading config from: c:\marmalade\7.5\s3e/s3e.icf
+27/02/15 12:48:23.497: [0x00000fa0] FILE: s3eFileClose h=0x00fb3bf4
+27/02/15 12:48:23.498: [0x00000fa0] LOADER: Loading app-icf from command line specified location c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/data/app.icf
+27/02/15 12:48:23.498: [0x00000fa0] FILE: s3eFileOpen('raw://c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/data/app.icf', 'rb') succeeded, id=1011 p=0x00fb3d10
+27/02/15 12:48:23.498: [0x00000fa0] LOADER: Loading config from: raw://c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/data/app.icf
+27/02/15 12:48:23.498: [0x00000fa0] FILE: s3eFileClose h=0x00fb3d10
+27/02/15 12:48:23.499: [0x00000fa0] LOADER: ParseCommandLineData [-via:"C:\Users\timmy\AppData\Local\Temp\ARMtargetdll.icf" -waitfordebugger:1]
+27/02/15 12:48:23.499: [0x00000fa0] LOADER: setting [commandline]  via=C:\Users\timmy\AppData\Local\Temp\ARMtargetdll.icf
+27/02/15 12:48:23.499: [0x00000fa0] LOADER: setting [commandline]  waitfordebugger=1
+27/02/15 12:48:23.499: [0x00000fa0] LOADER: parsing via file: C:\Users\timmy\AppData\Local\Temp\ARMtargetdll.icf
+27/02/15 12:48:23.499: [0x00000fa0] FILE: s3eFileOpen('C:\Users\timmy\AppData\Local\Temp\ARMtargetdll.icf', 'r') succeeded, id=1012 p=0x00fb3e2c
+27/02/15 12:48:23.500: [0x00000fa0] LOADER: reading 1089 bytes from via files
+27/02/15 12:48:23.500: [0x00000fa0] FILE: s3eFileClose h=0x00fb3e2c
+27/02/15 12:48:23.500: [0x00000fa0] LOADER: ParseCommandLineData [-via:"C:\Users\timmy\AppData\Local\Temp\ARMtargetdll.icf" -waitfordebugger:1 --dll="c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\build_stage4_vc12\Debug_Stage4_VC12_gcc_arm\Stage4.s3e
+27/02/15 12:48:23.500: [0x00000fa0] LOADER: setting [commandline]  via=C:\Users\timmy\AppData\Local\Temp\ARMtargetdll.icf
+27/02/15 12:48:23.500: [0x00000fa0] LOADER: setting [commandline]  waitfordebugger=1
+27/02/15 12:48:23.500: [0x00000fa0] LOADER: setting [commandline]  dll=c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\build_stage4_vc12\Debug_Stage4_VC12_gcc_arm\Stage4.s3e
+27/02/15 12:48:23.500: [0x00000fa0] LOADER: setting [commandline]  data=c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\data
+27/02/15 12:48:23.501: [0x00000fa0] LOADER: setting [commandline]  app-icf1=c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/data/app.icf
+27/02/15 12:48:23.501: [0x00000fa0] LOADER: setting [commandline]  win32-ext-dll1=c:/marmalade/7.5/extensions/pvrtextool/lib/win32/PVRTexTool.dll
+27/02/15 12:48:23.501: [0x00000fa0] LOADER: setting [commandline]  config-txt1=c:/marmalade/7.5/examples/gametutorial/cpp/modules/soundengine/docs/iwsound.config.txt
+27/02/15 12:48:23.501: [0x00000fa0] LOADER: setting [commandline]  config-txt2=c:/marmalade/7.5/modules/iw2d/docs/iw2d.config.txt
+27/02/15 12:48:23.501: [0x00000fa0] LOADER: setting [commandline]  config-txt3=c:/marmalade/7.5/modules/iwgeom/docs/iwgeom.config.txt
+27/02/15 12:48:23.501: [0x00000fa0] LOADER: setting [commandline]  config-txt4=c:/marmalade/7.5/modules/iwgl/docs/iwgl.config.txt
+27/02/15 12:48:23.501: [0x00000fa0] LOADER: setting [commandline]  config-txt5=c:/marmalade/7.5/modules/iwgx/docs/iwgx.config.txt
+27/02/15 12:48:23.502: [0x00000fa0] LOADER: setting [commandline]  config-txt6=c:/marmalade/7.5/modules/iwgxfont/docs/iwgxfont.config.txt
+27/02/15 12:48:23.502: [0x00000fa0] LOADER: setting [commandline]  config-txt7=c:/marmalade/7.5/modules/iwresmanager/docs/iwresmanager.config.txt
+27/02/15 12:48:23.502: [0x00000fa0] LOADER: setting [commandline]  config-txt8=c:/marmalade/7.5/modules/iwutil/docs/iwutil.config.txt
+27/02/15 12:48:23.502: [0x00000fa0] LOADER: setting [commandline]  config-txt9=c:/marmalade/7.5/s3e/s3e.config.txt
+27/02/15 12:48:23.502: [0x00000fa0] LOADER: setting [commandline]  config-txt10=c:/marmalade/7.5/s3e\s3e.config.txt
+27/02/15 12:48:23.502: [0x00000fa0] LOADER: setting [commandline]  s3e-dir=c:/marmalade/7.5/s3e
+27/02/15 12:48:23.502: [0x00000fa0] LOADER: s3eExecMemoryCheck: Memory free: 1048576K
+27/02/15 12:48:23.503: [0x00000fa0] FILE: s3eFileOpen('raw://C:\Users\timmy\AppData\Local\Temp\\_marm_temp_test_', 'w') succeeded, id=1013 p=0x00fb3f48
+27/02/15 12:48:23.503: [0x00000fa0] FILE: s3eFileClose h=0x00fb3f48
+27/02/15 12:48:23.504: [0x00000fa0] FILE: new filesystem: drive=4 type=0 ro=0 name=tmp://
+27/02/15 12:48:23.504: [0x00000fa0] FILE: fs[00]: system[rom://] 'c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\data'
+27/02/15 12:48:23.505: [0x00000fa0] FILE: fs[01]: system[ram://] 'c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\data-ram'
+27/02/15 12:48:23.505: [0x00000fa0] FILE: fs[03]: system[raw://] ''
+27/02/15 12:48:23.505: [0x00000fa0] FILE: fs[04]: system[tmp://] 'C:\Users\timmy\AppData\Local\Temp\'
+27/02/15 12:48:23.506: [0x00000fa0] FILE: listed 4 active filesystems
+27/02/15 12:48:23.538: [0x00000fa0] SURFACE: Fixed Screen Orientation: Free
+27/02/15 12:48:23.538: [0x00000fa0] SURFACE: scaling=1
+27/02/15 12:48:23.547: [0x00000d68] WINDOW: Enqueuing S3E_WINDOW_GAINED_FOCUS
+27/02/15 12:48:23.593: [0x00000fa0] SURFACE: s3eSurfaceSetup: PixelType=RGB888, pitch=0, ptr=0x00000000, blit=0
+27/02/15 12:48:23.593: [0x00000fa0] SURFACE: s3eSurfaceSetup: does not match native type (requested=RGB888 native=RGB565)
+27/02/15 12:48:23.596: [0x00000fa0] EXT: Registering user-supplied extensions
+27/02/15 12:48:23.597: [0x00000fa0] EXT: Loading extension dll c:/marmalade/7.5/extensions/pvrtextool/lib/win32/PVRTexTool_d.dll
+27/02/15 12:48:23.602: [0x00000fa0] LOADER: GL not present, resolving all GL symbols to unavailable
+27/02/15 12:48:23.602: [0x00000fa0] EXT: registering extension: PVRTexTool [0xb6b3ceac]
+27/02/15 12:48:23.602: [0x00000fa0] LOADER: Calling s3eDeviceInit()
+27/02/15 12:48:23.605: [0x00000fa0] DEVICE: DeviceInit: services=0xfffdffff [0xe7dc9eb7]
+27/02/15 12:48:23.627: [0x00000fa0] DEVICE: Initialising CALLBACKS
+27/02/15 12:48:23.631: [0x00000fa0] DEVICE: Initialising CRYPTO
+27/02/15 12:48:23.631: [0x00000fa0] DEVICE: Initialising ERROR
+27/02/15 12:48:23.636: [0x00000fa0] DEVICE: Initialising SOCKET
+27/02/15 12:48:23.643: [0x00000fa0] DEVICE: Initialising STORAGE
+27/02/15 12:48:23.646: [0x00000fa0] DEVICE: Initialising VIBRA
+27/02/15 12:48:23.646: [0x00000fa0] DEVICE: Initialising KEYBOARD
+27/02/15 12:48:23.646: [0x00000fa0] DEVICE: Initialising POINTER
+27/02/15 12:48:23.647: [0x00000fa0] DEVICE: Initialising ACCELEROMETER
+27/02/15 12:48:23.647: [0x00000fa0] ACCELEROMETER: damping=0 scaling=0
+27/02/15 12:48:23.648: [0x00000fa0] DEVICE: Initialising SOUND
+27/02/15 12:48:23.668: [0x00000fa0] SOUND: stereo sound enabled
+27/02/15 12:48:23.668: [0x00000fa0] SOUND: s3eSoundStop: started=0
+27/02/15 12:48:23.669: [0x00000fa0] SOUND: SetMasterVolume: 255 -> 256
+27/02/15 12:48:23.669: [0x00000fa0] DEVICE: Initialising AUDIO
+27/02/15 12:48:23.670: [0x00000fa0] AUDIO: Number of channels = 16
+27/02/15 12:48:23.670: [0x00000fa0] DEVICE: Initialising VIDEO
+27/02/15 12:48:23.670: [0x00000fa0] DEVICE: Initialising LICENSE
+27/02/15 12:48:23.671: [0x00000fa0] DEVICE: Initialising GL
+27/02/15 12:48:23.671: [0x00000fa0] DEVICE: DeviceInit done: services=0xfffdffff
+27/02/15 12:48:23.674: [0x00000fa0] SPLASH: displaying debug splash-screen
+27/02/15 12:48:23.701: [0x00000fa0] LICENSE: SplashScreenRequired: Splash set in licenseText
+27/02/15 12:48:23.742: [0x00000fa0] LICENSE: LicenseType: ret true : output=Free
+27/02/15 12:48:23.743: [0x00000fa0] SPLASH: No splash screen specified
+27/02/15 12:48:23.743: [0x00000fa0] DEVICE: s3eQemuInit
+27/02/15 12:48:23.754: [0x00000fa0] DEFAULT: done vm_start
+27/02/15 12:48:23.755: [0x00000fa0] DEFAULT: CPU Loop done
+27/02/15 12:48:23.756: [0x00000fa0] DEFAULT: done s3eQEMUInit
+27/02/15 12:48:23.762: [0x00000fa0] LOADER: s3eExecInit Done
+27/02/15 12:48:23.840: [0x00000fa0] LOADER: found initial S3E file: raw://c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\build_stage4_vc12\Debug_Stage4_VC12_gcc_arm\Stage4.s3e
+27/02/15 12:48:23.841: [0x00000fa0] DEVICE: s3eExecPushNext: raw://c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\build_stage4_vc12\Debug_Stage4_VC12_gcc_arm\Stage4.s3e [root=NULL 0x00000000 0x00000000]
+27/02/15 12:48:23.841: [0x00000fa0] DEVICE: s3eExecPushNext: raw://c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\build_stage4_vc12\Debug_Stage4_VC12_gcc_arm\Stage4.s3e
+27/02/15 12:48:23.842: [0x00000fa0] LOADER: s3eExecDoExecuteLoop
+27/02/15 12:48:23.842: [0x00000fa0] LOADER: s3eExecLoad: c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\build_stage4_vc12\Debug_Stage4_VC12_gcc_arm\Stage4.s3e
+27/02/15 12:48:23.842: [0x00000fa0] FILE: s3eFileOpen('c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\build_stage4_vc12\Debug_Stage4_VC12_gcc_arm\Stage4.s3e', 'rb') succeeded, id=1014 p=0x00fb4064
+27/02/15 12:48:23.843: [0x00000fa0] LOADER: IwS3ERead: Loading S3E: c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\build_stage4_vc12\Debug_Stage4_VC12_gcc_arm\Stage4.s3e
+27/02/15 12:48:23.843: [0x00000fa0] LOADER: Loading S3E from file: c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\build_stage4_vc12\Debug_Stage4_VC12_gcc_arm\Stage4.s3e
+27/02/15 12:48:23.844: [0x00000fa0] DEVICE: IwS3ERead > IwS3EInitHash
+27/02/15 12:48:23.844: [0x00000fa0] DEVICE: IwS3ERead > IwS3EReadHeader
+27/02/15 12:48:23.844: [0x00000fa0] LOADER: Reading S3E Header with size [64]
+27/02/15 12:48:23.845: [0x00000fa0] LOADER: S3E Version    : 4.40.0
+27/02/15 12:48:23.845: [0x00000fa0] LOADER: Arch           : ARMv7-A
+27/02/15 12:48:23.845: [0x00000fa0] LOADER: VFP            : 1
+27/02/15 12:48:23.845: [0x00000fa0] LOADER: App S3E Version: 4.40.0
+27/02/15 12:48:23.846: [0x00000fa0] LOADER: App arch       : ARMv6
+27/02/15 12:48:23.846: [0x00000fa0] LOADER: App VFP        : 0
+27/02/15 12:48:23.846: [0x00000fa0] DEVICE: IwS3ERead > IwS3EAllocMem
+27/02/15 12:48:23.847: [0x00000fa0] LOADER: m_VeneerSize: 8 g_NumSymbols: 654 Required veneer size: 5232
+27/02/15 12:48:23.847: [0x00000fa0] DEVICE: IwS3ERead > IwS3ELoadData
+27/02/15 12:48:23.847: [0x00000fa0] LOADER: Reading code section: 1232976 bytes at 0x4a000000
+27/02/15 12:48:23.848: [0x00000fa0] LOADER: code : 1232976 bytes
+27/02/15 12:48:23.848: [0x00000fa0] LOADER: data : 20560 bytes
+27/02/15 12:48:23.852: [0x00000fa0] DEVICE: IwS3ERead > IwS3ECheckSignature
+27/02/15 12:48:23.853: [0x00000fa0] LOADER: Signature checking NOT enabled in loader
+27/02/15 12:48:23.853: [0x00000fa0] DEVICE: IwS3ERead > IwS3ECheckLicense
+27/02/15 12:48:23.853: [0x00000fa0] LOADER: IwS3ECheckLicense
+27/02/15 12:48:23.853: [0x00000fa0] LOADER: Relocating S3E
+27/02/15 12:48:23.854: [0x00000fa0] LOADER: s3e base address = 0x4a000000 code disp = 0 data disp = 0
+27/02/15 12:48:23.854: [0x00000fa0] LOADER: 2829 internal relocations [code run-time vmaddr = 0x4a000000 data run-time vmadrr = 0x4a128000]
+27/02/15 12:48:23.854: [0x00000fa0] LOADER: 0 ARM external relocations
+27/02/15 12:48:23.854: [0x00000fa0] LOADER: 296 ARM ABS external relocations
+27/02/15 12:48:23.855: [0x00000fa0] LOADER: initialising BSS 84912 bytes at 0x4a12d050
+27/02/15 12:48:23.855: [0x00000fa0] LOADER: Loaded S3E at address 0x4a000000
+27/02/15 12:48:23.855: [0x00000fa0] FILE: s3eFileClose h=0x00fb4064
+27/02/15 12:48:25.675: [0x00000fa0] LOADER: Screen size: 320 480
+27/02/15 12:48:25.676: [0x00000fa0] FILE: s3eFileOpen('raw://C:\Marmalade\7.5\s3e/deploy/resources/mwm-splash-320.jpg', 'rb') succeeded, id=1015 p=0x00fb4180
+27/02/15 12:48:25.676: [0x00000fa0] FILE: s3eFileClose h=0x00fb4180
+27/02/15 12:48:25.678: [0x00000fa0] VIDEO: s3eVideoPlay raw://C:\Marmalade\7.5\s3e/deploy/resources/mwm-splash-320.jpg
+27/02/15 12:48:25.678: [0x00000fa0] FILE: s3eFileOpen('raw://C:\Marmalade\7.5\s3e/deploy/resources/mwm-splash-320.jpg', 'rb') succeeded, id=1016 p=0x00fb429c
+27/02/15 12:48:25.678: [0x00000fa0] VIDEO: data in in JPG (EXIF) format
+27/02/15 12:48:25.678: [0x00000fa0] FILE: s3eFileClose h=0x00fb429c
+27/02/15 12:48:25.679: [0x00000fa0] VIDEO: s3eVideoPlay w=320 h=320
+27/02/15 12:48:25.679: [0x00000fa0] JPEG: s3eVideoPlay_jpeglib: raw://C:\Marmalade\7.5\s3e/deploy/resources/mwm-splash-320.jpg
+27/02/15 12:48:25.679: [0x00000fa0] FILE: s3eFileOpen('raw://C:\Marmalade\7.5\s3e/deploy/resources/mwm-splash-320.jpg', 'rb') succeeded, id=1017 p=0x00fb43b8
+27/02/15 12:48:25.679: [0x00000fa0] JPEG: loading jpeg file: raw://C:\Marmalade\7.5\s3e/deploy/resources/mwm-splash-320.jpg [37220]
+27/02/15 12:48:25.679: [0x00000fa0] JPEG: jpeg head was read: [320x320]
+27/02/15 12:48:25.681: [0x00000fa0] JPEG: CanvasSink: canvas[320x320], pos[0x80], display[(0-320)x(0-320)]
+27/02/15 12:48:25.681: [0x00000fa0] JPEG: from [320x320] to [320x320]
+27/02/15 12:48:25.686: [0x00000fa0] FILE: s3eFileClose h=0x00fb43b8
+27/02/15 12:48:25.687: [0x00000fa0] VIDEO: s3eVideoPlay done: 0
+27/02/15 12:48:27.678: [0x00000fa0] FILE: s3eFileOpen('raw://C:\Marmalade\7.5\s3e/deploy/resources/ads/ad.320.jpg', 'rb') succeeded, id=1018 p=0x00fb44d4
+27/02/15 12:48:27.679: [0x00000fa0] VIDEO: s3eVideoPlay raw://C:\Marmalade\7.5\s3e/deploy/resources/ads/ad.320.jpg
+27/02/15 12:48:27.679: [0x00000fa0] FILE: s3eFileOpen('raw://C:\Marmalade\7.5\s3e/deploy/resources/ads/ad.320.jpg', 'rb') succeeded, id=1019 p=0x00fb45f0
+27/02/15 12:48:27.679: [0x00000fa0] VIDEO: data in in JPG (EXIF) format
+27/02/15 12:48:27.680: [0x00000fa0] FILE: s3eFileClose h=0x00fb45f0
+27/02/15 12:48:27.680: [0x00000fa0] VIDEO: s3eVideoPlay w=320 h=320
+27/02/15 12:48:27.680: [0x00000fa0] JPEG: s3eVideoPlay_jpeglib: raw://C:\Marmalade\7.5\s3e/deploy/resources/ads/ad.320.jpg
+27/02/15 12:48:27.681: [0x00000fa0] FILE: s3eFileOpen('raw://C:\Marmalade\7.5\s3e/deploy/resources/ads/ad.320.jpg', 'rb') succeeded, id=1020 p=0x00fb470c
+27/02/15 12:48:27.681: [0x00000fa0] JPEG: loading jpeg file: raw://C:\Marmalade\7.5\s3e/deploy/resources/ads/ad.320.jpg [30325]
+27/02/15 12:48:27.681: [0x00000fa0] JPEG: jpeg head was read: [320x320]
+27/02/15 12:48:27.683: [0x00000fa0] JPEG: CanvasSink: canvas[320x320], pos[0x80], display[(0-320)x(0-320)]
+27/02/15 12:48:27.684: [0x00000fa0] JPEG: from [320x320] to [320x320]
+27/02/15 12:48:27.689: [0x00000fa0] FILE: s3eFileClose h=0x00fb470c
+27/02/15 12:48:27.690: [0x00000fa0] VIDEO: s3eVideoPlay done: 0
+27/02/15 12:48:33.680: [0x00000fa0] SURFACE: s3eSurfaceSetup: PixelType=RGB565, pitch=0, ptr=0x00000000, blit=0
+27/02/15 12:48:33.680: [0x00000fa0] SURFACE: s3eSurfaceSetup: matches native type
+27/02/15 12:48:33.681: [0x00000fa0] SURFACE: s3eSurfaceSetup: no user surface needed
+27/02/15 12:48:33.681: [0x00000fa0] LOADER: Calling s3eDeviceInit(S3E_DEVICE_INIT_MEMORY)
+27/02/15 12:48:33.682: [0x00000fa0] DEVICE: DeviceInit: services=0x00020000 [0x00020000]
+27/02/15 12:48:33.682: [0x00000fa0] DEVICE: Initialising MEMORY
+27/02/15 12:48:33.683: [0x00000fa0] MEMORY: Loader heap size=30000
+27/02/15 12:48:33.696: [0x00000fa0] MEMORY: Initialised heap 0 [0x0aff1be4-0x0dfa0c64] size=50000000
+27/02/15 12:48:33.697: [0x00000fa0] MEMORY: Initialised heap 7 [0x00641464-0x0064dc64] size=51200
+27/02/15 12:48:33.697: [0x00000fa0] MEMORY: s3eMemorySetUserMemMgr 0x00e950a0 0x00e95430 0x00e95810
+27/02/15 12:48:33.697: [0x00000fa0] DEVICE: DeviceInit done: services=0x00020000
+27/02/15 12:48:33.698: [0x00000fa0] LOADER: Executing S3E 0x00da53d0 [c:\Marmalade\7.5\examples\GameTutorial\CPP\Stage4\build_stage4_vc12\Debug_Stage4_VC12_gcc_arm\Stage4.s3e] entry=0x0041102a
+27/02/15 12:48:33.887: [0x00000d68] WINDOW: Enqueuing S3E_WINDOW_LOST_FOCUS
+_IwMain
+27/02/15 12:48:33.928: [0x00000fa0] EXT: s3eExtGetHash: 0xcc0b4a28 [0x4a140d20 size=80]
+27/02/15 12:48:33.929: [0x00000fa0] EXT: initializing extension: s3eThread
+27/02/15 12:48:33.929: [0x00000fa0] EXT: initializing extension: s3eThread 0x00ebbcf0
+27/02/15 12:48:33.931: [0x00000fa0] MEMORY: s3eMemorySetUserMemMgr 0x00411069 0x0041107e 0x00411093

@@ -1,0 +1,51 @@
+#!/usr/bin/env mkb
+
+options
+{
+    module_path="../modules"
+}
+
+subprojects
+{
+    iw2d
+    iw2dscenegraph
+    iw2dscenegraphcore
+    iwtween
+    SoundEngine
+    ../../../MarmaladeExampleResources
+
+}
+
+files
+{
+    [source]
+    (source)
+    audio.cpp
+    game.cpp
+    input.cpp
+    main.cpp
+    mainMenu.cpp
+    pauseMenu.cpp
+    resources.cpp
+    scene.cpp
+
+    audio.h
+    game.h
+    input.h
+    main.h
+    mainMenu.h
+    pauseMenu.h
+    resources.h
+    scene.h
+}
+
+assets
+{
+    (data)
+    audio
+    textures
+	fonts
+
+    (data-ram/data-gles1, data)
+    .
+}
