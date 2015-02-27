@@ -1319,9 +1319,6 @@
     <ClInclude Include="c:/marmalade/7.5/modules/third_party/zlib/h/zlib.h">
       <Filter>(zlib)\h</Filter>
     </ClInclude>
-    <ClInclude Include="..\source\Sprite.h">
-      <Filter>source</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\modules\iw2dscenegraph\source\Iw2DSceneGraph.cpp">
@@ -1388,9 +1385,6 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\source\scene.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\source\Sprite.cpp">
       <Filter>source</Filter>
     </ClCompile>
   </ItemGroup>

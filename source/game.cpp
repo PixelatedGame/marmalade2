@@ -162,11 +162,16 @@ void Game::Init()
     gemSprite = new CSprite();
     gemSprite->m_X = (float)IwGxGetScreenWidth() / 2;
     gemSprite->m_Y = (float)IwGxGetScreenHeight() / 2;
-    gemSprite->SetAtlas(g_pResources->getGemAtlas());
-    gemSprite->m_W = (float)gemSprite->GetAtlas()->GetFrameWidth();
-    gemSprite->m_H = (float)gemSprite->GetAtlas()->GetFrameHeight();
+	gemSprite->SetImage(g_pResources->getGem());
+	//gemSprite->SetAtlas(g_pResources->getGemAtlas());
+	//gemSprite->m_W = (float)gemSprite->GetAtlas()->GetFrameWidth();
+	//gemSprite->m_H = (float)gemSprite->GetAtlas()->GetFrameHeight();
+	gemSprite->m_W = (float)gemSprite->GetImage()->GetWidth();
+	gemSprite->m_H = (float)gemSprite->GetImage()->GetHeight();
+	//gemSprite->m_ScaleX = (float)IwGxGetScreenWidth() / gemSprite->GetImage()->GetWidth();
+	//gemSprite->m_ScaleY = (float)IwGxGetScreenHeight() / gemSprite->GetImage()->GetHeight();
     gemSprite->m_AnchorX = 0.5;
-    gemSprite->SetAnimDuration(2);
+    //gemSprite->SetAnimDuration(2);
     AddChild(gemSprite);
 
 }
