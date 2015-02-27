@@ -1,7 +1,7 @@
 -c
-C:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/source/resources.cpp
+C:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Sprite.cpp
 -o
-Debug_Stage4_vc12_gcc_x86_android//resources.obj
+Debug_Stage4_vc12_gcc_x86_android//Sprite.obj
 -Ic:/marmalade/7.5/modules/iw2d/h
 -Ic:/marmalade/7.5/modules/iwgx/h
 -Ic:/marmalade/7.5/modules/iwgl/h
@@ -46,7 +46,7 @@ Debug_Stage4_vc12_gcc_x86_android//resources.obj
 -O0
 -D__S3E_CL_WRAPPER
 -include
-c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/build_stage4_vc12/temp_defines_debug.h
+c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/build_stage4_vc12/temp_defines_debug.h
 -Wno-reorder
 -fvisibility-inlines-hidden
 -fno-exceptions

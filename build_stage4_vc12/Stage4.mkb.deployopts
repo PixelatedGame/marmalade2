@@ -1,5 +1,5 @@
 build "GCC_X86_ANDROID Debug"
-outdir "c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/build_stage4_vc12"
+outdir "c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/build_stage4_vc12"
 !task !name "Default:android" "Package, Install and Run"
 !config !name "Default"
 !config <os> "android"

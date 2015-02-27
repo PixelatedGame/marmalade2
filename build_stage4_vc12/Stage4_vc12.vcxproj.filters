@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="(libpng)">
@@ -98,8 +98,9 @@
     <None Include="c:/marmalade/7.5/s3e/h/std/c++/algorithm">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </None>
-    <None Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/data/app.icf">
-      <Filter></Filter>
+    <None Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/data/app.icf">
+      <Filter>
+      </Filter>
     </None>
     <None Include="c:/marmalade/7.5/s3e/h/std/c++/bitset">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
@@ -365,9 +366,6 @@
     <None Include="c:/marmalade/7.5/modules/third_party/zlib/zlib.mkf">
       <Filter>(zlib)</Filter>
     </None>
-    <CustomBuild Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/Stage4.mkb">
-      <Filter></Filter>
-    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/AirplayVersion.h">
@@ -775,7 +773,7 @@
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/assert.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/source/audio.h">
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/audio.h">
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/byteswap.h">
@@ -835,7 +833,7 @@
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/c++/fstream.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
     </ClInclude>
-    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/source/game.h">
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/game.h">
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/getopt.h">
@@ -883,7 +881,7 @@
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/ifaddrs.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/source/input.h">
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/input.h">
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/inttypes.h">
@@ -952,10 +950,10 @@
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/locale.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/source/main.h">
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/main.h">
       <Filter>source</Filter>
     </ClInclude>
-    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/source/mainMenu.h">
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/mainMenu.h">
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/malloc.h">
@@ -994,7 +992,7 @@
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/sys/param.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\sys</Filter>
     </ClInclude>
-    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/source/pauseMenu.h">
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/pauseMenu.h">
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/modules/third_party/libpng/h/png.h">
@@ -1027,7 +1025,7 @@
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/sys/resource.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\sys</Filter>
     </ClInclude>
-    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/source/resources.h">
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/resources.h">
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/c++/rlocks.h">
@@ -1168,7 +1166,7 @@
     <ClInclude Include="c:/marmalade/7.5/s3e/h/ext/s3edebugHeap.h">
       <Filter>'Marmalade System (S3E)'\Extensions</Filter>
     </ClInclude>
-    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/source/scene.h">
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/scene.h">
       <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/sched.h">
@@ -1252,10 +1250,10 @@
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/syslog.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
-    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/build_stage4_vc12/temp_defines_debug.h">
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/build_stage4_vc12/temp_defines_debug.h">
       <Filter>'generated files'</Filter>
     </ClInclude>
-    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/Stage4/build_stage4_vc12/temp_defines_release.h">
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/build_stage4_vc12/temp_defines_release.h">
       <Filter>'generated files'</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/termios.h">
@@ -1320,6 +1318,9 @@
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/modules/third_party/zlib/h/zlib.h">
       <Filter>(zlib)\h</Filter>
+    </ClInclude>
+    <ClInclude Include="..\source\Sprite.h">
+      <Filter>source</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1389,5 +1390,11 @@
     <ClCompile Include="..\source\scene.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="..\source\Sprite.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\Stage4.mkb" />
   </ItemGroup>
 </Project>
