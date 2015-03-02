@@ -50,8 +50,8 @@ void Game::newGame()
     currentRoundScore = 0;
 
     // Reset gem position
-    gemSprite->m_X = (float)IwGxGetScreenWidth() / 2;
-    gemSprite->m_Y = (float)IwGxGetScreenHeight() / 2;
+    gemSprite->m_X = (float)IwGxGetScreenWidth() * 4 / 30;
+    gemSprite->m_Y = (float)IwGxGetScreenHeight() * 14 / 30;
 }
 
 void Game::Update(float deltaTime, float alphaMul)
@@ -75,7 +75,7 @@ void Game::Update(float deltaTime, float alphaMul)
         {
             // Move image to touched position
             m_Tweener.Tween(2.0f,
-                            FLOAT, &gemSprite->m_X, (float)g_pInput->m_X,
+//                            FLOAT, &gemSprite->m_X, (float)g_pInput->m_X,
                             FLOAT, &gemSprite->m_Y, (float)g_pInput->m_Y,
                             EASING, Ease::sineIn,
                             END);
@@ -110,6 +110,18 @@ void Game::initUI()
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
     AddChild(background);
+
+
+	oceanSprite = new CSprite();
+	oceanSprite->SetImage(g_pResources->getOcean());
+	oceanSprite->m_X = 0;
+	oceanSprite->m_Y = 0;
+	oceanSprite->m_W = oceanSprite->GetImage()->GetWidth();
+	oceanSprite->m_H = oceanSprite->GetImage()->GetHeight();
+	
+	oceanSprite->m_AnchorX = 0.5;
+	AddChild(oceanSprite);
+
 
     // Create score label text
     CLabel* scoreLabelText = new CLabel();
@@ -147,6 +159,7 @@ void Game::initUI()
     pauseSprite->m_AnchorX = 0.5;
     AddChild(pauseSprite);
 
+
 }
 
 void Game::Init()
@@ -166,10 +179,11 @@ void Game::Init()
 	//gemSprite->SetAtlas(g_pResources->getGemAtlas());
 	//gemSprite->m_W = (float)gemSprite->GetAtlas()->GetFrameWidth();
 	//gemSprite->m_H = (float)gemSprite->GetAtlas()->GetFrameHeight();
+
 	gemSprite->m_W = (float)gemSprite->GetImage()->GetWidth();
 	gemSprite->m_H = (float)gemSprite->GetImage()->GetHeight();
-	//gemSprite->m_ScaleX = (float)IwGxGetScreenWidth() / gemSprite->GetImage()->GetWidth();
-	//gemSprite->m_ScaleY = (float)IwGxGetScreenHeight() / gemSprite->GetImage()->GetHeight();
+	gemSprite->m_ScaleX = 0.5;
+	gemSprite->m_ScaleY = 0.5;
     gemSprite->m_AnchorX = 0.5;
     //gemSprite->SetAnimDuration(2);
     AddChild(gemSprite);

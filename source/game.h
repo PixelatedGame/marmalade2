@@ -19,12 +19,12 @@ class Game : public Scene
 {
 protected:
     int             currentRoundScore;              // Current round score
-
+	long unsigned counter=0;
     // UI components
     CLabel*         scoreLabel;
     CSprite*        pauseSprite;
     CSprite*        gemSprite;
-
+	CSprite*  oceanSprite;
 private:
     void            initUI();
 public:

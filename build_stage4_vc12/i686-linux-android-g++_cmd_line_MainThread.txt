@@ -22,7 +22,6 @@ Debug_Stage4_vc12_gcc_x86_android/mainMenu.obj
 Debug_Stage4_vc12_gcc_x86_android/pauseMenu.obj
 Debug_Stage4_vc12_gcc_x86_android/resources.obj
 Debug_Stage4_vc12_gcc_x86_android/scene.obj
-Debug_Stage4_vc12_gcc_x86_android/Sprite.obj
 -Wl,--as-needed
 -m32
 --sysroot=c:/marmalade/7.5/s3e/../tools/gcc/x86/android_windows/android-14/arch-x86

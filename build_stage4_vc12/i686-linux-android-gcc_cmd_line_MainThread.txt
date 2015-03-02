@@ -1,7 +1,7 @@
 -c
-C:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Sprite.cpp
+C:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/resources.cpp
 -o
-Debug_Stage4_vc12_gcc_x86_android//Sprite.obj
+Debug_Stage4_vc12_gcc_x86_android//resources.obj
 -Ic:/marmalade/7.5/modules/iw2d/h
 -Ic:/marmalade/7.5/modules/iwgx/h
 -Ic:/marmalade/7.5/modules/iwgl/h

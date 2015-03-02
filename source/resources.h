@@ -43,6 +43,7 @@ protected:
     CIw2DFont*      Font;
     CAtlas*         GemAtlas;
 
+	CIw2DImage* Ocean;
 public:
     CIw2DImage*     getGem()                    { return Gem; }
     CIw2DImage*     getMenuBG()                 { return MenuBG; }
@@ -51,8 +52,10 @@ public:
     CIw2DImage*     getPlacard()                { return Placard; }
     CIw2DImage*     getPlayButton()             { return PlayButton; }
     CIw2DImage*     getPauseIcon()              { return PauseIcon; }
+	CIw2DImage*     getOcean()              { return Ocean; }
     CIw2DFont*      getFont()                   { return Font; }
     CAtlas*         getGemAtlas()               { return GemAtlas; }
+
 
 public:
     Resources();
