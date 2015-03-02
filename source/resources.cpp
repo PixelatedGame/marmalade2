@@ -17,13 +17,16 @@
 Resources::Resources()
 {
     // Load images
-    Gem = Iw2DCreateImage("textures/dodo-head.png");
+    Gem = Iw2DCreateImage("textures/dodo-purple.png");
     MenuBG = Iw2DCreateImage("textures/menu_bkg.jpg");
-    GameBG = Iw2DCreateImage("textures/bkg.jpg");
+    GameBG = Iw2DCreateImage("textures/layers_0011_background.png");
     MenuButton = Iw2DCreateImage("textures/button_bg.png");
     Placard = Iw2DCreateImage("textures/placard.png");
     PauseIcon = Iw2DCreateImage("textures/pause_icon.png");
     PlayButton = Iw2DCreateImage("textures/play.png");
+
+	Ocean = Iw2DCreateImage("textures/layers_0010_sky.png");
+	
 
     // Load fonts
     Font = Iw2DCreateFont("fonts/arial8.gxfont");

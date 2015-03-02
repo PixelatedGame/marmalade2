@@ -111,6 +111,18 @@ void Game::initUI()
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
     AddChild(background);
 
+
+	oceanSprite = new CSprite();
+	oceanSprite->SetImage(g_pResources->getOcean());
+	oceanSprite->m_X = 0;
+	oceanSprite->m_Y = 0;
+	oceanSprite->m_W = oceanSprite->GetImage()->GetWidth();
+	oceanSprite->m_H = oceanSprite->GetImage()->GetHeight();
+	
+	oceanSprite->m_AnchorX = 0.5;
+	AddChild(oceanSprite);
+
+
     // Create score label text
     CLabel* scoreLabelText = new CLabel();
     scoreLabelText->m_X = 10;
@@ -147,6 +159,7 @@ void Game::initUI()
     pauseSprite->m_AnchorX = 0.5;
     AddChild(pauseSprite);
 
+
 }
 
 void Game::Init()
@@ -166,10 +179,11 @@ void Game::Init()
 	//gemSprite->SetAtlas(g_pResources->getGemAtlas());
 	//gemSprite->m_W = (float)gemSprite->GetAtlas()->GetFrameWidth();
 	//gemSprite->m_H = (float)gemSprite->GetAtlas()->GetFrameHeight();
+
 	gemSprite->m_W = (float)gemSprite->GetImage()->GetWidth();
 	gemSprite->m_H = (float)gemSprite->GetImage()->GetHeight();
-	//gemSprite->m_ScaleX = (float)IwGxGetScreenWidth() / gemSprite->GetImage()->GetWidth();
-	//gemSprite->m_ScaleY = (float)IwGxGetScreenHeight() / gemSprite->GetImage()->GetHeight();
+	gemSprite->m_ScaleX = 0.5;
+	gemSprite->m_ScaleY = 0.5;
     gemSprite->m_AnchorX = 0.5;
     //gemSprite->SetAnimDuration(2);
     AddChild(gemSprite);

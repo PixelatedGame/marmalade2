@@ -24,7 +24,7 @@ protected:
     CLabel*         scoreLabel;
     CSprite*        pauseSprite;
     CSprite*        gemSprite;
-
+	CSprite*  oceanSprite;
 private:
     void            initUI();
 public:
