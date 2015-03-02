@@ -50,8 +50,8 @@ void Game::newGame()
     currentRoundScore = 0;
 
     // Reset gem position
-    gemSprite->m_X = (float)IwGxGetScreenWidth() / 2;
-    gemSprite->m_Y = (float)IwGxGetScreenHeight() / 2;
+    gemSprite->m_X = (float)IwGxGetScreenWidth() * 4 / 30;
+    gemSprite->m_Y = (float)IwGxGetScreenHeight() * 14 / 30;
 }
 
 void Game::Update(float deltaTime, float alphaMul)
@@ -62,7 +62,84 @@ void Game::Update(float deltaTime, float alphaMul)
     // Update base scene
     Scene::Update(deltaTime, alphaMul);
 
-    // Detect screen tap
+	//touch screen
+	if (m_IsInputActive && g_pInput->m_Touched)
+	{
+		switch (current_state){
+		case SURF:
+			current_state = TODUCK;
+			m_Tweener.Tween(0.5f,
+				FLOAT, &gemSprite->m_Y, (float)IwGxGetScreenHeight() * 23 / 30,
+				EASING, Ease::sineIn,
+				END);
+
+		case TODUCK:
+			break;
+		case DUCK:
+			//counter++;
+			break;
+		case JUMP:
+			current_state = FALL;
+			m_Tweener.Tween(0.5f,
+				FLOAT, &gemSprite->m_Y, (float)IwGxGetScreenHeight() * 14 / 30,
+				EASING, Ease::sineIn,
+				END);
+			break;
+		case DRIFT:
+			current_state = FALL;
+			break;
+		}
+
+	}
+
+	//untouch screen
+	if (m_IsInputActive && !g_pInput->m_Touched)
+	{
+		switch (current_state){
+		case SURF:
+			break;
+		case TODUCK:
+			current_state = DUCK;
+			m_Tweener.Tween(0.5f,
+				FLOAT, &gemSprite->m_Y, (float)IwGxGetScreenHeight() * 14 / 30,
+				EASING, Ease::sineIn,
+				END);
+			break;
+			current_state = TODUCK;
+			break;
+		case DUCK:
+			current_state = JUMP;
+			m_Tweener.Tween(0.5f,
+				FLOAT, &gemSprite->m_Y, (float)IwGxGetScreenHeight() * 4 / 30,
+				EASING, Ease::sineIn,
+				END);
+
+		case JUMP:
+			if ((gemSprite->m_Y) >= ((float)IwGxGetScreenHeight() * 23 / 30)){
+				current_state = DRIFT;
+				m_Tweener.Tween(1.0f,
+					FLOAT, &gemSprite->m_Y, (float)IwGxGetScreenHeight() * 4 / 30,
+					EASING, Ease::sineIn,
+					END);
+			}
+			break;
+		case FALL:
+			current_state = DRIFT;
+			m_Tweener.Tween(1.0f,
+				FLOAT, &gemSprite->m_Y, (float)IwGxGetScreenHeight() * 4 / 30,
+				EASING, Ease::sineIn,
+				END);
+			break;
+		case DRIFT:
+			if ((gemSprite->m_Y <= ((float)IwGxGetScreenHeight() * 14 / 30))){
+				current_state = SURF;
+
+			}
+			break;
+		}
+	}
+
+	// Detect screen tap
     if (m_IsInputActive && m_Manager->GetCurrent() == this && !g_pInput->m_Touched && g_pInput->m_PrevTouched)
     {
         g_pInput->Reset();
@@ -73,15 +150,16 @@ void Game::Update(float deltaTime, float alphaMul)
         }
         else
         {
+			
             // Move image to touched position
             m_Tweener.Tween(2.0f,
-                            FLOAT, &gemSprite->m_X, (float)g_pInput->m_X,
-                            FLOAT, &gemSprite->m_Y, (float)g_pInput->m_Y,
+//                            FLOAT, &gemSprite->m_X, (float)g_pInput->m_X,
+//                            FLOAT, &gemSprite->m_Y, (float)g_pInput->m_Y,
                             EASING, Ease::sineIn,
                             END);
 
             // Increase score
-            addToRoundScore(10);
+            //addToRoundScore(10);
 
             // Play a sound effect
             g_pAudio->PlaySound("audio/gem_destroyed.wav");
@@ -110,7 +188,7 @@ void Game::initUI()
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
     AddChild(background);
-
+	current_state = SURF;
 
 	oceanSprite = new CSprite();
 	oceanSprite->SetImage(g_pResources->getOcean());

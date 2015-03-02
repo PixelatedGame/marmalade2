@@ -19,7 +19,9 @@ class Game : public Scene
 {
 protected:
     int             currentRoundScore;              // Current round score
-
+	long unsigned counter=0;
+	enum state {SURF, TODUCK, DUCK, JUMP, FALL, DRIFT};
+	state current_state = SURF;
     // UI components
     CLabel*         scoreLabel;
     CSprite*        pauseSprite;
