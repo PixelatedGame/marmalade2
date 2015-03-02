@@ -119,7 +119,7 @@ void Game::initUI()
 	oceanSprite->m_W = oceanSprite->GetImage()->GetWidth();
 	oceanSprite->m_H = oceanSprite->GetImage()->GetHeight();
 	
-	oceanSprite->m_AnchorX = 0.5;
+	//oceanSprite->m_AnchorX = 0.5;
 	AddChild(oceanSprite);
 
 
@@ -182,8 +182,8 @@ void Game::Init()
 
 	gemSprite->m_W = (float)gemSprite->GetImage()->GetWidth();
 	gemSprite->m_H = (float)gemSprite->GetImage()->GetHeight();
-	gemSprite->m_ScaleX = 0.5;
-	gemSprite->m_ScaleY = 0.5;
+	gemSprite->m_ScaleX = 0.3;
+	gemSprite->m_ScaleY = 0.3;
     gemSprite->m_AnchorX = 0.5;
     //gemSprite->SetAnimDuration(2);
     AddChild(gemSprite);
