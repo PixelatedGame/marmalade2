@@ -43,7 +43,14 @@ protected:
     CIw2DFont*      Font;
     CAtlas*         GemAtlas;
 
-	CIw2DImage* Ocean;
+	CIw2DImage* Sky;
+	CIw2DImage* Island;
+	CIw2DImage* DodoJump1;
+	CIw2DImage* DodoJump2;
+	CIw2DImage* DodoJump3;
+	CIw2DImage* DodoJump4;
+	CIw2DImage* DodoJump5;
+	CIw2DImage* DodoJump6;
 public:
     CIw2DImage*     getGem()                    { return Gem; }
     CIw2DImage*     getMenuBG()                 { return MenuBG; }
@@ -52,7 +59,14 @@ public:
     CIw2DImage*     getPlacard()                { return Placard; }
     CIw2DImage*     getPlayButton()             { return PlayButton; }
     CIw2DImage*     getPauseIcon()              { return PauseIcon; }
-	CIw2DImage*     getOcean()              { return Ocean; }
+	CIw2DImage*     getOcean()              { return Sky; }
+	CIw2DImage*     getIsland()              { return Island; }
+	CIw2DImage*     getDodoJump1()              { return DodoJump1; }
+	CIw2DImage*     getDodoJump2()              { return DodoJump2; }
+	CIw2DImage*     getDodoJump3()              { return DodoJump3; }
+	CIw2DImage*     getDodoJump4()              { return DodoJump4; }
+	CIw2DImage*     getDodoJump5()              { return DodoJump5; }
+	CIw2DImage*     getDodoJump6()              { return DodoJump6; }
     CIw2DFont*      getFont()                   { return Font; }
     CAtlas*         getGemAtlas()               { return GemAtlas; }
 

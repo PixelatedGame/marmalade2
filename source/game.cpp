@@ -118,9 +118,17 @@ void Game::initUI()
 	oceanSprite->m_Y = 0;
 	oceanSprite->m_W = oceanSprite->GetImage()->GetWidth();
 	oceanSprite->m_H = oceanSprite->GetImage()->GetHeight();
-	
-	//oceanSprite->m_AnchorX = 0.5;
 	AddChild(oceanSprite);
+
+
+	islandSprite = new CSprite();
+	islandSprite->SetImage(g_pResources->getIsland());
+	islandSprite->m_X = (float)IwGxGetScreenWidth() * 0.5;
+	islandSprite->m_Y = 0;
+	islandSprite->m_W = islandSprite->GetImage()->GetWidth();
+	islandSprite->m_H = islandSprite->GetImage()->GetHeight();
+	islandSprite->m_AnchorX = 0.5;
+	AddChild(islandSprite);
 
 
     // Create score label text
@@ -152,7 +160,7 @@ void Game::initUI()
     // Create pause menu sprite (docked to top of screen)
     pauseSprite = new CSprite();
     pauseSprite->SetImage(g_pResources->getPauseIcon());
-    pauseSprite->m_X = (float)IwGxGetScreenWidth() / 2;
+    pauseSprite->m_X =  (float)IwGxGetScreenWidth() * 0.8;
     pauseSprite->m_Y = 0;
     pauseSprite->m_W = pauseSprite->GetImage()->GetWidth();
     pauseSprite->m_H = pauseSprite->GetImage()->GetHeight();

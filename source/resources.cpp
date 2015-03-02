@@ -25,8 +25,14 @@ Resources::Resources()
     PauseIcon = Iw2DCreateImage("textures/pause_icon.png");
     PlayButton = Iw2DCreateImage("textures/play.png");
 
-	Ocean = Iw2DCreateImage("textures/layers_0010_sky.png");
-	
+	Sky = Iw2DCreateImage("textures/layers_0010_sky.png");
+	Island = Iw2DCreateImage("textures/layers_0005_island_and_sun.png");
+	DodoJump1 = Iw2DCreateImage("textures/dodo-jump-1.png");
+	DodoJump2 = Iw2DCreateImage("textures/dodo-jump-2.png");
+	DodoJump3 = Iw2DCreateImage("textures/dodo-jump-3.png");
+	DodoJump4 = Iw2DCreateImage("textures/dodo-jump-4.png");
+	DodoJump5 = Iw2DCreateImage("textures/dodo-jump-5.png");
+	DodoJump6 = Iw2DCreateImage("textures/dodo-jump-6.png");
 
     // Load fonts
     Font = Iw2DCreateFont("fonts/arial8.gxfont");

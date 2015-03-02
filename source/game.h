@@ -25,6 +25,7 @@ protected:
     CSprite*        pauseSprite;
     CSprite*        gemSprite;
 	CSprite*  oceanSprite;
+	CSprite* islandSprite;
 private:
     void            initUI();
 public:
