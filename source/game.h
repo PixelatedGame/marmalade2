@@ -14,18 +14,19 @@
 #define __GAME_H__
 
 #include "scene.h"
+#include "hero.h"
 
 class Game : public Scene
 {
 protected:
     int             currentRoundScore;              // Current round score
-	long unsigned counter=0;
-	enum state {SURF, TODUCK, DUCK, JUMP, FALL, DRIFT};
-	state current_state = SURF;
+//	long unsigned counter=0;
+//	enum state {SURF, TODUCK, DUCK, JUMP, FALL, DRIFT};
+//	state current_state = SURF;
     // UI components
     CLabel*         scoreLabel;
     CSprite*        pauseSprite;
-    CSprite*        gemSprite;
+    Hero*        gemSprite;
 	CSprite*  oceanSprite;
 	CSprite* islandSprite;
 private:
