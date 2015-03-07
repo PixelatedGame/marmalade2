@@ -51,42 +51,44 @@ void Game::newGame()
 
     // Reset gem position
     gemSprite->dodo->m_X = (float)IwGxGetScreenWidth() * 4 / 30;
-    gemSprite->dodo->m_Y = (float)IwGxGetScreenHeight() * 14 / 30;
+    gemSprite->dodo->m_Y = (float)IwGxGetScreenHeight() * 0.46f;
 }
 
 void Game::Update(float deltaTime, float alphaMul)
 {
-
+	
     if (!m_IsActive)
         return;
 
     // Update base scene
     Scene::Update(deltaTime, alphaMul);
 
-	//touch screen
 
+	////update dodo
+
+	//touch screen
+	
 	if (m_IsInputActive && g_pInput->m_Touched)
 	{
-		if (gemSprite->touch()){
-			//gemSprite create new values -> update twin
-			m_Tweener.Tween(gemSprite->get_time(),
-				FLOAT, &gemSprite->dodo->m_Y, gemSprite->get_y(),
-				EASING, Ease::sineIn,
-				END);
-		}
+		gemSprite->touch();
 	}
 
 	//untouch screen
 	if (m_IsInputActive && !g_pInput->m_Touched)
 	{
-		if (gemSprite->untouch()){
-			//gemSprite create new values -> update twin
-			m_Tweener.Tween(gemSprite->get_time(),
-				FLOAT, &gemSprite->dodo->m_Y, gemSprite->get_y(),
-				EASING, Ease::sineIn,
-				END);
-		}
+		gemSprite->untouch();
 	}
+	
+	if (gemSprite->need_update){
+		//gemSprite create new values -> update twin
+		m_Tweener.Tween(gemSprite->time,
+			FLOAT, &gemSprite->dodo->m_Y, gemSprite->new_y,
+			EASING, Ease::sineIn,
+			END);
+	}
+	///end of update dodo
+
+
 	// Detect screen tap
     if (m_IsInputActive && m_Manager->GetCurrent() == this && !g_pInput->m_Touched && g_pInput->m_PrevTouched)
     {
@@ -198,18 +200,15 @@ void Game::initUI()
 
 void Game::Init()
 {
-	float normal = (float)IwGxGetScreenWidth()*(14 / 30);
-	float high = (float)IwGxGetScreenWidth()*(4 / 30);
-	float low = (float)IwGxGetScreenWidth()*(23 / 30);
     Scene::Init();
 
-    currentRoundScore = 0;
+    currentRoundScore = 0;	
 
     // Initialise UI
     initUI();
 
     // Create a gem
-	gemSprite = new Hero(normal,low,high);
+	gemSprite = new Hero(((float)IwGxGetScreenHeight()*0.46f), ((float)IwGxGetScreenHeight()*0.77f), ((float)IwGxGetScreenHeight()*0.13f));  
     gemSprite->dodo->m_X = (float)IwGxGetScreenWidth() / 2;
     gemSprite->dodo->m_Y = (float)IwGxGetScreenHeight() / 2;
 	gemSprite->dodo->SetImage(g_pResources->getGem());
