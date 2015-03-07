@@ -208,7 +208,7 @@ void Game::Init()
     initUI();
 
     // Create a gem
-	gemSprite = new Hero(((float)IwGxGetScreenHeight()*0.46f), ((float)IwGxGetScreenHeight()*0.77f), ((float)IwGxGetScreenHeight()*0.13f));  
+	gemSprite = new Hero(((float)IwGxGetScreenHeight()*0.46f), ((float)IwGxGetScreenHeight()*0.77f), ((float)IwGxGetScreenHeight()*0.14f));  
     gemSprite->dodo->m_X = (float)IwGxGetScreenWidth() / 2;
     gemSprite->dodo->m_Y = (float)IwGxGetScreenHeight() / 2;
 	gemSprite->dodo->SetImage(g_pResources->getGem());
