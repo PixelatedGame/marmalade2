@@ -151,7 +151,7 @@ void Game::initUI()
 
 	islandSprite = new CSprite();
 	islandSprite->SetImage(g_pResources->getIsland());
-	islandSprite->m_X = (float)IwGxGetScreenWidth() * 0.5;
+	islandSprite->m_X = (float)IwGxGetScreenWidth() * 0.5f;
 	islandSprite->m_Y = 0;
 	islandSprite->m_W = islandSprite->GetImage()->GetWidth();
 	islandSprite->m_H = islandSprite->GetImage()->GetHeight();
@@ -188,7 +188,7 @@ void Game::initUI()
     // Create pause menu sprite (docked to top of screen)
     pauseSprite = new CSprite();
     pauseSprite->SetImage(g_pResources->getPauseIcon());
-    pauseSprite->m_X =  (float)IwGxGetScreenWidth() * 0.8;
+    pauseSprite->m_X =  (float)IwGxGetScreenWidth() * 0.8f;
     pauseSprite->m_Y = 0;
     pauseSprite->m_W = pauseSprite->GetImage()->GetWidth();
     pauseSprite->m_H = pauseSprite->GetImage()->GetHeight();
@@ -208,7 +208,7 @@ void Game::Init()
     initUI();
 
     // Create a gem
-	gemSprite = new Hero(((float)IwGxGetScreenHeight()*0.46f), ((float)IwGxGetScreenHeight()*0.77f), ((float)IwGxGetScreenHeight()*0.14f));  
+	gemSprite = Hero::instance(((float)IwGxGetScreenHeight()*0.46f), ((float)IwGxGetScreenHeight()*0.77f), ((float)IwGxGetScreenHeight()*0.14f));  
     gemSprite->dodo->m_X = (float)IwGxGetScreenWidth() / 2;
     gemSprite->dodo->m_Y = (float)IwGxGetScreenHeight() / 2;
 	gemSprite->dodo->SetImage(g_pResources->getGem());
@@ -218,9 +218,9 @@ void Game::Init()
 
 	gemSprite->dodo->m_W = (float)gemSprite->dodo->GetImage()->GetWidth();
 	gemSprite->dodo->m_H = (float)gemSprite->dodo->GetImage()->GetHeight();
-	gemSprite->dodo->m_ScaleX = 0.3;
-	gemSprite->dodo->m_ScaleY = 0.3;
-    gemSprite->dodo->m_AnchorX = 0.5;
+	gemSprite->dodo->m_ScaleX = 0.3f;
+	gemSprite->dodo->m_ScaleY = 0.3f;
+    gemSprite->dodo->m_AnchorX = 0.5f;
     //gemSprite->SetAnimDuration(2);
     AddChild(gemSprite->dodo);
 
