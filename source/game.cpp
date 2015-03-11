@@ -50,8 +50,8 @@ void Game::newGame()
     currentRoundScore = 0;
 
     // Reset gem position
-    gemSprite->dodo->m_X = (float)IwGxGetScreenWidth() * 4 / 30;
-    gemSprite->dodo->m_Y = (float)IwGxGetScreenHeight() * 0.46f;
+	gemSprite->getHero()->m_X = (float)IwGxGetScreenWidth() * 4 / 30;
+	gemSprite->getHero()->m_Y = (float)IwGxGetScreenHeight() * 0.46f;
 }
 
 void Game::Update(float deltaTime, float alphaMul)
@@ -64,25 +64,33 @@ void Game::Update(float deltaTime, float alphaMul)
     Scene::Update(deltaTime, alphaMul);
 
 
-	////update dodo
+	//test for enemy
+	if (gemSprite->getHero()->m_Y > (float)IwGxGetScreenHeight() * 0.46f){
+		addenemy();
+	}
 
-	//touch screen
-	
+
+	//interaction: screen touch
 	if (m_IsInputActive && g_pInput->m_Touched)
 	{
 		gemSprite->touch();
 	}
 
-	//untouch screen
+	//interaction: untouch screen
 	if (m_IsInputActive && !g_pInput->m_Touched)
 	{
 		gemSprite->untouch();
 	}
 	
+	//update enemies
+	enemies->update();
+
+
+	//update dodo
 	if (gemSprite->need_update){
 		//gemSprite create new values -> update twin
 		m_Tweener.Tween(gemSprite->time,
-			FLOAT, &gemSprite->dodo->m_Y, gemSprite->new_y,
+			FLOAT, &gemSprite->getHero()->m_Y, gemSprite->new_y,
 			EASING, Ease::sineIn,
 			END);
 	}
@@ -209,20 +217,30 @@ void Game::Init()
 
     // Create a gem
 	gemSprite = Hero::instance(((float)IwGxGetScreenHeight()*0.46f), ((float)IwGxGetScreenHeight()*0.77f), ((float)IwGxGetScreenHeight()*0.14f));  
-    gemSprite->dodo->m_X = (float)IwGxGetScreenWidth() / 2;
-    gemSprite->dodo->m_Y = (float)IwGxGetScreenHeight() / 2;
-	gemSprite->dodo->SetImage(g_pResources->getGem());
+	enemies = Enemy::getInstance((float)IwGxGetScreenHeight(), (float)IwGxGetScreenWidth());
+    gemSprite->getHero()->m_X = (float)IwGxGetScreenWidth() / 2;
+    gemSprite->getHero()->m_Y = (float)IwGxGetScreenHeight() / 2;
+	gemSprite->getHero()->SetImage(g_pResources->getGem());
 	//gemSprite->SetAtlas(g_pResources->getGemAtlas());
 	//gemSprite->m_W = (float)gemSprite->GetAtlas()->GetFrameWidth();
 	//gemSprite->m_H = (float)gemSprite->GetAtlas()->GetFrameHeight();
 
-	gemSprite->dodo->m_W = (float)gemSprite->dodo->GetImage()->GetWidth();
-	gemSprite->dodo->m_H = (float)gemSprite->dodo->GetImage()->GetHeight();
-	gemSprite->dodo->m_ScaleX = 0.3f;
-	gemSprite->dodo->m_ScaleY = 0.3f;
-    gemSprite->dodo->m_AnchorX = 0.5f;
+	gemSprite->getHero()->m_W = (float)gemSprite->getHero()->GetImage()->GetWidth();
+	gemSprite->getHero()->m_H = (float)gemSprite->getHero()->GetImage()->GetHeight();
+	gemSprite->getHero()->m_ScaleX = 0.3f;
+	gemSprite->getHero()->m_ScaleY = 0.3f;
+	gemSprite->getHero()->m_AnchorX = 0.5f;
     //gemSprite->SetAnimDuration(2);
-    AddChild(gemSprite->dodo);
-
+	AddChild(gemSprite->getHero());
+	
 }
 
+
+void Game::addenemy(){
+	AddChild(enemies->addEnemy(g_pResources->getIsland()));
+	/* should update the Tween -> doesn't work need further investigation
+	m_Tweener.Tween(0.5f,
+		FLOAT, &enemies->getEnemy()->m_X, 0.1f ,
+		END);
+	*/
+}

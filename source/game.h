@@ -15,6 +15,7 @@
 
 #include "scene.h"
 #include "hero.h"
+#include "Enemy.h"
 
 class Game : public Scene
 {
@@ -27,10 +28,12 @@ protected:
     CLabel*         scoreLabel;
     CSprite*        pauseSprite;
     Hero*        gemSprite;
+	Enemy*        enemies;
 	CSprite*  oceanSprite;
 	CSprite* islandSprite;
 private:
     void            initUI();
+	void			addenemy();
 public:
     Game() {}
     ~Game();
