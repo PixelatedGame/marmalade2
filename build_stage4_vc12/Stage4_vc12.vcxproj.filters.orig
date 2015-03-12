@@ -814,6 +814,9 @@
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/endian.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/enemy.h">
+      <Filter>source</Filter>
+    </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/errno.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
     </ClInclude>
@@ -876,6 +879,9 @@
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/grp.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
+    </ClInclude>
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/hero.h">
+      <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/iconv.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
@@ -1368,7 +1374,13 @@
     <ClCompile Include="..\source\audio.cpp">
       <Filter>source</Filter>
     </ClCompile>
+    <ClCompile Include="..\source\enemy.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
     <ClCompile Include="..\source\game.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\hero.cpp">
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\source\input.cpp">

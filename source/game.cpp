@@ -11,6 +11,7 @@
  */
 
 #include "IwGx.h"
+
 #include "IwHashString.h"
 
 #include "game.h"
@@ -135,8 +136,8 @@ void Game::initUI()
 {
     // Create background
     CSprite* background = new CSprite();
-    background->m_X = (float)IwGxGetScreenWidth() / 2;
-    background->m_Y = (float)IwGxGetScreenHeight() / 2;
+	background->m_X = (float)IwGxGetScreenWidth() / 2;
+	background->m_Y = (float)IwGxGetScreenHeight() / 2;
     background->SetImage(g_pResources->getGameBG());
     background->m_W = background->GetImage()->GetWidth();
     background->m_H = background->GetImage()->GetHeight();
@@ -149,11 +150,16 @@ void Game::initUI()
 //	current_state = SURF;
 
 	oceanSprite = new CSprite();
-	oceanSprite->SetImage(g_pResources->getOcean());
 	oceanSprite->m_X = 0;
 	oceanSprite->m_Y = 0;
+	oceanSprite->SetImage(g_pResources->getOcean());
 	oceanSprite->m_W = oceanSprite->GetImage()->GetWidth();
 	oceanSprite->m_H = oceanSprite->GetImage()->GetHeight();
+	oceanSprite->m_ScaleX = graphicsScale;
+	oceanSprite->m_ScaleY = graphicsScale;
+
+	//oceanSprite->m_ScaleX = (float)IwGxGetScreenWidth() / oceanSprite->GetImage()->GetWidth();
+	//oceanSprite->m_ScaleY = (float)IwGxGetScreenHeight() / oceanSprite->GetImage()->GetHeight();
 	AddChild(oceanSprite);
 
 
@@ -164,6 +170,8 @@ void Game::initUI()
 	islandSprite->m_W = islandSprite->GetImage()->GetWidth();
 	islandSprite->m_H = islandSprite->GetImage()->GetHeight();
 	islandSprite->m_AnchorX = 0.5;
+	islandSprite->m_ScaleX = graphicsScale;
+	islandSprite->m_ScaleY = graphicsScale;
 	AddChild(islandSprite);
 
 
@@ -201,6 +209,8 @@ void Game::initUI()
     pauseSprite->m_W = pauseSprite->GetImage()->GetWidth();
     pauseSprite->m_H = pauseSprite->GetImage()->GetHeight();
     pauseSprite->m_AnchorX = 0.5;
+	pauseSprite->m_ScaleX = graphicsScale;
+	pauseSprite->m_ScaleY = graphicsScale;
     AddChild(pauseSprite);
 
 
@@ -209,7 +219,7 @@ void Game::initUI()
 void Game::Init()
 {
     Scene::Init();
-
+	graphicsScale = (float)IwGxGetScreenWidth() / GRAPHIC_DESIGN_WIDTH;
     currentRoundScore = 0;	
 
     // Initialise UI
@@ -227,8 +237,8 @@ void Game::Init()
 
 	gemSprite->getHero()->m_W = (float)gemSprite->getHero()->GetImage()->GetWidth();
 	gemSprite->getHero()->m_H = (float)gemSprite->getHero()->GetImage()->GetHeight();
-	gemSprite->getHero()->m_ScaleX = 0.3f;
-	gemSprite->getHero()->m_ScaleY = 0.3f;
+	gemSprite->getHero()->m_ScaleX = graphicsScale/2;
+	gemSprite->getHero()->m_ScaleY = graphicsScale/2;
 	gemSprite->getHero()->m_AnchorX = 0.5f;
     //gemSprite->SetAnimDuration(2);
 	AddChild(gemSprite->getHero());

@@ -28,6 +28,8 @@ files
     pauseMenu.cpp
     resources.cpp
     scene.cpp
+	hero.cpp
+	enemy.cpp
 
     audio.h
     game.h
@@ -37,6 +39,8 @@ files
     pauseMenu.h
     resources.h
     scene.h
+	hero.h
+	enemy.h
 }
 
 assets
