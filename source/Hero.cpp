@@ -15,10 +15,10 @@ CSprite* Hero::getHero(){
 	return dodo;
 }
 
-Hero *Hero::Single_instance = nullptr;
+Hero *Hero::Single_instance = NULL;
 
 Hero *Hero::instance(float initial, float low, float up){
-	if (Single_instance == nullptr)
+	if (Single_instance == NULL)
 		Single_instance = new Hero(initial, low, up);
 	return Single_instance;
 }

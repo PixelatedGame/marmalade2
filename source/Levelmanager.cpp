@@ -1,13 +1,13 @@
 #include "Levelmanager.h"
 
-LevelMaager *LevelMaager::instance = nullptr;
+LevelMaager *LevelMaager::instance = NULL;
 
 LevelMaager::LevelMaager(){
 
 }
 
 LevelMaager *LevelMaager::getInstance(){
-	if (instance == nullptr)
+	if (instance == NULL)
 		instance = new LevelMaager;
 	return instance;
 }

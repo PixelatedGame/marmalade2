@@ -1,9 +1,9 @@
 #include "Enemymanager.h"
 
-EnemyManager *EnemyManager::instance = nullptr;
+EnemyManager *EnemyManager::instance = NULL;
 
 EnemyManager *EnemyManager::getInstance(float height, float width){
-	if (instance == nullptr)
+	if (instance == NULL)
 		instance = new EnemyManager(height, width);
 	return instance;
 }
