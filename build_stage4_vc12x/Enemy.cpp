@@ -1,23 +1,26 @@
 #include "Enemy.h"
 
-Enemy *Enemy::single_instance = NULL;
 
-Enemy *Enemy::getInstance(float height, float width){
-	if (single_instance == NULL)
-		single_instance = new Enemy(height,width);
-	return single_instance;
-}
-
-Enemy::Enemy(float height, float width){
-	this->height = height;
-	this->width = width;
-}
 Enemy::Enemy(){
-
+	enemyinstance = new CSprite();
 
 }
 
 
+CSprite* Enemy::getEnemy(){
+	return enemyinstance;
+	//enemyinstance->SetImage();
+
+}
+
+float Enemy::get_x(){
+	return 0;
+}
+
+float Enemy::get_y(){
+	return 0;
+}
+/*
 CSprite *Enemy::addEnemy(CIw2DImage* image){
 	CSprite * newenemy = new CSprite();
 	newenemy->SetImage(image);
@@ -29,15 +32,11 @@ CSprite *Enemy::addEnemy(CIw2DImage* image){
 	return newenemy;
 }
 
-void Enemy::update(){
-	removenemies();
-}
-
 void Enemy::removenemies(){
 
 	for (auto & enemy : enemies){
 
-		if (enemy->m_X <= 0){
+		if (enemy->m_X > 0){
 
 			enemy->RemoveChild(enemy); //need to verify this one
 			delete(enemy);
@@ -48,7 +47,4 @@ void Enemy::removenemies(){
 	}
 
 }
-
-CSprite* Enemy::getEnemy(){
-	return encounter;
-}
+*/

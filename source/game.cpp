@@ -66,7 +66,7 @@ void Game::Update(float deltaTime, float alphaMul)
 
 	//test for enemy
 	if (gemSprite->getHero()->m_Y > (float)IwGxGetScreenHeight() * 0.46f){
-		addenemy();
+	//	enemies->addEnemy();
 	}
 
 
@@ -83,7 +83,7 @@ void Game::Update(float deltaTime, float alphaMul)
 	}
 	
 	//update enemies
-	enemies->update();
+	enemies->update(0.1f);
 
 
 	//update dodo
@@ -217,7 +217,7 @@ void Game::Init()
 
     // Create a gem
 	gemSprite = Hero::instance(((float)IwGxGetScreenHeight()*0.46f), ((float)IwGxGetScreenHeight()*0.77f), ((float)IwGxGetScreenHeight()*0.14f));  
-	enemies = Enemy::getInstance((float)IwGxGetScreenHeight(), (float)IwGxGetScreenWidth());
+	enemies = EnemyManager::getInstance((float)IwGxGetScreenHeight(), (float)IwGxGetScreenWidth());
     gemSprite->getHero()->m_X = (float)IwGxGetScreenWidth() / 2;
     gemSprite->getHero()->m_Y = (float)IwGxGetScreenHeight() / 2;
 	gemSprite->getHero()->SetImage(g_pResources->getGem());
@@ -235,12 +235,14 @@ void Game::Init()
 	
 }
 
-
+/*
 void Game::addenemy(){
 	AddChild(enemies->addEnemy(g_pResources->getIsland()));
-	/* should update the Tween -> doesn't work need further investigation
+	
 	m_Tweener.Tween(0.5f,
 		FLOAT, &enemies->getEnemy()->m_X, 0.1f ,
 		END);
-	*/
+	
 }
+
+*/

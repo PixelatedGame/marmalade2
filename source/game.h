@@ -15,7 +15,7 @@
 
 #include "scene.h"
 #include "hero.h"
-#include "Enemy.h"
+#include "Enemymanager.h"
 
 class Game : public Scene
 {
@@ -25,15 +25,15 @@ protected:
 //	enum state {SURF, TODUCK, DUCK, JUMP, FALL, DRIFT};
 //	state current_state = SURF;
     // UI components
-    CLabel*         scoreLabel;
-    CSprite*        pauseSprite;
-    Hero*        gemSprite;
-	Enemy*        enemies;
+    CLabel*           scoreLabel;
+    CSprite*          pauseSprite;
+    Hero*             gemSprite;
+	EnemyManager*     enemies;
 	CSprite*  oceanSprite;
 	CSprite* islandSprite;
 private:
     void            initUI();
-	void			addenemy();
+//	void			addenemy();
 public:
     Game() {}
     ~Game();

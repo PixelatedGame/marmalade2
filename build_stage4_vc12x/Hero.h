@@ -11,6 +11,7 @@ This is a singleton class that mannage the hero character.
 */  
 class Hero
 {
+	int lives;
 	static Hero* Single_instance;
 	//Hero();
 	Hero(float initial, float low, float up);
