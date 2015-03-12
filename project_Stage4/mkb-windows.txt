@@ -1,1 +1,2 @@
 VC12;build_stage4_vc12;
+VC12X;build_stage4_vc12x;
