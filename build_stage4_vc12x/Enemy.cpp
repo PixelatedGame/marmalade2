@@ -19,13 +19,13 @@ Enemy::Enemy(){
 
 
 CSprite *Enemy::addEnemy(CIw2DImage* image){
-	CSprite *newenemy = new CSprite();
+	CSprite * newenemy = new CSprite();
 	newenemy->SetImage(image);
 	newenemy->m_X = width/2;
 	newenemy->m_Y = 0;
 	newenemy->m_H = image->GetHeight();
 	newenemy->m_Y = image->GetWidth();
-//	enemies.insert(0,newenemy);
+	enemies.insert(enemies.begin(),newenemy);
 	return newenemy;
 }
 
@@ -35,11 +35,14 @@ void Enemy::update(){
 
 void Enemy::removenemies(){
 
-	for (auto & iterator : enemies){
+	for (auto & enemy : enemies){
 
-		if (iterator->m_X <= 0){
-			iterator->RemoveChild(iterator);
-			enemies.erase(&iterator);
+		if (enemy->m_X <= 0){
+
+			enemy->RemoveChild(enemy); //need to verify this one
+			delete(enemy);
+			enemies.erase(&enemy);
+			
 		}
 
 	}
