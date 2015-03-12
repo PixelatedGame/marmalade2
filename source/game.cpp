@@ -50,94 +50,52 @@ void Game::newGame()
     currentRoundScore = 0;
 
     // Reset gem position
-    gemSprite->m_X = (float)IwGxGetScreenWidth() * 4 / 30;
-    gemSprite->m_Y = (float)IwGxGetScreenHeight() * 14 / 30;
+	gemSprite->getHero()->m_X = (float)IwGxGetScreenWidth() * 4 / 30;
+	gemSprite->getHero()->m_Y = (float)IwGxGetScreenHeight() * 0.46f;
 }
 
 void Game::Update(float deltaTime, float alphaMul)
 {
+	
     if (!m_IsActive)
         return;
 
     // Update base scene
     Scene::Update(deltaTime, alphaMul);
 
-	//touch screen
+
+	//test for enemy
+	if (gemSprite->getHero()->m_Y > (float)IwGxGetScreenHeight() * 0.46f){
+		addenemy();
+	}
+
+
+	//interaction: screen touch
 	if (m_IsInputActive && g_pInput->m_Touched)
 	{
-		switch (current_state){
-		case SURF:
-			current_state = TODUCK;
-			m_Tweener.Tween(0.5f,
-				FLOAT, &gemSprite->m_Y, (float)IwGxGetScreenHeight() * 23 / 30,
-				EASING, Ease::sineIn,
-				END);
-
-		case TODUCK:
-			break;
-		case DUCK:
-			//counter++;
-			break;
-		case JUMP:
-			current_state = FALL;
-			m_Tweener.Tween(0.5f,
-				FLOAT, &gemSprite->m_Y, (float)IwGxGetScreenHeight() * 14 / 30,
-				EASING, Ease::sineIn,
-				END);
-			break;
-		case DRIFT:
-			current_state = FALL;
-			break;
-		}
-
+		gemSprite->touch();
 	}
 
-	//untouch screen
+	//interaction: untouch screen
 	if (m_IsInputActive && !g_pInput->m_Touched)
 	{
-		switch (current_state){
-		case SURF:
-			break;
-		case TODUCK:
-			current_state = DUCK;
-			m_Tweener.Tween(0.5f,
-				FLOAT, &gemSprite->m_Y, (float)IwGxGetScreenHeight() * 14 / 30,
-				EASING, Ease::sineIn,
-				END);
-			break;
-			current_state = TODUCK;
-			break;
-		case DUCK:
-			current_state = JUMP;
-			m_Tweener.Tween(0.5f,
-				FLOAT, &gemSprite->m_Y, (float)IwGxGetScreenHeight() * 4 / 30,
-				EASING, Ease::sineIn,
-				END);
-
-		case JUMP:
-			if ((gemSprite->m_Y) >= ((float)IwGxGetScreenHeight() * 23 / 30)){
-				current_state = DRIFT;
-				m_Tweener.Tween(1.0f,
-					FLOAT, &gemSprite->m_Y, (float)IwGxGetScreenHeight() * 4 / 30,
-					EASING, Ease::sineIn,
-					END);
-			}
-			break;
-		case FALL:
-			current_state = DRIFT;
-			m_Tweener.Tween(1.0f,
-				FLOAT, &gemSprite->m_Y, (float)IwGxGetScreenHeight() * 4 / 30,
-				EASING, Ease::sineIn,
-				END);
-			break;
-		case DRIFT:
-			if ((gemSprite->m_Y <= ((float)IwGxGetScreenHeight() * 14 / 30))){
-				current_state = SURF;
-
-			}
-			break;
-		}
+		gemSprite->untouch();
 	}
+	
+	//update enemies
+	enemies->update();
+
+
+	//update dodo
+	if (gemSprite->need_update){
+		//gemSprite create new values -> update twin
+		m_Tweener.Tween(gemSprite->time,
+			FLOAT, &gemSprite->getHero()->m_Y, gemSprite->new_y,
+			EASING, Ease::sineIn,
+			END);
+	}
+	///end of update dodo
+
 
 	// Detect screen tap
     if (m_IsInputActive && m_Manager->GetCurrent() == this && !g_pInput->m_Touched && g_pInput->m_PrevTouched)
@@ -188,7 +146,7 @@ void Game::initUI()
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
     AddChild(background);
-	current_state = SURF;
+//	current_state = SURF;
 
 	oceanSprite = new CSprite();
 	oceanSprite->SetImage(g_pResources->getOcean());
@@ -201,7 +159,7 @@ void Game::initUI()
 
 	islandSprite = new CSprite();
 	islandSprite->SetImage(g_pResources->getIsland());
-	islandSprite->m_X = (float)IwGxGetScreenWidth() * 0.5;
+	islandSprite->m_X = (float)IwGxGetScreenWidth() * 0.5f;
 	islandSprite->m_Y = 0;
 	islandSprite->m_W = islandSprite->GetImage()->GetWidth();
 	islandSprite->m_H = islandSprite->GetImage()->GetHeight();
@@ -238,7 +196,7 @@ void Game::initUI()
     // Create pause menu sprite (docked to top of screen)
     pauseSprite = new CSprite();
     pauseSprite->SetImage(g_pResources->getPauseIcon());
-    pauseSprite->m_X =  (float)IwGxGetScreenWidth() * 0.8;
+    pauseSprite->m_X =  (float)IwGxGetScreenWidth() * 0.8f;
     pauseSprite->m_Y = 0;
     pauseSprite->m_W = pauseSprite->GetImage()->GetWidth();
     pauseSprite->m_H = pauseSprite->GetImage()->GetHeight();
@@ -252,27 +210,37 @@ void Game::Init()
 {
     Scene::Init();
 
-    currentRoundScore = 0;
+    currentRoundScore = 0;	
 
     // Initialise UI
     initUI();
 
     // Create a gem
-    gemSprite = new CSprite();
-    gemSprite->m_X = (float)IwGxGetScreenWidth() / 2;
-    gemSprite->m_Y = (float)IwGxGetScreenHeight() / 2;
-	gemSprite->SetImage(g_pResources->getGem());
+	gemSprite = Hero::instance(((float)IwGxGetScreenHeight()*0.46f), ((float)IwGxGetScreenHeight()*0.77f), ((float)IwGxGetScreenHeight()*0.14f));  
+	enemies = Enemy::getInstance((float)IwGxGetScreenHeight(), (float)IwGxGetScreenWidth());
+    gemSprite->getHero()->m_X = (float)IwGxGetScreenWidth() / 2;
+    gemSprite->getHero()->m_Y = (float)IwGxGetScreenHeight() / 2;
+	gemSprite->getHero()->SetImage(g_pResources->getGem());
 	//gemSprite->SetAtlas(g_pResources->getGemAtlas());
 	//gemSprite->m_W = (float)gemSprite->GetAtlas()->GetFrameWidth();
 	//gemSprite->m_H = (float)gemSprite->GetAtlas()->GetFrameHeight();
 
-	gemSprite->m_W = (float)gemSprite->GetImage()->GetWidth();
-	gemSprite->m_H = (float)gemSprite->GetImage()->GetHeight();
-	gemSprite->m_ScaleX = 0.3;
-	gemSprite->m_ScaleY = 0.3;
-    gemSprite->m_AnchorX = 0.5;
+	gemSprite->getHero()->m_W = (float)gemSprite->getHero()->GetImage()->GetWidth();
+	gemSprite->getHero()->m_H = (float)gemSprite->getHero()->GetImage()->GetHeight();
+	gemSprite->getHero()->m_ScaleX = 0.3f;
+	gemSprite->getHero()->m_ScaleY = 0.3f;
+	gemSprite->getHero()->m_AnchorX = 0.5f;
     //gemSprite->SetAnimDuration(2);
-    AddChild(gemSprite);
-
+	AddChild(gemSprite->getHero());
+	
 }
 
+
+void Game::addenemy(){
+	AddChild(enemies->addEnemy(g_pResources->getIsland()));
+	/* should update the Tween -> doesn't work need further investigation
+	m_Tweener.Tween(0.5f,
+		FLOAT, &enemies->getEnemy()->m_X, 0.1f ,
+		END);
+	*/
+}
