@@ -2,7 +2,11 @@
 [S3E]
 MemSize=50000000
 SysGlesVersion=2
-DispFixRot=Free
+DispFixRot=FixedLandscape
+[GL]
+VirtualWidth=1136
+VirtualHeight=640
+VirtualLetterbox=1
 [GX]
 DataCacheSize=131072
 [s3e]
