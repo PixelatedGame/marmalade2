@@ -14,17 +14,18 @@
 
 #include "IwHashString.h"
 
-#include "game.h"
+#include "GameScene.h"
 #include "input.h"
 #include "audio.h"
 #include "pauseMenu.h"
 #include "resources.h"
+#include "Shark.h"
 
-Game::~Game()
+GameScene::~GameScene()
 {
 }
 
-void Game::addToRoundScore(int score)
+void GameScene::addToRoundScore(int score)
 {
     // Add to score
     currentRoundScore += score;
@@ -35,17 +36,17 @@ void Game::addToRoundScore(int score)
     scoreLabel->m_Text = str;
 }
 
-void Game::pauseGame()
+void GameScene::pauseGame()
 {
     // Switch to pause menu scene
     g_pSceneManager->SwitchTo(g_pSceneManager->Find("pausemenu"));
 }
 
-void Game::resumeGame()
+void GameScene::resumeGame()
 {
 }
 
-void Game::newGame()
+void GameScene::newGame()
 {
     // Reset score
     currentRoundScore = 0;
@@ -55,7 +56,7 @@ void Game::newGame()
 	gemSprite->getHero()->m_Y = (float)IwGxGetScreenHeight() * 0.46f;
 }
 
-void Game::Update(float deltaTime, float alphaMul)
+void GameScene::Update(float deltaTime, float alphaMul)
 {
 	
     if (!m_IsActive)
@@ -84,7 +85,7 @@ void Game::Update(float deltaTime, float alphaMul)
 	}
 	
 	//update enemies
-	enemies->update(0.1f);
+//	enemies->update(0.1f);
 
 
 	//update dodo
@@ -96,6 +97,12 @@ void Game::Update(float deltaTime, float alphaMul)
 			END);
 	}
 	///end of update dodo
+
+	//update enemy
+	
+
+	
+
 
 
 	// Detect screen tap
@@ -126,13 +133,19 @@ void Game::Update(float deltaTime, float alphaMul)
     }
 }
 
-void Game::Render()
+void GameScene::Render()
 {
     Scene::Render();
 }
 
+void GameScene::addToLayer(CNode * layer, CDrawable * drawable)
+{
+	layer->AddChild(drawable);
+}
+
+
 // Initialise the games user interface
-void Game::initUI()
+void GameScene::initUI()
 {
     // Create background
     CSprite* background = new CSprite();
@@ -146,7 +159,8 @@ void Game::initUI()
     // Fit background to screen size
     background->m_ScaleX = (float)IwGxGetScreenWidth() / background->GetImage()->GetWidth();
     background->m_ScaleY = (float)IwGxGetScreenHeight() / background->GetImage()->GetHeight();
-    AddChild(background);
+    
+	addToLayer(backgroundLayer, background);
 //	current_state = SURF;
 
 	oceanSprite = new CSprite();
@@ -160,7 +174,8 @@ void Game::initUI()
 
 	//oceanSprite->m_ScaleX = (float)IwGxGetScreenWidth() / oceanSprite->GetImage()->GetWidth();
 	//oceanSprite->m_ScaleY = (float)IwGxGetScreenHeight() / oceanSprite->GetImage()->GetHeight();
-	AddChild(oceanSprite);
+	
+	addToLayer(backgroundLayer, oceanSprite);
 
 
 	islandSprite = new CSprite();
@@ -172,7 +187,8 @@ void Game::initUI()
 	islandSprite->m_AnchorX = 0.5;
 	islandSprite->m_ScaleX = graphicsScale;
 	islandSprite->m_ScaleY = graphicsScale;
-	AddChild(islandSprite);
+	
+	addToLayer(backgroundLayer, islandSprite);
 
 
     // Create score label text
@@ -186,7 +202,7 @@ void Game::initUI()
     scoreLabelText->m_AlignVer = IW_2D_FONT_ALIGN_TOP;
     scoreLabelText->m_Font = g_pResources->getFont();
     scoreLabelText->m_Color = CColor(0xff, 0xff, 0x30, 0xff);
-    AddChild(scoreLabelText);
+	addToLayer(uiLayer, scoreLabelText);
 
     // Create score label (displays actual score)
     scoreLabel = new CLabel();
@@ -199,7 +215,8 @@ void Game::initUI()
     scoreLabel->m_AlignVer = IW_2D_FONT_ALIGN_TOP;
     scoreLabel->m_Font = g_pResources->getFont();
     scoreLabelText->m_Color = CColor(0xff, 0xff, 0xff, 0xff);
-    AddChild(scoreLabel);
+    
+	addToLayer(uiLayer, scoreLabel);
 
     // Create pause menu sprite (docked to top of screen)
     pauseSprite = new CSprite();
@@ -211,48 +228,58 @@ void Game::initUI()
     pauseSprite->m_AnchorX = 0.5;
 	pauseSprite->m_ScaleX = graphicsScale;
 	pauseSprite->m_ScaleY = graphicsScale;
-    AddChild(pauseSprite);
+	addToLayer(uiLayer, pauseSprite);
 
 
 }
 
-void Game::Init()
+void GameScene::InitLayers()
+{
+	backgroundLayer = new CNode();
+	AddChild(backgroundLayer);
+	enemyLayer = new CNode();
+	AddChild(enemyLayer);
+	heroLayer = new CNode();
+	AddChild(heroLayer);
+	foregroundLayer = new CNode();
+	AddChild(foregroundLayer);
+	uiLayer = new CNode();
+	AddChild(uiLayer);
+}
+
+void GameScene::Init()
 {
     Scene::Init();
+	InitLayers();
 	graphicsScale = (float)IwGxGetScreenWidth() / GRAPHIC_DESIGN_WIDTH;
     currentRoundScore = 0;	
 
     // Initialise UI
     initUI();
 
+	
     // Create a gem
-	gemSprite = Hero::instance(((float)IwGxGetScreenHeight()*0.46f), ((float)IwGxGetScreenHeight()*0.77f), ((float)IwGxGetScreenHeight()*0.14f));  
-	enemies = EnemyManager::getInstance((float)IwGxGetScreenHeight(), (float)IwGxGetScreenWidth());
+	gemSprite = Hero::instance(((float)IwGxGetScreenHeight()*0.46f), ((float)IwGxGetScreenHeight()*0.77f), ((float)IwGxGetScreenHeight()*0.14f));
     gemSprite->getHero()->m_X = (float)IwGxGetScreenWidth() / 2;
     gemSprite->getHero()->m_Y = (float)IwGxGetScreenHeight() / 2;
 	gemSprite->getHero()->SetImage(g_pResources->getGem());
-	//gemSprite->SetAtlas(g_pResources->getGemAtlas());
-	//gemSprite->m_W = (float)gemSprite->GetAtlas()->GetFrameWidth();
-	//gemSprite->m_H = (float)gemSprite->GetAtlas()->GetFrameHeight();
-
 	gemSprite->getHero()->m_W = (float)gemSprite->getHero()->GetImage()->GetWidth();
 	gemSprite->getHero()->m_H = (float)gemSprite->getHero()->GetImage()->GetHeight();
 	gemSprite->getHero()->m_ScaleX = graphicsScale/2;
 	gemSprite->getHero()->m_ScaleY = graphicsScale/2;
 	gemSprite->getHero()->m_AnchorX = 0.5f;
     //gemSprite->SetAnimDuration(2);
-	AddChild(gemSprite->getHero());
-	
-}
+	addToLayer(heroLayer, gemSprite->getHero());
+	//AddChild(gemSprite->getHero());
 
-/*
-void Game::addenemy(){
-	AddChild(enemies->addEnemy(g_pResources->getIsland()));
-	
-	m_Tweener.Tween(0.5f,
-		FLOAT, &enemies->getEnemy()->m_X, 0.1f ,
+	Shark * sharky = new Shark();
+	addToLayer(enemyLayer, sharky);
+
+	m_Tweener.Tween(15.0f,
+		FLOAT, &sharky->m_X, 0.0f,
+		EASING, Ease::sineIn,
 		END);
+
 	
 }
 
-*/

@@ -15,13 +15,13 @@
 
 #include "scene.h"
 #include "hero.h"
-#include "Enemymanager.h"
+
 
 #define FONT_HEIGHT             15
 #define FONT_DESIGN_WIDTH       320
 #define GRAPHIC_DESIGN_WIDTH    1136
 
-class Game : public Scene
+class GameScene : public Scene
 {
 protected:
     int             currentRoundScore;              // Current round score
@@ -32,20 +32,28 @@ protected:
     CLabel*           scoreLabel;
     CSprite*          pauseSprite;
     Hero*             gemSprite;
-	EnemyManager*     enemies;
+	
 	CSprite*  oceanSprite;
 	CSprite* islandSprite;
+
 
 	float               fontScale;                      // Font is correct size on 320 wide screen so we scale to match native screen size
 	float               actualFontHeight;               // The actual pixel height of the font
 	float               graphicsScale;                  // Graphics are designed for 768 wide screen so we scale to native screen size
 
 private:
-    void            initUI();
-//	void			addenemy();
+	void addToLayer(CNode * layer, CDrawable * drawable);
+	CNode * backgroundLayer;
+	CNode * enemyLayer;
+	CNode * heroLayer;
+	CNode * foregroundLayer;
+	CNode * uiLayer;
+	void            initUI();
+	void InitLayers();
+	//	void			addenemy();
 public:
-    Game() {}
-    ~Game();
+    GameScene() {}
+    ~GameScene();
 
     // initialise the game
     void            Init();
@@ -61,6 +69,7 @@ public:
     void            pauseGame();
     void            resumeGame();
     void            newGame();
+
 
 };
 

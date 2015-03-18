@@ -3,6 +3,7 @@
 options
 {
     module_path="../modules"
+	cflags="-std=gnu++0x"
 }
 
 subprojects
@@ -21,7 +22,7 @@ files
     [source]
     (source)
     audio.cpp
-    game.cpp
+    GameScene.cpp
     input.cpp
     main.cpp
     mainMenu.cpp
@@ -30,9 +31,14 @@ files
     scene.cpp
 	hero.cpp
 	enemy.cpp
+	
+	Enemymanager.cpp
+	Levelmanager.cpp
+	Shark.cpp
+	
 
     audio.h
-    game.h
+    GameScene.h
     input.h
     main.h
     mainMenu.h
@@ -41,6 +47,11 @@ files
     scene.h
 	hero.h
 	enemy.h
+	Enemymanager.h
+	Level.h
+	Levelmanager.h
+	Shark.h
+	
 }
 
 assets

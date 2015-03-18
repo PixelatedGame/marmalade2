@@ -16,10 +16,10 @@
 #include "audio.h"
 #include "scene.h"
 #include "resources.h"
-#include "game.h"
+#include "GameScene.h"
 #include "mainMenu.h"
 #include "pauseMenu.h"
-
+#include "IwGx.h"
 using namespace IwTween;
 
 // FRAME_TIME is the amount of time that a single frame should last in seconds
@@ -28,12 +28,15 @@ using namespace IwTween;
 // Global tweener is used by tweens that ned to be ranm outside of a scene
 CTweenManager*  g_pTweener = 0;
 
+float g_graphicsScale = 0;
+
 int main()
 {
     // Initialise the 2D graphics system
     Iw2DInit();
 	//s3eSurfaceSetInt(S3E_SURFACE_DEVICE_ORIENTATION_LOCK, S3E_SURFACE_LANDSCAPE_FIXED);
     // Create resources
+	g_graphicsScale = (float)IwGxGetScreenWidth() / GRAPHIC_DESIGN_WIDTH;
     g_pResources = new Resources();
 
     // Create global tween manager
@@ -49,7 +52,7 @@ int main()
     g_pSceneManager = new SceneManager();
 
     // Init the game
-    Game* game = new Game();
+    GameScene* game = new GameScene();
     game->SetName("game");
     game->Init();
     g_pSceneManager->Add(game);

@@ -2,6 +2,8 @@
 
 LevelMaager *LevelMaager::instance = NULL;
 
+
+
 LevelMaager::LevelMaager(){
 
 }

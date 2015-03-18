@@ -15,7 +15,7 @@
 #include "input.h"
 #include "audio.h"
 #include "resources.h"
-#include "game.h"
+#include "GameScene.h"
 
 MainMenu::~MainMenu()
 {
@@ -35,7 +35,7 @@ void MainMenu::Update(float deltaTime, float alphaMul)
         if (playButton->HitTest(g_pInput->m_X, g_pInput->m_Y))
         {
             // Switch to game scene
-            Game* game = (Game*)g_pSceneManager->Find("game");
+            GameScene* game = (GameScene*)g_pSceneManager->Find("game");
             g_pSceneManager->SwitchTo(game);
 
             // Start game music
@@ -53,7 +53,7 @@ void MainMenu::Init()
 {
     Scene::Init();
 
-    Game* game = (Game*)g_pSceneManager->Find("game");
+    GameScene* game = (GameScene*)g_pSceneManager->Find("game");
 
     // Create menu background
     CSprite* background = new CSprite();

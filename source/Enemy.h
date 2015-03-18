@@ -1,31 +1,31 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
-#include <vector>
+#include "Iw2D.h"
 #include "Iw2DSceneGraph.h"
-#include "Iw2DSceneGraphCore.h"
+#include "resources.h"
 
-using namespace std;
-using namespace Iw2DSceneGraph;
-using namespace Iw2DSceneGraphCore;
-//a signleton class that mannage enemies.
-class Enemy 
+
+
+class Enemy : public CSprite
 {
 private:
-	float height = 0, width = 0;
 	float speed = 0;
-	CSprite* enemyinstance = NULL;
-
+	
+	
+	
 
 public:
-	Enemy();
-	void update(); //will remove enemies that reach the end of the screen
-	void clean(); 
-	void removenemies(); //remove all enemies
-	virtual CSprite* getEnemy();
-	virtual float get_x();
-	virtual float get_y();
+	
+	virtual ~Enemy();
+	Enemy(CIw2DImage * enemy_image, float x, float y);
+	
+	
+	
 
 };
+
+extern float g_graphicsScale;
+extern Resources * g_pResources;
 
 #endif // !ENEMY_H

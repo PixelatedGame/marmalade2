@@ -7,6 +7,12 @@
 #include "IwTween.h"
 #include "Enemy.h"
 
+/*
+Guy hod, ze lo tov,
+Amar Lanu Ha shcriber,
+Lo Mitkampel Li
+*/
+
 using namespace Iw2DSceneGraphCore;
 using namespace Iw2DSceneGraph;
 using namespace IwTween;
@@ -16,14 +22,15 @@ private:
 	
 	Enemy *tempEnemy;
 	CNode *enemyChildrens;
-	vector<Enemy>  enemiesList;
+	std::vector<Enemy*> enemy_vector;
 	static EnemyManager* instance;
-	EnemyManager(float height, float width);
+	
 
+	EnemyManager();
 public:
-	static EnemyManager* getInstance(float height, float width);
-	void addEnemy(Enemy *newenemy = new Enemy);
-	CNode *getCNode();
+	
+	static EnemyManager *getInstance();
+	void addEnemy(Enemy *new_enemy);
 	void update(float time);
 };
 

@@ -25,6 +25,7 @@ Resources::Resources()
     PauseIcon = Iw2DCreateImage("textures/pause_icon.png");
     PlayButton = Iw2DCreateImage("textures/play.png");
 
+	Shark = Iw2DCreateImage("textures/layers_0005_shark.png");
 	Sky = Iw2DCreateImage("textures/layers_0010_sky.png");
 	Island = Iw2DCreateImage("textures/layers_0005_island_and_sun.png");
 	DodoJump1 = Iw2DCreateImage("textures/dodo-jump-1.png");

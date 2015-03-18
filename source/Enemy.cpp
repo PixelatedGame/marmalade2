@@ -1,50 +1,20 @@
 #include "Enemy.h"
 
 
-Enemy::Enemy(){
-	enemyinstance = new CSprite();
-
+Enemy::Enemy(CIw2DImage * enemy_image, float x, float y) : CSprite()
+{
+	
+	SetImage(enemy_image);
+	m_X = x;
+	m_Y = y;
+	m_W = GetImage()->GetWidth();
+	m_H = GetImage()->GetHeight();
+	m_AnchorX = 0.5;
+	m_ScaleX = g_graphicsScale;
+	m_ScaleY = g_graphicsScale;
 }
 
-
-CSprite* Enemy::getEnemy(){
-	return enemyinstance;
-	//enemyinstance->SetImage();
+Enemy::~Enemy()
+{
 
 }
-
-float Enemy::get_x(){
-	return 0;
-}
-
-float Enemy::get_y(){
-	return 0;
-}
-/*
-CSprite *Enemy::addEnemy(CIw2DImage* image){
-	CSprite * newenemy = new CSprite();
-	newenemy->SetImage(image);
-	newenemy->m_X = width/2;
-	newenemy->m_Y = 0;
-	newenemy->m_H = image->GetHeight();
-	newenemy->m_Y = image->GetWidth();
-	enemies.insert(enemies.begin(),newenemy);
-	return newenemy;
-}
-
-void Enemy::removenemies(){
-
-	for (auto & enemy : enemies){
-
-		if (enemy->m_X > 0){
-
-			enemy->RemoveChild(enemy); //need to verify this one
-			delete(enemy);
-			enemies.erase(&enemy);
-			
-		}
-
-	}
-
-}
-*/

@@ -44,6 +44,7 @@ protected:
     CAtlas*         GemAtlas;
 
 	CIw2DImage* Sky;
+	CIw2DImage* Shark;
 	CIw2DImage* Island;
 	CIw2DImage* DodoJump1;
 	CIw2DImage* DodoJump2;
@@ -67,6 +68,7 @@ public:
 	CIw2DImage*     getDodoJump4()              { return DodoJump4; }
 	CIw2DImage*     getDodoJump5()              { return DodoJump5; }
 	CIw2DImage*     getDodoJump6()              { return DodoJump6; }
+	CIw2DImage*     getShark()              { return Shark; }
     CIw2DFont*      getFont()                   { return Font; }
     CAtlas*         getGemAtlas()               { return GemAtlas; }
 

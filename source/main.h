@@ -12,6 +12,9 @@
 
 #if !defined(__MAIN_H__)
 #define __MAIN_H__
+#define FONT_HEIGHT             15
+#define FONT_DESIGN_WIDTH       320
+#define GRAPHIC_DESIGN_WIDTH    1136
 
 #include "IwTween.h"
 using namespace IwTween;

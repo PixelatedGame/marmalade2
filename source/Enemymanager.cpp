@@ -1,30 +1,28 @@
 #include "Enemymanager.h"
-
+/*
+Guy hod, ze lo tov,
+Amar Lanu Ha shcriber,
+Yesh Dvarim Tovim.
+*/
 EnemyManager *EnemyManager::instance = NULL;
 
-EnemyManager *EnemyManager::getInstance(float height, float width){
+EnemyManager *EnemyManager::getInstance(){
 	if (instance == NULL)
-		instance = new EnemyManager(height, width);
+		instance = new EnemyManager();
 	return instance;
 }
 
-EnemyManager::EnemyManager(float height, float width){
-	enemyChildrens = new CNode();
+EnemyManager::EnemyManager(){
+	
 }
 
-void EnemyManager::addEnemy(Enemy *newenemy){
-	tempEnemy = newenemy;
-	enemiesList.insert(tempEnemy);
-	enemyChildrens->AddChild(tempEnemy->getEnemy());
+void EnemyManager::addEnemy(Enemy *new_enemy){
+	enemy_vector.push_back(new_enemy);
 }
 
-CNode *EnemyManager::getCNode(){
-	return enemyChildrens;
-}
+
 
 void EnemyManager::update(float time){
-	/*
-	MarMaleDE!!!!!!
-	*/
+
 
 }

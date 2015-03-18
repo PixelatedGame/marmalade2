@@ -373,6 +373,12 @@
     <ClInclude Include="c:/marmalade/7.5/s3e/h/AirplayVersion.h">
       <Filter>'Marmalade System (S3E)'</Filter>
     </ClInclude>
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Enemymanager.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/GameScene.h">
+      <Filter>source</Filter>
+    </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/modules/iw2d/h/Iw2D.h">
       <Filter>'Marmalade Studio'\iw2d</Filter>
     </ClInclude>
@@ -763,11 +769,20 @@
     <ClInclude Include="c:/marmalade/7.5/modules/iwutil/h/IwVariableBitField.h">
       <Filter>'Marmalade Studio'\iwutil</Filter>
     </ClInclude>
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Level.h">
+      <Filter>source</Filter>
+    </ClInclude>
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Levelmanager.h">
+      <Filter>source</Filter>
+    </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/MarmaladeVersion.h">
       <Filter>'Marmalade System (S3E)'</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/extensions/pvrtextool/h/PVRTexTool.h">
       <Filter>Extensions\PVRTexTool</Filter>
+    </ClInclude>
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Shark.h">
+      <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/alloca.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
@@ -837,9 +852,6 @@
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/c++/fstream.h">
       <Filter>'Marmalade System (S3E)'\stdc headers\c++</Filter>
-    </ClInclude>
-    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/game.h">
-      <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/getopt.h">
       <Filter>'Marmalade System (S3E)'\stdc headers</Filter>
@@ -1329,6 +1341,12 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\source\Enemymanager.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\GameScene.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\modules\iw2dscenegraph\source\Iw2DSceneGraph.cpp">
       <Filter>'Marmalade Studio'\iw2dscenegraph</Filter>
     </ClCompile>
@@ -1368,16 +1386,19 @@
     <ClCompile Include="..\..\..\..\..\modules\iwtween\source\IwTween.cpp">
       <Filter>(iwtween)</Filter>
     </ClCompile>
+    <ClCompile Include="..\source\Levelmanager.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\..\..\extensions\pvrtextool\interface\PVRTexTool_interface.cpp">
       <Filter>Extensions\PVRTexTool\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\Shark.cpp">
+      <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\source\audio.cpp">
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\source\enemy.cpp">
-      <Filter>source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\source\game.cpp">
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\source\hero.cpp">

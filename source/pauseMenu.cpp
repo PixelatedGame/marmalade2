@@ -14,7 +14,7 @@
 #include "IwGx.h"
 #include "input.h"
 #include "resources.h"
-#include "game.h"
+#include "GameScene.h"
 #include "scene.h"
 
 PauseMenu::~PauseMenu()
@@ -36,7 +36,7 @@ void PauseMenu::Update(float deltaTime, float alphaMul)
         if (continueGameButton->HitTest(g_pInput->m_X, g_pInput->m_Y))
         {
             // Switch to game scene
-            Game* game = (Game*)g_pSceneManager->Find("game");
+            GameScene* game = (GameScene*)g_pSceneManager->Find("game");
             g_pSceneManager->SwitchTo(game);
 
             // Resume game
@@ -50,7 +50,7 @@ void PauseMenu::Update(float deltaTime, float alphaMul)
         if (newGameButton->HitTest(g_pInput->m_X, g_pInput->m_Y))
         {
             // Switch to game scene
-            Game* game = (Game*)g_pSceneManager->Find("game");
+            GameScene* game = (GameScene*)g_pSceneManager->Find("game");
             g_pSceneManager->SwitchTo(game);
 
             // Resume game
@@ -70,7 +70,7 @@ void PauseMenu::Render()
 
 void PauseMenu::Init()
 {
-    Game* game = (Game*)g_pSceneManager->Find("game");
+    GameScene* game = (GameScene*)g_pSceneManager->Find("game");
 
     // Create menu background
     CSprite* background = new CSprite();
