@@ -70,7 +70,7 @@ void MainMenu::Init()
     AddChild(background);
 
     // Create Start Game button
-    float y_pos = (float)IwGxGetScreenHeight() * 0.66f;
+    float y_pos = (float)IwGxGetScreenHeight() * 0.86f;
     playButton = new CSprite();
     playButton->SetImage(g_pResources->getPlacard());
     playButton->m_X = IwGxGetScreenWidth() / 2.0f;
@@ -79,8 +79,8 @@ void MainMenu::Init()
     playButton->m_H = playButton->GetImage()->GetHeight();
     playButton->m_AnchorX = 0.5f;
     playButton->m_AnchorY = 0.5f;
-    playButton->m_ScaleX = 1.5f;
-    playButton->m_ScaleY = 1.5f;
+    playButton->m_ScaleX = 1.0f;
+    playButton->m_ScaleY = 1.0f;
     AddChild(playButton);
 
     // Create Start Game button text
@@ -92,6 +92,8 @@ void MainMenu::Init()
     playText->m_H = playText->GetImage()->GetHeight();
     playText->m_AnchorX = 0.5f;
     playText->m_AnchorY = 0.5f;
+	playText->m_ScaleX = 0.5f;
+	playText->m_ScaleY = 0.5f;
     AddChild(playText);
 
     // Start menu music

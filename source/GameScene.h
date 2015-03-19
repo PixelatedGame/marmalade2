@@ -13,6 +13,10 @@
 #if !defined(__GAME_H__)
 #define __GAME_H__
 
+#include <string>
+#include <vector>
+#include <map>
+#include "Layer.h"
 #include "scene.h"
 #include "hero.h"
 
@@ -20,6 +24,7 @@
 #define FONT_HEIGHT             15
 #define FONT_DESIGN_WIDTH       320
 #define GRAPHIC_DESIGN_WIDTH    1136
+#define GRAPHIC_DESIGN_HEIGHT   640
 
 class GameScene : public Scene
 {
@@ -33,8 +38,7 @@ protected:
     CSprite*          pauseSprite;
     Hero*             gemSprite;
 	
-	CSprite*  oceanSprite;
-	CSprite* islandSprite;
+
 
 
 	float               fontScale;                      // Font is correct size on 320 wide screen so we scale to match native screen size
@@ -42,16 +46,20 @@ protected:
 	float               graphicsScale;                  // Graphics are designed for 768 wide screen so we scale to native screen size
 
 private:
-	void addToLayer(CNode * layer, CDrawable * drawable);
-	CNode * backgroundLayer;
-	CNode * enemyLayer;
-	CNode * heroLayer;
-	CNode * foregroundLayer;
-	CNode * uiLayer;
+	void addToLayer(std::string layerName, CDrawable * drawable);
+	Layer * backgroundLayer;
+	Layer * enemyLayer;
+	Layer * heroLayer;
+	Layer * foregroundLayer;
+	Layer * uiLayer;
+	std::map<std::string, Layer *> layerMap;
+	
+
 	void            initUI();
 	void InitLayers();
 	//	void			addenemy();
 public:
+
     GameScene() {}
     ~GameScene();
 
@@ -69,8 +77,6 @@ public:
     void            pauseGame();
     void            resumeGame();
     void            newGame();
-
-
 };
 
 

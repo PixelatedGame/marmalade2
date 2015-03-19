@@ -373,6 +373,9 @@
     <ClInclude Include="c:/marmalade/7.6/s3e/h/AirplayVersion.h">
       <Filter>'Marmalade System (S3E)'</Filter>
     </ClInclude>
+    <ClInclude Include="c:/Marmalade/7.6/examples/GameTutorial/CPP/marm1/source/BackgroundEntity.h">
+      <Filter>source</Filter>
+    </ClInclude>
     <ClInclude Include="c:/Marmalade/7.6/examples/GameTutorial/CPP/marm1/source/Enemymanager.h">
       <Filter>source</Filter>
     </ClInclude>
@@ -768,6 +771,9 @@
     </ClInclude>
     <ClInclude Include="c:/marmalade/7.6/modules/iwutil/h/IwVariableBitField.h">
       <Filter>'Marmalade Studio'\iwutil</Filter>
+    </ClInclude>
+    <ClInclude Include="c:/Marmalade/7.6/examples/GameTutorial/CPP/marm1/source/Layer.h">
+      <Filter>source</Filter>
     </ClInclude>
     <ClInclude Include="c:/Marmalade/7.6/examples/GameTutorial/CPP/marm1/source/Level.h">
       <Filter>source</Filter>
@@ -1341,6 +1347,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\source\BackgroundEntity.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
     <ClCompile Include="..\source\Enemymanager.cpp">
       <Filter>source</Filter>
     </ClCompile>
@@ -1385,6 +1394,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\modules\iwtween\source\IwTween.cpp">
       <Filter>(iwtween)</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\Layer.cpp">
+      <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\source\Levelmanager.cpp">
       <Filter>source</Filter>

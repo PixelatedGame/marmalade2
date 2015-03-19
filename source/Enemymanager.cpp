@@ -13,10 +13,11 @@ EnemyManager *EnemyManager::getInstance(){
 }
 
 EnemyManager::EnemyManager(){
-	
+	currentScene = g_pSceneManager->GetCurrent();
 }
 
 void EnemyManager::addEnemy(Enemy *new_enemy){
+	
 	enemy_vector.push_back(new_enemy);
 }
 

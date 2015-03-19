@@ -1,0 +1,16 @@
+# comments and whitespace stripped by deployment tool
+[S3E]
+MemSize=50000000
+SysGlesVersion=2
+DispFixRot=Landscape
+[GX]
+DataCacheSize=131072
+[s3e]
+SysAppVersion=0.0.1
+SysAppCaption="Stage4"
+SplashScreenFile=s3e_splash.jpg
+SplashScreenWidth=320
+SplashScreenHeight=320
+SplashScreenBkR=0xFF
+SplashScreenBkG=0xFF
+SplashScreenBkB=0xFF
