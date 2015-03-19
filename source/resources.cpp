@@ -29,6 +29,8 @@ Resources::Resources()
 	Sky = Iw2DCreateImage("textures/layers_0010_sky.png");
 	Island = Iw2DCreateImage("textures/layers_0005_island_and_sun.png");
 	wave = Iw2DCreateImage("textures/layers_0009_wave.png");
+	splash_back = Iw2DCreateImage("textures/layers_0008_splah_behind_dodo.png");
+	splash_front= Iw2DCreateImage("textures/layers_0006_splah_in_front_of_dodo.png");
 	DodoJump1 = Iw2DCreateImage("textures/dodo-jump-1.png");
 	DodoJump2 = Iw2DCreateImage("textures/dodo-jump-2.png");
 	DodoJump3 = Iw2DCreateImage("textures/dodo-jump-3.png");

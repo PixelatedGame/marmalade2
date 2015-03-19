@@ -53,6 +53,8 @@ protected:
 	CIw2DImage* DodoJump5;
 	CIw2DImage* DodoJump6;
 	CIw2DImage* wave;
+	CIw2DImage* splash_back;
+	CIw2DImage* splash_front;
 public:
     CIw2DImage*     getGem()                    { return Gem; }
     CIw2DImage*     getMenuBG()                 { return MenuBG; }
@@ -64,6 +66,8 @@ public:
 	CIw2DImage*     getSky()              { return Sky; }
 	CIw2DImage*     getWave()              { return wave; }
 	CIw2DImage*     getIsland()              { return Island; }
+	CIw2DImage*     getSplashBack()              { return splash_back; }
+	CIw2DImage*     getSplashFront()              { return splash_front; }
 	CIw2DImage*     getDodoJump1()              { return DodoJump1; }
 	CIw2DImage*     getDodoJump2()              { return DodoJump2; }
 	CIw2DImage*     getDodoJump3()              { return DodoJump3; }

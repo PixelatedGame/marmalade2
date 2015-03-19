@@ -240,12 +240,18 @@ void GameScene::Init()
 	gemSprite->getHero()->m_ScaleX = graphicsScale/3;
 	gemSprite->getHero()->m_ScaleY = graphicsScale/3;
 	gemSprite->getHero()->m_AnchorX = 0.5f;
-    //gemSprite->SetAnimDuration(2);
+    //gemSprite->SetAnimDuration(2);1
 	addToLayer(heroLayer, gemSprite->getHero());
 	//AddChild(gemSprite->getHero());
 
 	Shark * sharky = new Shark();
 	addToLayer(enemyLayer, sharky);
+
+	BackgroundEntity* SplashBackSprite = new BackgroundEntity(g_pResources->getSplashBack());
+	addToLayer(backgroundLayer, SplashBackSprite);
+
+	BackgroundEntity* SplashFrontSprite = new BackgroundEntity(g_pResources->getSplashFront());
+	addToLayer(backgroundLayer, SplashFrontSprite);
 
 	m_Tweener.Tween(2.0f,
 		FLOAT, &sharky->m_X, 0.0f - sharky->m_W,
@@ -254,11 +260,16 @@ void GameScene::Init()
 		END);
 
 	m_Tweener.Tween(0.5f,
-		FLOAT, &sharky->m_Angle, 45.0f,
-		REPEA,T
+		FLOAT, &sharky->m_Angle, -30.0f,
+		MIRROR,
 		EASING, Ease::sineIn,
 		END);
 
+	m_Tweener.Tween(0.5f,
+		FLOAT, &gemSprite->getHero()->m_Alpha, 0.0f,
+		MIRROR,
+		EASING, Ease::sineIn,
+		END);
 
 	
 }
