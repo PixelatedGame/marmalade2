@@ -373,6 +373,9 @@
     <ClInclude Include="c:/marmalade/7.5/s3e/h/AirplayVersion.h">
       <Filter>'Marmalade System (S3E)'</Filter>
     </ClInclude>
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/BackgroundEntity.h">
+      <Filter>source</Filter>
+    </ClInclude>
     <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Enemymanager.h">
       <Filter>source</Filter>
     </ClInclude>
@@ -1341,6 +1344,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\source\BackgroundEntity.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
     <ClCompile Include="..\source\Enemymanager.cpp">
       <Filter>source</Filter>
     </ClCompile>

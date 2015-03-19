@@ -9,7 +9,7 @@ class Shark : public Enemy
 {
 public:
 	Shark()
-		: Enemy(g_pResources->getShark(), IwGxGetScreenHeight() * 0.46, IwGxGetScreenWidth() * 0.5) {
+		: Enemy(g_pResources->getShark(), (float)IwGxGetScreenWidth(), (float)IwGxGetScreenHeight() * 0.56f) {
 
 	};
 	void Update();

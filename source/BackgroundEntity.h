@@ -1,5 +1,5 @@
-#ifndef ENEMY_H
-#define ENEMY_H
+#ifndef BackgroundEntity_H
+#define BackgroundEntity_H
 
 #include "Iw2D.h"
 #include "Iw2DSceneGraph.h"
@@ -7,7 +7,7 @@
 
 
 
-class Enemy : public CSprite
+class BackgroundEntity : public CSprite
 {
 private:
 	float speed = 0;
@@ -17,8 +17,8 @@ private:
 
 public:
 	
-	virtual ~Enemy();
-	Enemy(CIw2DImage * enemy_image, float x, float y);
+	virtual ~BackgroundEntity();
+	BackgroundEntity(CIw2DImage * BackgroundEntity_image, float x=0, float y=0);
 	
 	
 	
@@ -29,4 +29,4 @@ extern float g_graphicsScaleWidth;
 extern float g_graphicsScaleHeight;
 extern Resources * g_pResources;
 
-#endif // !ENEMY_H
+#endif // !BackgroundEntity_H

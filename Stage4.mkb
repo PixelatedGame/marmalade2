@@ -31,10 +31,10 @@ files
     scene.cpp
 	hero.cpp
 	enemy.cpp
-	
 	Enemymanager.cpp
 	Levelmanager.cpp
 	Shark.cpp
+	BackgroundEntity.cpp
 	
 
     audio.h
@@ -51,6 +51,7 @@ files
 	Level.h
 	Levelmanager.h
 	Shark.h
+	BackgroundEntity.h
 	
 }
 

@@ -52,6 +52,7 @@ protected:
 	CIw2DImage* DodoJump4;
 	CIw2DImage* DodoJump5;
 	CIw2DImage* DodoJump6;
+	CIw2DImage* wave;
 public:
     CIw2DImage*     getGem()                    { return Gem; }
     CIw2DImage*     getMenuBG()                 { return MenuBG; }
@@ -60,7 +61,8 @@ public:
     CIw2DImage*     getPlacard()                { return Placard; }
     CIw2DImage*     getPlayButton()             { return PlayButton; }
     CIw2DImage*     getPauseIcon()              { return PauseIcon; }
-	CIw2DImage*     getOcean()              { return Sky; }
+	CIw2DImage*     getSky()              { return Sky; }
+	CIw2DImage*     getWave()              { return wave; }
 	CIw2DImage*     getIsland()              { return Island; }
 	CIw2DImage*     getDodoJump1()              { return DodoJump1; }
 	CIw2DImage*     getDodoJump2()              { return DodoJump2; }

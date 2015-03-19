@@ -28,7 +28,8 @@ using namespace IwTween;
 // Global tweener is used by tweens that ned to be ranm outside of a scene
 CTweenManager*  g_pTweener = 0;
 
-float g_graphicsScale = 0;
+float g_graphicsScaleWidth = 0;
+float g_graphicsScaleHeight = 0;
 
 int main()
 {
@@ -36,7 +37,8 @@ int main()
     Iw2DInit();
 	//s3eSurfaceSetInt(S3E_SURFACE_DEVICE_ORIENTATION_LOCK, S3E_SURFACE_LANDSCAPE_FIXED);
     // Create resources
-	g_graphicsScale = (float)IwGxGetScreenWidth() / GRAPHIC_DESIGN_WIDTH;
+	g_graphicsScaleWidth = (float)IwGxGetScreenWidth() / GRAPHIC_DESIGN_WIDTH;
+	g_graphicsScaleHeight = (float)IwGxGetScreenHeight() / GRAPHIC_DESIGN_HEIGHT;
     g_pResources = new Resources();
 
     // Create global tween manager

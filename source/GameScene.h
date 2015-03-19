@@ -20,6 +20,7 @@
 #define FONT_HEIGHT             15
 #define FONT_DESIGN_WIDTH       320
 #define GRAPHIC_DESIGN_WIDTH    1136
+#define GRAPHIC_DESIGN_HEIGHT   640
 
 class GameScene : public Scene
 {
@@ -33,8 +34,7 @@ protected:
     CSprite*          pauseSprite;
     Hero*             gemSprite;
 	
-	CSprite*  oceanSprite;
-	CSprite* islandSprite;
+
 
 
 	float               fontScale;                      // Font is correct size on 320 wide screen so we scale to match native screen size
