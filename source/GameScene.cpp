@@ -265,13 +265,13 @@ void GameScene::Init()
 		REPEAT,
 		EASING, Ease::sineIn,
 		END);
-
+	/*
 	m_Tweener.Tween(0.5f,
 		FLOAT, &sharky->m_Angle, 45.0f,
 		REPEAT,
 		EASING, Ease::sineIn,
 		END);
-
+		*/
 
 	
 }
