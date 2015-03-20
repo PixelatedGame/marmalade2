@@ -772,6 +772,9 @@
     <ClInclude Include="c:/marmalade/7.5/modules/iwutil/h/IwVariableBitField.h">
       <Filter>'Marmalade Studio'\iwutil</Filter>
     </ClInclude>
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Layer.h">
+      <Filter>source</Filter>
+    </ClInclude>
     <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Level.h">
       <Filter>source</Filter>
     </ClInclude>
@@ -1391,6 +1394,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\modules\iwtween\source\IwTween.cpp">
       <Filter>(iwtween)</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\Layer.cpp">
+      <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\source\Levelmanager.cpp">
       <Filter>source</Filter>

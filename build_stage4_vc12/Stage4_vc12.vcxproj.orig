@@ -1145,6 +1145,7 @@
     <ClInclude Include="c:/marmalade/7.5/modules/iwutil/h/IwUtil.h" />
     <ClInclude Include="c:/marmalade/7.5/modules/iwutil/h/IwUtilInitTerm.h" />
     <ClInclude Include="c:/marmalade/7.5/modules/iwutil/h/IwVariableBitField.h" />
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Layer.h" />
     <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Level.h" />
     <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Levelmanager.h" />
     <ClInclude Include="c:/marmalade/7.5/s3e/h/MarmaladeVersion.h" />
@@ -1353,6 +1354,7 @@
     <ClCompile Include="..\..\modules\soundengine\source\IwSoundSpec.cpp" />
     <ClCompile Include="..\..\modules\soundengine\source\IwSoundWAV.cpp" />
     <ClCompile Include="..\..\..\..\..\modules\iwtween\source\IwTween.cpp" />
+    <ClCompile Include="..\source\Layer.cpp" />
     <ClCompile Include="..\source\Levelmanager.cpp" />
     <ClCompile Include="..\..\..\..\..\extensions\pvrtextool\interface\PVRTexTool_interface.cpp" />
     <ClCompile Include="..\source\Shark.cpp" />

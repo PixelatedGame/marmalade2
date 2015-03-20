@@ -35,6 +35,7 @@ files
 	Levelmanager.cpp
 	Shark.cpp
 	BackgroundEntity.cpp
+	Layer.cpp
 	
 
     audio.h
@@ -52,6 +53,7 @@ files
 	Levelmanager.h
 	Shark.h
 	BackgroundEntity.h
+	Layer.h
 	
 }
 

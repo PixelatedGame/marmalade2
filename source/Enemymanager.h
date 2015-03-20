@@ -5,6 +5,7 @@
 #include <vector>
 #include "Iw2DSceneGraph.h"
 #include "IwTween.h"
+#include "scene.h"
 #include "Enemy.h"
 
 /*
@@ -24,7 +25,7 @@ private:
 	CNode *enemyChildrens;
 	std::vector<Enemy*> enemy_vector;
 	static EnemyManager* instance;
-	
+	Scene *currentScene;
 
 	EnemyManager();
 public:

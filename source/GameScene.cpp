@@ -21,6 +21,7 @@
 #include "resources.h"
 #include "Shark.h"
 #include "BackgroundEntity.h"
+
 GameScene::~GameScene()
 {
 }
@@ -131,6 +132,9 @@ void GameScene::Update(float deltaTime, float alphaMul)
             g_pAudio->PlaySound("audio/gem_destroyed.wav");
         }
     }
+	if (enemyLayer->check_collision(gemSprite->getHero())){
+		;
+	};
 }
 
 void GameScene::Render()
@@ -138,9 +142,10 @@ void GameScene::Render()
     Scene::Render();
 }
 
-void GameScene::addToLayer(CNode * layer, CDrawable * drawable)
+void GameScene::addToLayer(std::string layerName, CDrawable * drawable)
 {
-	layer->AddChild(drawable);
+	layerMap[layerName]->AddChild(drawable);
+	//layer->AddChild(drawable);
 }
 
 
@@ -149,16 +154,16 @@ void GameScene::initUI()
 {
 	
 	BackgroundEntity* wallpaperSprite = new BackgroundEntity(g_pResources->getGameBG());
-	addToLayer(backgroundLayer, wallpaperSprite);
+	addToLayer("backgroundLayer", wallpaperSprite);
 
 	BackgroundEntity* oceanSprite = new BackgroundEntity(g_pResources->getSky());
-	addToLayer(backgroundLayer, oceanSprite);
+	addToLayer("backgroundLayer", oceanSprite);
 
 	BackgroundEntity* islandSprite = new BackgroundEntity(g_pResources->getIsland(), 0.3);
-	addToLayer(backgroundLayer, islandSprite);
+	addToLayer("backgroundLayer", islandSprite);
 
 	BackgroundEntity* waveSprite = new BackgroundEntity(g_pResources->getWave(),0, 0.78);
-	addToLayer(foregroundLayer, waveSprite);
+	addToLayer("foregroundLayer", waveSprite);
 
 
     // Create score label text
@@ -173,7 +178,7 @@ void GameScene::initUI()
     scoreLabelText->m_Font = g_pResources->getFont();
     scoreLabelText->m_Color = CColor(0xff, 0xff, 0x30, 0xff);
 	
-	addToLayer(uiLayer, scoreLabelText);
+	addToLayer("uiLayer", scoreLabelText);
 
     // Create score label (displays actual score)
     scoreLabel = new CLabel();
@@ -187,7 +192,7 @@ void GameScene::initUI()
     scoreLabel->m_Font = g_pResources->getFont();
     scoreLabelText->m_Color = CColor(0xff, 0xff, 0xff, 0xff);
     
-	addToLayer(uiLayer, scoreLabel);
+	addToLayer("uiLayer", scoreLabel);
 
     // Create pause menu sprite (docked to top of screen)
     pauseSprite = new CSprite();
@@ -199,24 +204,32 @@ void GameScene::initUI()
     pauseSprite->m_AnchorX = 0.5;
 	pauseSprite->m_ScaleX = graphicsScale;
 	pauseSprite->m_ScaleY = graphicsScale;
-	addToLayer(uiLayer, pauseSprite);
+	addToLayer("uiLayer", pauseSprite);
 
 
 }
 
 void GameScene::InitLayers()
 {
-	backgroundLayer = new CNode();
+	backgroundLayer = new Layer();
 	AddChild(backgroundLayer);
-	enemyLayer = new CNode();
+	enemyLayer = new Layer();
 	AddChild(enemyLayer);
 
-	foregroundLayer = new CNode();
+	foregroundLayer = new Layer();
 	AddChild(foregroundLayer);
-	heroLayer = new CNode();
+	heroLayer = new Layer();
 	AddChild(heroLayer);
-	uiLayer = new CNode();
-	AddChild(uiLayer); 
+	uiLayer = new Layer();
+	AddChild(uiLayer);
+
+	layerMap["backgroundLayer"] = backgroundLayer;
+	layerMap["enemyLayer"] = enemyLayer;
+	layerMap["heroLayer"] = heroLayer;
+	layerMap["foregroundLayer"] = foregroundLayer;
+	layerMap["uiLayer"] = uiLayer;
+
+	
 }
 
 void GameScene::Init()
@@ -228,30 +241,10 @@ void GameScene::Init()
 
     // Initialise UI
     initUI();
+	initEnemies();
 
-	
-    // Create a gem
-	gemSprite = Hero::instance(((float)IwGxGetScreenHeight()*0.6f), ((float)IwGxGetScreenHeight()*0.77f), ((float)IwGxGetScreenHeight()*0.14f));
-    gemSprite->getHero()->m_X = (float)IwGxGetScreenWidth() / 2;
-    gemSprite->getHero()->m_Y = (float)IwGxGetScreenHeight() / 2;
-	gemSprite->getHero()->SetImage(g_pResources->getGem());
-	gemSprite->getHero()->m_W = (float)gemSprite->getHero()->GetImage()->GetWidth();
-	gemSprite->getHero()->m_H = (float)gemSprite->getHero()->GetImage()->GetHeight();
-	gemSprite->getHero()->m_ScaleX = graphicsScale/3;
-	gemSprite->getHero()->m_ScaleY = graphicsScale/3;
-	gemSprite->getHero()->m_AnchorX = 0.5f;
-    //gemSprite->SetAnimDuration(2);1
-	addToLayer(heroLayer, gemSprite->getHero());
-	//AddChild(gemSprite->getHero());
+	initHero();
 
-	Shark * sharky = new Shark();
-	addToLayer(enemyLayer, sharky);
-
-	BackgroundEntity* SplashBackSprite = new BackgroundEntity(g_pResources->getSplashBack());
-	addToLayer(backgroundLayer, SplashBackSprite);
-
-	BackgroundEntity* SplashFrontSprite = new BackgroundEntity(g_pResources->getSplashFront());
-	addToLayer(backgroundLayer, SplashFrontSprite);
 
 	m_Tweener.Tween(2.0f,
 		FLOAT, &sharky->m_X, 0.0f - sharky->m_W,
@@ -260,17 +253,32 @@ void GameScene::Init()
 		END);
 
 	m_Tweener.Tween(0.5f,
-		FLOAT, &sharky->m_Angle, -30.0f,
-		MIRROR,
+		FLOAT, &sharky->m_Angle, 45.0f,
+		REPEAT,
 		EASING, Ease::sineIn,
 		END);
 
-	m_Tweener.Tween(0.5f,
-		FLOAT, &gemSprite->getHero()->m_Alpha, 0.0f,
-		MIRROR,
-		EASING, Ease::sineIn,
-		END);
 
 	
 }
 
+void GameScene::initHero()
+{
+	// Create a gem
+	gemSprite = Hero::instance(((float)IwGxGetScreenHeight()*0.6f), ((float)IwGxGetScreenHeight()*0.77f), ((float)IwGxGetScreenHeight()*0.14f));
+	gemSprite->getHero()->m_X = (float)IwGxGetScreenWidth() / 2;
+	gemSprite->getHero()->m_Y = (float)IwGxGetScreenHeight() / 2;
+	gemSprite->getHero()->SetImage(g_pResources->getGem());
+	gemSprite->getHero()->m_W = (float)gemSprite->getHero()->GetImage()->GetWidth();
+	gemSprite->getHero()->m_H = (float)gemSprite->getHero()->GetImage()->GetHeight();
+	gemSprite->getHero()->m_ScaleX = graphicsScale / 3;
+	gemSprite->getHero()->m_ScaleY = graphicsScale / 3;
+	gemSprite->getHero()->m_AnchorX = 0.5f;
+	addToLayer("heroLayer", gemSprite->getHero());
+}
+
+void GameScene::initEnemies()
+{
+	Shark * sharky = new Shark();
+	addToLayer("enemyLayer", sharky);
+}
