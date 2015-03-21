@@ -1,15 +1,15 @@
 #if !defined(__SHARK_H__)
 #define __SHARK_H__
 
-#include "enemy.h"
+#include "Entity.h"
 #include "IwGx.h"
 
 
-class Shark : public Enemy
+class Shark : public Entity
 {
 public:
 	Shark()
-		: Enemy(g_pResources->getShark(), (float)IwGxGetScreenWidth(), (float)IwGxGetScreenHeight() * 0.56f) {
+		: Entity(g_pResources->getShark(), (float)IwGxGetScreenWidth(), (float)IwGxGetScreenHeight() * 0.60f) {
 
 	};
 	void Update();

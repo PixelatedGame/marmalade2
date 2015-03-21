@@ -2,7 +2,7 @@
 #define __HERO_H__
 
 #include "Iw2DSceneGraph.h"
-
+#include "Entity.h"
 
 using namespace Iw2DSceneGraph;
 
@@ -19,7 +19,7 @@ class Hero
 	enum type { BIGGER, SMALLER, EQUALITY };
 	enum state { SURF, TODUCK, DUCK, JUMP, FALL, DRIFT };
 	state current_state;
-	CSprite *dodo;
+	Entity *dodo;
 	long unsigned counter;
 
 public:
@@ -27,7 +27,7 @@ public:
 	float time;
 	bool need_update;
 	float new_y;
-	CSprite* getHero();
+	Entity* getHero();
 	~Hero();
 	float get_y();
 	float get_time();

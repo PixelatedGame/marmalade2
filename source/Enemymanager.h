@@ -6,7 +6,7 @@
 #include "Iw2DSceneGraph.h"
 #include "IwTween.h"
 #include "scene.h"
-#include "Enemy.h"
+#include "Entity.h"
 
 /*
 Guy hod, ze lo tov,
@@ -21,9 +21,9 @@ using namespace IwTween;
 class EnemyManager{
 private:
 	
-	Enemy *tempEnemy;
+	Entity *tempEnemy;
 	CNode *enemyChildrens;
-	std::vector<Enemy*> enemy_vector;
+	std::vector<Entity*> enemy_vector;
 	static EnemyManager* instance;
 	Scene *currentScene;
 
@@ -31,7 +31,7 @@ private:
 public:
 	
 	static EnemyManager *getInstance();
-	void addEnemy(Enemy *new_enemy);
+	void addEnemy(Entity *new_enemy);
 	void update(float time);
 };
 

@@ -11,7 +11,7 @@ void Hero::update(float initial, float low, float up){
 	need_update = false;
 }
 
-CSprite* Hero::getHero(){
+Entity* Hero::getHero(){
 	return dodo;
 }
 
@@ -31,7 +31,7 @@ Hero::Hero(float initial, float low, float up)
 	surf = initial;
 	duck = low;
 	jump = up;
-	dodo = new CSprite();
+	dodo = new Entity();
 	counter = 0;
 }
 

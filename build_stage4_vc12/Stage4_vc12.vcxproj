@@ -1014,6 +1014,7 @@
     <ClInclude Include="c:/marmalade/7.5/s3e/h/AirplayVersion.h" />
     <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/BackgroundEntity.h" />
     <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Enemymanager.h" />
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Entity.h" />
     <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/GameScene.h" />
     <ClInclude Include="c:/marmalade/7.5/modules/iw2d/h/Iw2D.h" />
     <ClInclude Include="c:/marmalade/7.5/modules/iw2dscenegraph/h/Iw2DSceneGraph.h" />
@@ -1166,7 +1167,6 @@
     <ClInclude Include="c:/marmalade/7.5/s3e/h/EGL/eglext.h" />
     <ClInclude Include="c:/marmalade/7.5/s3e/h/EGL/eglplatform.h" />
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/endian.h" />
-    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/enemy.h" />
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/errno.h" />
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/c++/exception.h" />
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/fcntl.h" />
@@ -1340,6 +1340,7 @@
   <ItemGroup>
     <ClCompile Include="..\source\BackgroundEntity.cpp" />
     <ClCompile Include="..\source\Enemymanager.cpp" />
+    <ClCompile Include="..\source\Entity.cpp" />
     <ClCompile Include="..\source\GameScene.cpp" />
     <ClCompile Include="..\..\..\..\..\modules\iw2dscenegraph\source\Iw2DSceneGraph.cpp" />
     <ClCompile Include="..\..\..\..\..\modules\iw2dscenegraphcore\source\Iw2DSceneGraphCore.cpp" />
@@ -1359,7 +1360,6 @@
     <ClCompile Include="..\..\..\..\..\extensions\pvrtextool\interface\PVRTexTool_interface.cpp" />
     <ClCompile Include="..\source\Shark.cpp" />
     <ClCompile Include="..\source\audio.cpp" />
-    <ClCompile Include="..\source\enemy.cpp" />
     <ClCompile Include="..\source\hero.cpp" />
     <ClCompile Include="..\source\input.cpp" />
     <ClCompile Include="..\source\main.cpp" />

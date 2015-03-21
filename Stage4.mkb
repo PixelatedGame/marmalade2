@@ -30,7 +30,7 @@ files
     resources.cpp
     scene.cpp
 	hero.cpp
-	enemy.cpp
+	Entity.cpp
 	Enemymanager.cpp
 	Levelmanager.cpp
 	Shark.cpp
@@ -47,7 +47,7 @@ files
     resources.h
     scene.h
 	hero.h
-	enemy.h
+	Entity.h
 	Enemymanager.h
 	Level.h
 	Levelmanager.h

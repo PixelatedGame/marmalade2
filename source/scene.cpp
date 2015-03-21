@@ -24,7 +24,7 @@ SceneManager* g_pSceneManager = 0;
 //
 //
 
-Scene::Scene() : m_NameHash(0), m_IsActive(true), m_IsInputActive(false)
+Scene::Scene() : m_NameHash(0), m_IsActive(false), m_IsInputActive(false)
 {
     m_X = -(float)IwGxGetScreenWidth();
 }

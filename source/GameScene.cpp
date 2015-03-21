@@ -159,10 +159,10 @@ void GameScene::initUI()
 	BackgroundEntity* oceanSprite = new BackgroundEntity(g_pResources->getSky());
 	addToLayer("backgroundLayer", oceanSprite);
 
-	BackgroundEntity* islandSprite = new BackgroundEntity(g_pResources->getIsland(), 0.3);
+	BackgroundEntity* islandSprite = new BackgroundEntity(g_pResources->getIsland(), 0.3f);
 	addToLayer("backgroundLayer", islandSprite);
 
-	BackgroundEntity* waveSprite = new BackgroundEntity(g_pResources->getWave(),0, 0.78);
+	BackgroundEntity* waveSprite = new BackgroundEntity(g_pResources->getWave(),0, 0.78f);
 	addToLayer("foregroundLayer", waveSprite);
 
 
@@ -245,19 +245,18 @@ void GameScene::Init()
 
 	initHero();
 
-
-	m_Tweener.Tween(2.0f,
+	Shark * sharky = new Shark();
+	addToLayer("enemyLayer", sharky);
+	
+	m_Tweener.Tween(1.0f,
 		FLOAT, &sharky->m_X, 0.0f - sharky->m_W,
 		REPEAT,
 		EASING, Ease::sineIn,
 		END);
-
-	m_Tweener.Tween(0.5f,
-		FLOAT, &sharky->m_Angle, 45.0f,
-		REPEAT,
-		EASING, Ease::sineIn,
-		END);
-
+	
+	/*
+	
+		*/
 
 	
 }
@@ -265,7 +264,7 @@ void GameScene::Init()
 void GameScene::initHero()
 {
 	// Create a gem
-	gemSprite = Hero::instance(((float)IwGxGetScreenHeight()*0.6f), ((float)IwGxGetScreenHeight()*0.77f), ((float)IwGxGetScreenHeight()*0.14f));
+	gemSprite = Hero::instance(((float)IwGxGetScreenHeight()*0.6f), ((float)IwGxGetScreenHeight()*0.65f), ((float)IwGxGetScreenHeight()*0.04f));
 	gemSprite->getHero()->m_X = (float)IwGxGetScreenWidth() / 2;
 	gemSprite->getHero()->m_Y = (float)IwGxGetScreenHeight() / 2;
 	gemSprite->getHero()->SetImage(g_pResources->getGem());
@@ -273,12 +272,11 @@ void GameScene::initHero()
 	gemSprite->getHero()->m_H = (float)gemSprite->getHero()->GetImage()->GetHeight();
 	gemSprite->getHero()->m_ScaleX = graphicsScale / 3;
 	gemSprite->getHero()->m_ScaleY = graphicsScale / 3;
-	gemSprite->getHero()->m_AnchorX = 0.5f;
+	
 	addToLayer("heroLayer", gemSprite->getHero());
 }
 
 void GameScene::initEnemies()
 {
-	Shark * sharky = new Shark();
-	addToLayer("enemyLayer", sharky);
+	
 }

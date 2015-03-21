@@ -5,9 +5,10 @@
 *.lic
 *.config
 *.ini
+*.idb
 *.via
-*.map*
-*.so*
+*.map
+*.so
 *.exp
 *.s86
 *.pickle
