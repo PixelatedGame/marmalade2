@@ -45,7 +45,7 @@ void Entity::Update(float deltaTime, float alphaMul)
 		m_Angle = 0;
 		m_Alpha = 1;
 	}
-	int i = 1;
+	
 	
 
 
