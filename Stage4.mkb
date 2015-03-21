@@ -36,6 +36,7 @@ files
 	Shark.cpp
 	BackgroundEntity.cpp
 	Layer.cpp
+	Powerup.cpp
 	
 
     audio.h
@@ -54,6 +55,7 @@ files
 	Shark.h
 	BackgroundEntity.h
 	Layer.h
+	Powerup.h
 	
 }
 
