@@ -37,4 +37,5 @@ extern float g_graphicsScaleHeight;
 extern Resources * g_pResources;
 extern SceneManager * g_pSceneManager;
 
+
 #endif // !ENEMY_H
