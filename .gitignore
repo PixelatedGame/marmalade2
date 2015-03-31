@@ -21,6 +21,7 @@
 *.tlog
 
 # Build results
+data-ram/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
