@@ -30,7 +30,12 @@ void Entity::Hurt()
 			BOOL, &this->being_hurt, false,
 			EASING, Ease::sineIn,
 			END);
+<<<<<<< HEAD
+=======
+
+>>>>>>> a19e58a9556f5c8c858cb04541f28f83ae2a6910
 	}
+	
 }
 
 bool Entity::is_hurt() const {
