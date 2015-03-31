@@ -37,6 +37,7 @@ Resources::Resources()
 	DodoJump4 = Iw2DCreateImage("textures/dodo-jump-4.png");
 	DodoJump5 = Iw2DCreateImage("textures/dodo-jump-5.png");
 	DodoJump6 = Iw2DCreateImage("textures/dodo-jump-6.png");
+	DodoHead = Iw2DCreateImage("textures/dodo-head.png");
 
     // Load fonts
     Font = Iw2DCreateFont("fonts/arial8.gxfont");

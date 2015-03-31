@@ -30,12 +30,11 @@ void Entity::Hurt()
 			BOOL, &this->being_hurt, false,
 			EASING, Ease::sineIn,
 			END);
-
-
-
-
-
 	}
+}
+
+bool Entity::is_hurt() const {
+	return being_hurt;
 }
 
 void Entity::Update(float deltaTime, float alphaMul)

@@ -3,7 +3,6 @@
 
 Powerup::Powerup(CIw2DImage * powerup_image, float x, float y) : CSprite()
 {
-
 	SetImage(powerup_image);
 	m_X = x;
 	m_Y = y;

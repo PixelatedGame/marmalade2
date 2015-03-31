@@ -30,6 +30,7 @@ public:
 	
 	void Hurt();
 	void Update(float deltaTime, float alphaMul);
+	bool is_hurt() const;
 };
 
 extern float g_graphicsScaleWidth;
