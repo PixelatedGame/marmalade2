@@ -132,8 +132,15 @@ void GameScene::Update(float deltaTime, float alphaMul)
             g_pAudio->PlaySound("audio/gem_destroyed.wav");
         }
     }
-	if (enemyLayer->check_collision(gemSprite->getHero())){
-		;
+
+	// Check collision with enemies
+	Entity * hero_sprite = gemSprite->getHero();
+	if (enemyLayer->check_collision(hero_sprite)){
+		if ((lifeMeter->get_life() > 0) && (!hero_sprite->is_hurt())) {
+			layerMap["uiLayer"]->RemoveChild(lifeMeter->get_last());
+			lifeMeter->dec_life();
+			hero_sprite->Hurt();
+		}
 	};
 }
 
@@ -205,6 +212,11 @@ void GameScene::initUI()
 	pauseSprite->m_ScaleX = graphicsScale;
 	pauseSprite->m_ScaleY = graphicsScale;
 	addToLayer("uiLayer", pauseSprite);
+
+	lifeMeter = new Life();
+	for (auto dodoHead : lifeMeter->life_meter) {
+		addToLayer("uiLayer", dodoHead);
+	}
 
 
 }

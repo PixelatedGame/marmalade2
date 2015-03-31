@@ -19,6 +19,7 @@
 #include "Layer.h"
 #include "scene.h"
 #include "hero.h"
+#include "Life.h"
 
 
 #define FONT_HEIGHT             15
@@ -36,6 +37,7 @@ protected:
     // UI components
     CLabel*           scoreLabel;
     CSprite*          pauseSprite;
+	Life*			  lifeMeter;
     Hero*             gemSprite;
 	
 

@@ -52,6 +52,7 @@ protected:
 	CIw2DImage* DodoJump4;
 	CIw2DImage* DodoJump5;
 	CIw2DImage* DodoJump6;
+	CIw2DImage* DodoHead;
 	CIw2DImage* wave;
 	CIw2DImage* splash_back;
 	CIw2DImage* splash_front;
@@ -74,6 +75,7 @@ public:
 	CIw2DImage*     getDodoJump4()              { return DodoJump4; }
 	CIw2DImage*     getDodoJump5()              { return DodoJump5; }
 	CIw2DImage*     getDodoJump6()              { return DodoJump6; }
+	CIw2DImage*     getDodoHead()              { return DodoHead; }
 	CIw2DImage*     getShark()              { return Shark; }
     CIw2DFont*      getFont()                   { return Font; }
     CAtlas*         getGemAtlas()               { return GemAtlas; }
