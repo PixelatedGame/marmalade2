@@ -784,6 +784,9 @@
     <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Levelmanager.h">
       <Filter>source</Filter>
     </ClInclude>
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Life.h">
+      <Filter>source</Filter>
+    </ClInclude>
     <ClInclude Include="c:/marmalade/7.5/s3e/h/MarmaladeVersion.h">
       <Filter>'Marmalade System (S3E)'</Filter>
     </ClInclude>
@@ -1405,6 +1408,9 @@
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\source\Levelmanager.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\Life.cpp">
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\extensions\pvrtextool\interface\PVRTexTool_interface.cpp">

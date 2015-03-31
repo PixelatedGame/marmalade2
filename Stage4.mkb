@@ -37,7 +37,7 @@ files
 	BackgroundEntity.cpp
 	Layer.cpp
 	Powerup.cpp
-	
+	Life.cpp
 
     audio.h
     GameScene.h
@@ -56,6 +56,7 @@ files
 	BackgroundEntity.h
 	Layer.h
 	Powerup.h
+	Life.h
 	
 }
 
