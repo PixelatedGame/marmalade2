@@ -31,11 +31,8 @@ void Entity::Hurt()
 			EASING, Ease::sineIn,
 			END);
 
-
-
-
-
 	}
+	
 }
 
 void Entity::Update(float deltaTime, float alphaMul)

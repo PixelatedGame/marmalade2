@@ -790,6 +790,9 @@
     <ClInclude Include="c:/marmalade/7.5/extensions/pvrtextool/h/PVRTexTool.h">
       <Filter>Extensions\PVRTexTool</Filter>
     </ClInclude>
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Powerup.h">
+      <Filter>source</Filter>
+    </ClInclude>
     <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Shark.h">
       <Filter>source</Filter>
     </ClInclude>
@@ -1406,6 +1409,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\extensions\pvrtextool\interface\PVRTexTool_interface.cpp">
       <Filter>Extensions\PVRTexTool\interface</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\Powerup.cpp">
+      <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\source\Shark.cpp">
       <Filter>source</Filter>

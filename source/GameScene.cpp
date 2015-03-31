@@ -253,10 +253,7 @@ void GameScene::Init()
 		REPEAT,
 		EASING, Ease::sineIn,
 		END);
-	
-	/*
-	
-		*/
+
 
 	
 }
