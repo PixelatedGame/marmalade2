@@ -10,6 +10,9 @@
  * EULA and have agreed to be bound by its terms.
  */
 
+#include <sstream>
+#include <string>
+
 #include "IwGx.h"
 
 #include "IwHashString.h"
@@ -24,6 +27,17 @@
 
 GameScene::~GameScene()
 {
+	/*
+	delete scoreLabel;
+	delete pauseSprite;
+	delete lifeMeter;
+	delete gemSprite;
+	delete backgroundLayer;
+	delete enemyLayer;
+	delete heroLayer;
+	delete foregroundLayer;
+	delete uiLayer;
+	*/
 }
 
 void GameScene::addToRoundScore(int score)
@@ -133,15 +147,27 @@ void GameScene::Update(float deltaTime, float alphaMul)
         }
     }
 
+	Score::instance()->add_score(5);
+
 	// Check collision with enemies
 	Entity * hero_sprite = gemSprite->getHero();
 	if (enemyLayer->check_collision(hero_sprite)){
 		if ((lifeMeter->get_life() > 0) && (!hero_sprite->is_hurt())) {
 			layerMap["uiLayer"]->RemoveChild(lifeMeter->get_last());
 			lifeMeter->dec_life();
+			if (lifeMeter->get_life() == 0) {
+				// Dead :(
+				g_pSceneManager->GameOver();
+			}
 			hero_sprite->Hurt();
-		}
+			Score::instance()->reset_score();
+		} 
 	};
+
+	std::stringstream str;
+	str << Score::instance()->get_score();
+	scoreLabel->SetText(str.str());
+	
 }
 
 void GameScene::Render()
@@ -176,7 +202,7 @@ void GameScene::initUI()
     // Create score label text
     CLabel* scoreLabelText = new CLabel();
     scoreLabelText->m_X = 10;
-    scoreLabelText->m_Y = 0;
+    scoreLabelText->m_Y = 5;
     scoreLabelText->m_W = (float)IwGxGetScreenWidth();
     scoreLabelText->m_H = 300;
     scoreLabelText->m_Text = "Score:";
@@ -190,7 +216,7 @@ void GameScene::initUI()
     // Create score label (displays actual score)
     scoreLabel = new CLabel();
     scoreLabel->m_X = 80;
-    scoreLabel->m_Y = 0;
+    scoreLabel->m_Y = 5;
     scoreLabel->m_W = (float)IwGxGetScreenWidth();
     scoreLabel->m_H = 30;
     scoreLabel->m_Text = "0";
@@ -253,6 +279,7 @@ void GameScene::Init()
 
     // Initialise UI
     initUI();
+	
 	initEnemies();
 
 	initHero();

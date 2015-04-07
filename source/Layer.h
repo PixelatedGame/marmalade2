@@ -12,6 +12,7 @@ class Layer : public CNode
 {
 private:
 public:
+	virtual ~Layer(){};
 	bool check_collision(Entity *);
 };
 
