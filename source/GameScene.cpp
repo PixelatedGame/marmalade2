@@ -52,9 +52,10 @@ void GameScene::newGame()
     // Reset score
     currentRoundScore = 0;
 
+	//fixme : Should remove the gemSprite reset position
     // Reset gem position
-	gemSprite->getHero()->m_X = (float)IwGxGetScreenWidth() * 4 / 30;
-	gemSprite->getHero()->m_Y = (float)IwGxGetScreenHeight() * 0.46f;
+	//gemSprite->m_X = (float)IwGxGetScreenWidth() * 4 / 30;
+	//gemSprite->m_Y = (float)IwGxGetScreenHeight() * 0.46f;
 }
 
 void GameScene::Update(float deltaTime, float alphaMul)
@@ -67,12 +68,6 @@ void GameScene::Update(float deltaTime, float alphaMul)
     Scene::Update(deltaTime, alphaMul);
 
 
-	//test for enemy
-	if (gemSprite->getHero()->m_Y > (float)IwGxGetScreenHeight() * 0.46f){
-	//	enemies->addEnemy();
-	}
-
-
 	//interaction: screen touch
 	if (m_IsInputActive && g_pInput->m_Touched)
 	{
@@ -82,13 +77,14 @@ void GameScene::Update(float deltaTime, float alphaMul)
 	//interaction: untouch screen
 	if (m_IsInputActive && !g_pInput->m_Touched)
 	{
-		gemSprite->untouch();
+		gemSprite->release();
 	}
 	
 	//update enemies
 //	enemies->update(0.1f);
 
-
+	/*
+	stavi gay;
 	//update dodo
 	if (gemSprite->need_update){
 		//gemSprite create new values -> update twin
@@ -97,6 +93,8 @@ void GameScene::Update(float deltaTime, float alphaMul)
 			EASING, Ease::sineIn,
 			END);
 	}
+
+	*/
 	///end of update dodo
 
 	//update enemy
@@ -134,7 +132,7 @@ void GameScene::Update(float deltaTime, float alphaMul)
     }
 
 	// Check collision with enemies
-	Entity * hero_sprite = gemSprite->getHero();
+	Entity * hero_sprite = gemSprite;
 	if (enemyLayer->check_collision(hero_sprite)){
 		if ((lifeMeter->get_life() > 0) && (!hero_sprite->is_hurt())) {
 			layerMap["uiLayer"]->RemoveChild(lifeMeter->get_last());
@@ -260,11 +258,13 @@ void GameScene::Init()
 	Shark * sharky = new Shark();
 	addToLayer("enemyLayer", sharky);
 	
-	m_Tweener.Tween(1.0f,
+	IwTween::CTween * tween = m_Tweener.Tween(1.0f,
 		FLOAT, &sharky->m_X, 0.0f - sharky->m_W,
 		REPEAT,
 		EASING, Ease::sineIn,
 		END);
+	tween->Cancel();
+	
 
 
 	
@@ -273,16 +273,16 @@ void GameScene::Init()
 void GameScene::initHero()
 {
 	// Create a gem
-	gemSprite = Hero::instance(((float)IwGxGetScreenHeight()*0.6f), ((float)IwGxGetScreenHeight()*0.65f), ((float)IwGxGetScreenHeight()*0.04f));
-	gemSprite->getHero()->m_X = (float)IwGxGetScreenWidth() / 2;
-	gemSprite->getHero()->m_Y = (float)IwGxGetScreenHeight() / 2;
-	gemSprite->getHero()->SetImage(g_pResources->getGem());
-	gemSprite->getHero()->m_W = (float)gemSprite->getHero()->GetImage()->GetWidth();
-	gemSprite->getHero()->m_H = (float)gemSprite->getHero()->GetImage()->GetHeight();
-	gemSprite->getHero()->m_ScaleX = graphicsScale / 3;
-	gemSprite->getHero()->m_ScaleY = graphicsScale / 3;
+	gemSprite = Hero::get_instance();
+//	gemSprite->m_X = (float)IwGxGetScreenWidth() / 2;
+//	gemSprite->m_Y = (float)IwGxGetScreenHeight() / 2;
+	gemSprite->SetImage(g_pResources->getGem());
+	gemSprite->m_W = (float)gemSprite->GetImage()->GetWidth();
+	gemSprite->m_H = (float)gemSprite->GetImage()->GetHeight();
+	gemSprite->m_ScaleX = graphicsScale / 3;
+	gemSprite->m_ScaleY = graphicsScale / 3;
 	
-	addToLayer("heroLayer", gemSprite->getHero());
+	addToLayer("heroLayer", gemSprite);
 }
 
 void GameScene::initEnemies()

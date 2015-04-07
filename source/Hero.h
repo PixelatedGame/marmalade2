@@ -6,9 +6,87 @@
 
 using namespace Iw2DSceneGraph;
 
+class Hero;
+class HeroState;
+class HeroStateSurf;
+/*
+class HeroStateToDuck;
+class HeroStateDuck;
+class HeroStateJump;
+class HeroStateFall;
+class HeroStateDive;
+*/
+
+
+class HeroState
+{
+	bool is_above_high_boundry(Hero*&);
+	bool is_below_low_boundry(Hero*&);
+	float high_boundry, low_boundry;
+	virtual void touch(Hero*const&) = 0;
+	virtual void release(Hero*const&) = 0;
+public:
+	virtual void handleInput(Hero*const&, bool) = 0;
+	HeroState(float high, float low);
+
+};
+
+class HeroStateSurf : public HeroState {
+	void touch(Hero*const&);
+	void release(Hero*const&);
+public:
+	void handleInput(Hero*const&, bool);
+	HeroStateSurf(float high, float low);
+};
+/*
+class HeroStateToDuck : public HeroState {
+
+};
+
+class HeroStateDuck : public HeroState {
+
+};
+class HeroStateJump : public HeroState {
+
+};
+class HeroStateFall : public HeroState {
+
+};
+class HeroStateDive : public HeroState {
+
+};
+*/
+
+
+class Hero : public Entity
+{
+	float high_boundry, middle_boundry, low_boundry;
+	int jump_power;
+	HeroState *current_state;
+	HeroStateSurf * state_surf;
+	static Hero* Single_instance;
+	Hero();
+public:
+	static Hero *get_instance();
+	void touch();
+	void release();
+	void hurt();
+	void changeState(HeroState * state);
+	void update_hero(float, float);
+	
+
+
+};
+
+extern float g_graphicsScaleWidth;
+extern float g_graphicsScaleHeight;
+extern Resources * g_pResources;
+extern SceneManager * g_pSceneManager;
+
 /*
 This is a singleton class that mannage the hero character.
 */  
+/*
 class Hero
 {
 	int lives;
@@ -38,6 +116,6 @@ public:
 	void update(float initial, float low, float up);
 
 };
-
+*/
 
 #endif //__HERO_H__

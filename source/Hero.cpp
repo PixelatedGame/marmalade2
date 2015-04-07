@@ -1,6 +1,7 @@
 #include "Hero.h"
 
-/*Not sure if needed*/
+/*
+
 void Hero::update(float initial, float low, float up){
 	
 	surf = initial;
@@ -155,4 +156,62 @@ bool Hero::gettopoint(float target, type cases){
 	else
 		return false;
 }
+*/
 
+#define HIGH_BOUNDRY 27
+#define MIDDLE_BOUNDRY 384
+#define LOW_BOUNDRY 416
+#define INITIAL_X_POSITION 185
+
+HeroState::HeroState(float high, float low) : high_boundry(high), low_boundry(low) {};
+HeroStateSurf::HeroStateSurf(float high, float low) : HeroState(high, low) {};
+
+void HeroStateSurf::handleInput(Hero*const&, bool)
+{
+
+}
+
+
+void HeroStateSurf::touch(Hero*const&)
+{
+
+}
+
+void HeroStateSurf::release(Hero*const&)
+{
+
+}
+
+Hero * Hero::Single_instance = NULL;
+
+
+Hero * Hero::get_instance()
+{
+	if (Single_instance == NULL)
+		Single_instance = new Hero();
+	return Single_instance;
+}
+
+Hero::Hero() : Entity(), low_boundry(g_graphicsScaleHeight * LOW_BOUNDRY), \
+middle_boundry(g_graphicsScaleHeight * MIDDLE_BOUNDRY), \
+high_boundry(g_graphicsScaleHeight * HIGH_BOUNDRY){
+	state_surf = new HeroStateSurf(middle_boundry, middle_boundry);
+	
+	current_state = state_surf;
+	
+	m_X = g_graphicsScaleWidth * INITIAL_X_POSITION;
+	m_Y = g_graphicsScaleHeight * MIDDLE_BOUNDRY;
+};
+
+void Hero::touch()
+{
+//	current_state->handleInput(this, true);
+}
+void Hero::release()
+{
+//	current_state->handleInput(this, false);
+}
+void Hero::hurt()
+{
+
+}
