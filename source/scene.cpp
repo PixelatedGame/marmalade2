@@ -14,6 +14,7 @@
 #include "IwGx.h"
 #include "input.h"
 #include "main.h"
+#include "GameScene.h"
 
 SceneManager* g_pSceneManager = 0;
 
@@ -120,6 +121,22 @@ void SceneManager::FinishSwitch()
     m_Current->SetActive(false);
     m_Current = m_Next;
     m_Next = 0;
+}
+
+void SceneManager::GameOver()
+{
+	Scene* mainMenu = Find("mainMenu");
+	g_pSceneManager->SwitchTo(mainMenu);
+
+	GameScene* current_game = (GameScene*)g_pSceneManager->Find("game");
+	g_pSceneManager->Remove(current_game);
+	delete current_game;
+
+	GameScene* game = new GameScene();
+	game->SetName("game");
+	game->Init();
+	g_pSceneManager->Add(game);
+	game->newGame();
 }
 
 void SceneManager::SwitchTo(Scene* scene)

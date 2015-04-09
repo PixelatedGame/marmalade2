@@ -20,6 +20,7 @@
 #include "scene.h"
 #include "hero.h"
 #include "Life.h"
+#include "Score.h"
 
 
 #define FONT_HEIGHT             15
@@ -48,6 +49,7 @@ protected:
 	float               graphicsScale;                  // Graphics are designed for 768 wide screen so we scale to native screen size
 
 private:
+	
 	void addToLayer(std::string layerName, CDrawable * drawable);
 	Layer * backgroundLayer;
 	Layer * enemyLayer;

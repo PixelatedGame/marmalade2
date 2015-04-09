@@ -186,6 +186,8 @@ public:
     // Internal
     static void OnSwitchComplete(CTween* pTween);
     void    FinishSwitch();
+
+	void    GameOver();
 };
 
 extern SceneManager* g_pSceneManager;
