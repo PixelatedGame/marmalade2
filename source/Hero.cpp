@@ -339,14 +339,21 @@ high_boundry(g_graphicsScaleHeight * HIGH_BOUNDRY){
 	
 	m_X = g_graphicsScaleWidth * INITIAL_X_POSITION;
 	m_Y = g_graphicsScaleHeight * MIDDLE_BOUNDRY;
+
+
 };
 
 void Hero::changelocation(float next_Y, float change_time = 0.5f){
-	g_pSceneManager->GetCurrent()->GetTweener().Clear();
-	g_pSceneManager->GetCurrent()->GetTweener().Tween(change_time,
+	if (tween) {
+		tween->Cancel();
+		//tween->Restart();
+	}
+	tween = g_pSceneManager->GetCurrent()->GetTweener().Tween(change_time,
 		FLOAT, &this->m_Y, next_Y,
 		EASING, Ease::sineIn,
 		END);
+
+	
 }
 
 void Hero::changeState(HeroState * next_state){
