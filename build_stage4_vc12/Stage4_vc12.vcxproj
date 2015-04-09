@@ -1153,6 +1153,7 @@
     <ClInclude Include="c:/marmalade/7.5/s3e/h/MarmaladeVersion.h" />
     <ClInclude Include="c:/marmalade/7.5/extensions/pvrtextool/h/PVRTexTool.h" />
     <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Powerup.h" />
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Score.h" />
     <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Shark.h" />
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/alloca.h" />
     <ClInclude Include="c:/marmalade/7.5/s3e/h/std/assert.h" />
@@ -1362,6 +1363,7 @@
     <ClCompile Include="..\source\Life.cpp" />
     <ClCompile Include="..\..\..\..\..\extensions\pvrtextool\interface\PVRTexTool_interface.cpp" />
     <ClCompile Include="..\source\Powerup.cpp" />
+    <ClCompile Include="..\source\Score.cpp" />
     <ClCompile Include="..\source\Shark.cpp" />
     <ClCompile Include="..\source\audio.cpp" />
     <ClCompile Include="..\source\hero.cpp" />

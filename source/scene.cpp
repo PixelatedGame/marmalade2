@@ -39,6 +39,7 @@ void Scene::SetName(const char* name)
     m_NameHash = IwHashString(name);
 }
 
+
 void Scene::Init()
 {
 }
@@ -115,28 +116,29 @@ void SceneManager::OnSwitchComplete(CTween* pTween)
 
 void SceneManager::FinishSwitch()
 {
+
     m_Next->SetInputActive(true);
     m_Next->SetActive(true);
     m_Current->Update(0);           // Update one last time to ensure that last tweened values get set because on the next frame the scene will inactive
     m_Current->SetActive(false);
+
+	if (m_Current->GetNameHash() == IwHashString("game")) {
+		GameScene * game = (GameScene*)m_Current;
+		game->newGame();
+	}
+
     m_Current = m_Next;
     m_Next = 0;
 }
 
 void SceneManager::GameOver()
 {
+	GameScene* current_game = (GameScene*)g_pSceneManager->Find("game");
+
+
 	Scene* mainMenu = Find("mainMenu");
 	g_pSceneManager->SwitchTo(mainMenu);
-
-	GameScene* current_game = (GameScene*)g_pSceneManager->Find("game");
-	g_pSceneManager->Remove(current_game);
-	delete current_game;
-
-	GameScene* game = new GameScene();
-	game->SetName("game");
-	game->Init();
-	g_pSceneManager->Add(game);
-	game->newGame();
+	
 }
 
 void SceneManager::SwitchTo(Scene* scene)

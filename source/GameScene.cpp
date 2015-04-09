@@ -66,6 +66,16 @@ void GameScene::newGame()
     // Reset score
     currentRoundScore = 0;
 
+	
+	lifeMeter->reset_life();
+
+	for (auto dodoHead : lifeMeter->life_meter) {
+		addToLayer("uiLayer", dodoHead);
+	}
+
+	
+
+
 	//fixme : Should remove the gemSprite reset position
     // Reset gem position
 	//gemSprite->m_X = (float)IwGxGetScreenWidth() * 4 / 30;
@@ -238,9 +248,7 @@ void GameScene::initUI()
 	addToLayer("uiLayer", pauseSprite);
 
 	lifeMeter = new Life();
-	for (auto dodoHead : lifeMeter->life_meter) {
-		addToLayer("uiLayer", dodoHead);
-	}
+	
 
 
 }
@@ -277,7 +285,7 @@ void GameScene::Init()
 
     // Initialise UI
     initUI();
-	
+	newGame();
 	initEnemies();
 
 	initHero();
@@ -290,7 +298,7 @@ void GameScene::Init()
 		REPEAT,
 		EASING, Ease::sineIn,
 		END);
-	tween->Cancel();
+	//tween->Cancel();
 	
 
 

@@ -20,6 +20,7 @@ public:
 	virtual ~Life();
 	Life();
 	std::vector<CSprite *> life_meter;
+	bool reset_life(int num_of_lives = 3);
 	bool add_life();
 	bool dec_life();
 	int get_life();

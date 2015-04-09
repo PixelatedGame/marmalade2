@@ -796,6 +796,9 @@
     <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Powerup.h">
       <Filter>source</Filter>
     </ClInclude>
+    <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Score.h">
+      <Filter>source</Filter>
+    </ClInclude>
     <ClInclude Include="c:/Marmalade/7.5/examples/GameTutorial/CPP/marm1/source/Shark.h">
       <Filter>source</Filter>
     </ClInclude>
@@ -1417,6 +1420,9 @@
       <Filter>Extensions\PVRTexTool\interface</Filter>
     </ClCompile>
     <ClCompile Include="..\source\Powerup.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\Score.cpp">
       <Filter>source</Filter>
     </ClCompile>
     <ClCompile Include="..\source\Shark.cpp">

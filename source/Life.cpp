@@ -17,6 +17,7 @@ bool Life::add_life() {
 	life_meter.push_back(life_sprite);
 	current_x = current_x + (life_sprite->m_W * life_sprite->m_ScaleX) + 5;
 	
+	// leak!!!
 	return true;
 }
 
@@ -34,12 +35,22 @@ CSprite * Life::get_last() {
 	}
 	return false;
 }
+bool Life::reset_life(int num_of_lives){
+	current_x = 0;
+	for (int i = 0; i < num_of_lives; ++i) {
+		add_life();
+	}
+	return true;
+}
 
 Life::Life()
 {
+	/*
 	for (int i = 0; i < init_num_of_lives; ++i) {
 		add_life();
 	}
+	*/
+	
 }
 
 Life::~Life()
