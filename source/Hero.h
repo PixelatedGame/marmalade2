@@ -9,61 +9,97 @@ using namespace Iw2DSceneGraph;
 class Hero;
 class HeroState;
 class HeroStateSurf;
-/*
 class HeroStateToDuck;
 class HeroStateDuck;
 class HeroStateJump;
 class HeroStateFall;
 class HeroStateDive;
-*/
+
 
 
 class HeroState
 {
-	bool is_above_high_boundry(Hero*&);
-	bool is_below_low_boundry(Hero*&);
 	float high_boundry, low_boundry;
+	float velocity;
 	virtual void touch(Hero*const&) = 0;
 	virtual void release(Hero*const&) = 0;
 public:
-	virtual void handleInput(Hero*const&, bool) = 0;
+	bool is_above_high_boundry(Hero*const&);
+	bool is_below_low_boundry(Hero*const&);
+	void handleInput(Hero*const&, bool);
 	HeroState(float high, float low);
-
+	float get_low_boundry();
+	float get_high_boundry();
+	virtual void start(Hero*const&) = 0;
 };
 
 class HeroStateSurf : public HeroState {
 	void touch(Hero*const&);
 	void release(Hero*const&);
 public:
-	void handleInput(Hero*const&, bool);
 	HeroStateSurf(float high, float low);
+	void start(Hero*const&);
 };
-/*
-class HeroStateToDuck : public HeroState {
 
+class HeroStateToDuck : public HeroState {
+	void touch(Hero*const&);
+	void release(Hero*const&);
+public:
+	HeroStateToDuck(float high, float low);
+	void start(Hero*const&);
 };
 
 class HeroStateDuck : public HeroState {
-
+	void touch(Hero*const&);
+	void release(Hero*const&);
+public:
+	HeroStateDuck(float high, float low);
+	void start(Hero*const&);
 };
-class HeroStateJump : public HeroState {
 
+class HeroStateJump : public HeroState {
+	void touch(Hero*const&);
+	void release(Hero*const&);
+public:
+	HeroStateJump(float high, float low);
+	void start(Hero*const&);
 };
 class HeroStateFall : public HeroState {
-
+	void touch(Hero*const&);
+	void release(Hero*const&);
+public:
+	HeroStateFall(float high, float low);
+	void start(Hero*const&);
 };
 class HeroStateDive : public HeroState {
-
+	void touch(Hero*const&);
+	void release(Hero*const&);
+public:
+	HeroStateDive(float high, float low);
+	void start(Hero*const&);
 };
-*/
+
 
 
 class Hero : public Entity
 {
+	friend HeroStateSurf;
+	friend HeroStateToDuck;
+	friend HeroStateDuck;
+	friend HeroStateJump;
+	friend HeroStateFall;
+	friend HeroStateDive;
+
 	float high_boundry, middle_boundry, low_boundry;
 	int jump_power;
 	HeroState *current_state;
 	HeroStateSurf * state_surf;
+	HeroStateToDuck * state_toduck;
+	HeroStateDuck * state_duck;
+	HeroStateJump * state_jump;
+	HeroStateFall * state_fall;
+	HeroStateDive * state_dive;
+
 	static Hero* Single_instance;
 	Hero();
 public:
@@ -71,9 +107,9 @@ public:
 	void touch();
 	void release();
 	void hurt();
-	void changeState(HeroState * state);
-	void update_hero(float, float);
-	
+	void changeState(HeroState * next_state);
+	//void update_hero(float, float);  //need to check if change_location doing update_hero...
+	void changelocation(float, float);
 
 
 };
