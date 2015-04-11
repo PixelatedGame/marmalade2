@@ -6,6 +6,8 @@
 
 using namespace Iw2DSceneGraph;
 
+
+//forawrd declaration needed for state pattern
 class Hero;
 class HeroState;
 class HeroStateSurf;
@@ -83,7 +85,7 @@ public:
 };
 
 
-
+//Hero is a signalton class that implement state pattern for hero behavior
 class Hero : public Entity
 {
 	friend HeroStateSurf;
@@ -105,7 +107,6 @@ class Hero : public Entity
 
 	static Hero* Single_instance;
 	CTween *tween = 0;
-	CAtlas *hero_atlas;
 	Hero();
 public:
 	static Hero *get_instance();
@@ -113,10 +114,8 @@ public:
 	void release();
 	void hurt();
 	void changeState(HeroState * next_state);
-	//void update_hero(float, float);  //need to check if change_location doing update_hero...
 	void changelocation(float, float);
 	void start();
-//	void SetImage(CIw2DImage* pImage, int x_frames=2, int y_frames=2);
 	void setatlassurf(CIw2DImage* pImage, int x_frames = 1, int y_frames = 1);
 	void setatlastoduck(CIw2DImage* pImage, int x_frames = 1, int y_frames = 1);
 	void setatlasduck(CIw2DImage* pImage, int x_frames = 1, int y_frames = 1);
@@ -130,40 +129,5 @@ extern float g_graphicsScaleWidth;
 extern float g_graphicsScaleHeight;
 extern Resources * g_pResources;
 extern SceneManager * g_pSceneManager;
-
-/*
-This is a singleton class that mannage the hero character.
-*/  
-/*
-class Hero
-{
-	int lives;
-	static Hero* Single_instance;
-	//Hero();
-	Hero(float initial, float low, float up);
-	float surf, duck, jump;
-	enum type { BIGGER, SMALLER, EQUALITY };
-	enum state { SURF, TODUCK, DUCK, JUMP, FALL, DRIFT };
-	state current_state;
-	Entity *dodo;
-	long unsigned counter;
-
-public:
-	static Hero *instance(float initial, float low, float up);
-	float time;
-	bool need_update;
-	float new_y;
-	Entity* getHero();
-	~Hero();
-	float get_y();
-	float get_time();
-	bool reset();   //return true to indicate that sucssefuly reset
-	void touch();   //return true is Hero had changes and need an update otherwise false
-	void untouch(); //return true is Hero had changes and need an update otherwise false
-	bool gettopoint(float target, type cases=EQUALITY); //return true if hero get to the point
-	void update(float initial, float low, float up);
-
-};
-*/
 
 #endif //__HERO_H__
