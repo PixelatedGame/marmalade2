@@ -196,6 +196,14 @@ float HeroState::get_high_boundry(){
 	return high_boundry;
 }
 
+
+void HeroState::SetAtlas(CIw2DImage* pImage, int x_frames, int y_frames){
+	int frame_w = (int)(pImage->GetWidth() / x_frames);
+	int frame_h = (int)(pImage->GetHeight() / y_frames);
+	int frame_num = x_frames * y_frames;
+	state_atlas = new CAtlas(frame_w, frame_h, frame_num, pImage);
+}
+
 //----------------------Hero State Surf------------------------------------------------
 HeroStateSurf::HeroStateSurf(float high, float low) : HeroState(high, low) {};
 
@@ -211,7 +219,8 @@ void HeroStateSurf::release(Hero*const& my_hero)
 }
 
 void HeroStateSurf::start(Hero*const& my_hero){
-	//nothing here
+	my_hero->SetAnimDuration(2);
+	my_hero->SetAtlas(state_atlas);
 }
 //-----------------------Hero State To Duck ----------------------------------------
 
@@ -232,6 +241,8 @@ void HeroStateToDuck::release(Hero*const& my_hero)
 
 void HeroStateToDuck::start(Hero*const& my_hero){
 	my_hero->changelocation(get_low_boundry(), 0.5f);
+	my_hero->SetAnimDuration(2);
+	my_hero->SetAtlas(state_atlas);
 }
 
 //----------------------Hero State Duck------------------------------------------------
@@ -251,6 +262,8 @@ void HeroStateDuck::release(Hero*const& my_hero)
 void HeroStateDuck::start(Hero*const& my_hero){
 	//nothing here
 	//if will be a jump-meter then it will be reset here
+	my_hero->SetAnimDuration(2);
+	my_hero->SetAtlas(state_atlas);
 }
 
 //----------------------Hero State Jump------------------------------------------------
@@ -270,6 +283,8 @@ void HeroStateJump::release(Hero*const& my_hero)
 
 void HeroStateJump::start(Hero*const& my_hero){
 	my_hero->changelocation(get_high_boundry(), 0.5f);
+	my_hero->SetAnimDuration(2);
+	my_hero->SetAtlas(state_atlas);
 }
 
 //----------------------Hero State Fall------------------------------------------------
@@ -289,6 +304,8 @@ void HeroStateFall::release(Hero*const& my_hero)
 
 void HeroStateFall::start(Hero*const& my_hero){
 	my_hero->changelocation(get_low_boundry(), 0.5f);
+	my_hero->SetAnimDuration(2);
+	my_hero->SetAtlas(state_atlas);
 }
 
 //----------------------Hero State Dive------------------------------------------------
@@ -310,6 +327,8 @@ void HeroStateDive::release(Hero*const& my_hero)
 void HeroStateDive::start(Hero*const& my_hero){
 	//fixme: need to change in future for taking in account the m_Y
 	my_hero->changelocation(get_low_boundry(), 0.2f);
+	my_hero->SetAnimDuration(2);
+	my_hero->SetAtlas(state_atlas);
 }
 
 
@@ -384,4 +403,35 @@ void Hero::SetImage(CIw2DImage* pImage, int x_frames, int y_frames){
 	hero_atlas = new CAtlas(frame_w, frame_h, frame_num, pImage);
 	SetAnimDuration(2);
 	SetAtlas(hero_atlas);
+}
+
+
+//Set animation for surf staet
+void Hero::setatlassurf(CIw2DImage* pImage, int x_frames, int y_frames){
+	state_surf->SetAtlas(pImage, x_frames, y_frames);
+}
+
+//set animation for to duck state
+void Hero::setatlastoduck(CIw2DImage* pImage, int x_frames, int y_frames){
+	state_toduck->SetAtlas(pImage, x_frames, y_frames);
+}
+
+//set animation for duck state
+void Hero::setatlasduck(CIw2DImage* pImage, int x_frames, int y_frames){
+	state_duck->SetAtlas(pImage, x_frames, y_frames);
+}
+
+//set animation for jump state
+void Hero::setatlasjump(CIw2DImage* pImage, int x_frames, int y_frames){
+	state_jump->SetAtlas(pImage, x_frames, y_frames);
+}
+
+//set animation for dive state
+void Hero::setatlasdive(CIw2DImage* pImage, int x_frames, int y_frames){
+	state_dive->SetAtlas(pImage, x_frames, y_frames);
+}
+
+//set animation for fall state
+void Hero::setatlasfall(CIw2DImage* pImage, int x_frames, int y_frames){
+	state_fall->SetAtlas(pImage, x_frames, y_frames);
 }

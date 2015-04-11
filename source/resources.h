@@ -34,6 +34,12 @@ class Resources
 {
 protected:
     CIw2DImage*     Gem;
+	CIw2DImage*     DodoSurf;
+	CIw2DImage*     DodoToDuck;
+	CIw2DImage*     DodoDuck;
+	CIw2DImage*     DodoJump;
+	CIw2DImage*     DodoDive;
+	CIw2DImage*     DodoFall;
     CIw2DImage*     MenuBG;
     CIw2DImage*     GameBG;
     CIw2DImage*     MenuButton;
@@ -58,6 +64,12 @@ protected:
 	CIw2DImage* splash_front;
 public:
     CIw2DImage*     getGem()                    { return Gem; }
+	CIw2DImage*     getDodoSurf()                    { return DodoSurf; }
+	CIw2DImage*     getDodoToDuck()                    { return DodoToDuck; }
+	CIw2DImage*     getDodoDuck()                    { return DodoDuck; }
+	CIw2DImage*     getDodoJump()                    { return DodoJump; }
+	CIw2DImage*     getDodoDive()                    { return DodoDive; }
+	CIw2DImage*     getDodoFall()                    { return DodoFall; }
     CIw2DImage*     getMenuBG()                 { return MenuBG; }
     CIw2DImage*     getGameBG()                 { return GameBG; }
     CIw2DImage*     getMenuButton()             { return MenuButton; }

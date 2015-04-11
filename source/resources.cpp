@@ -18,6 +18,12 @@ Resources::Resources()
 {
     // Load images
     Gem = Iw2DCreateImage("textures/dodo-atlas.png");
+	DodoSurf = Iw2DCreateImage("textures/dodo-atlas.png");
+	DodoToDuck = Iw2DCreateImage("textures/dodo-jump-4.png");
+	DodoDuck = Iw2DCreateImage("textures/dodo-jump-2.png");
+	DodoJump = Iw2DCreateImage("textures/dodo-jump-1.png");
+	DodoDive = Iw2DCreateImage("textures/dodo-jump-6.png");
+	DodoFall = Iw2DCreateImage("textures/dodo-jump-6.png");
     MenuBG = Iw2DCreateImage("textures/menu_bkg.jpg");
     GameBG = Iw2DCreateImage("textures/layers_0011_background.png");
     MenuButton = Iw2DCreateImage("textures/button_bg.png");

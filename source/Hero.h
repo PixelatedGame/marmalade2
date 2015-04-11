@@ -23,7 +23,9 @@ class HeroState
 	float velocity;
 	virtual void touch(Hero*const&) = 0;
 	virtual void release(Hero*const&) = 0;
+
 public:
+	CAtlas *state_atlas; //should be protected
 	bool is_above_high_boundry(Hero*const&);
 	bool is_below_low_boundry(Hero*const&);
 	void handleInput(Hero*const&, bool);
@@ -31,6 +33,7 @@ public:
 	float get_low_boundry();
 	float get_high_boundry();
 	virtual void start(Hero*const&) = 0;
+	void SetAtlas(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
 };
 
 class HeroStateSurf : public HeroState {
@@ -113,6 +116,12 @@ public:
 	//void update_hero(float, float);  //need to check if change_location doing update_hero...
 	void changelocation(float, float);
 	void SetImage(CIw2DImage* pImage, int x_frames=2, int y_frames=2);
+	void setatlassurf(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
+	void setatlastoduck(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
+	void setatlasduck(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
+	void setatlasjump(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
+	void setatlasdive(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
+	void setatlasfall(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
 
 };
 
