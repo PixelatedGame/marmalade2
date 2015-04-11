@@ -117,12 +117,12 @@ public:
 	void changelocation(float, float);
 	void start();
 //	void SetImage(CIw2DImage* pImage, int x_frames=2, int y_frames=2);
-	void setatlassurf(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
-	void setatlastoduck(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
-	void setatlasduck(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
-	void setatlasjump(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
-	void setatlasdive(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
-	void setatlasfall(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
+	void setatlassurf(CIw2DImage* pImage, int x_frames = 1, int y_frames = 1);
+	void setatlastoduck(CIw2DImage* pImage, int x_frames = 1, int y_frames = 1);
+	void setatlasduck(CIw2DImage* pImage, int x_frames = 1, int y_frames = 1);
+	void setatlasjump(CIw2DImage* pImage, int x_frames = 1, int y_frames = 1);
+	void setatlasdive(CIw2DImage* pImage, int x_frames = 1, int y_frames = 1);
+	void setatlasfall(CIw2DImage* pImage, int x_frames = 1, int y_frames = 1);
 
 };
 

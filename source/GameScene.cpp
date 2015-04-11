@@ -312,12 +312,12 @@ void GameScene::initHero()
 //	gemSprite->m_X = (float)IwGxGetScreenWidth() / 2;
 //	gemSprite->m_Y = (float)IwGxGetScreenHeight() / 2;
 //	gemSprite->SetImage(g_pResources->getGem());
-	gemSprite->setatlassurf(g_pResources->getDodoSurf());
-	gemSprite->setatlastoduck(g_pResources->getDodoToDuck(),1,1);
-	gemSprite->setatlasduck(g_pResources->getDodoDuck(),1,1);
-	gemSprite->setatlasjump(g_pResources->getDodoJump(),1,1);
-	gemSprite->setatlasdive(g_pResources->getDodoDive(),1,1);
-	gemSprite->setatlasfall(g_pResources->getDodoFall(),1,1);
+	gemSprite->setatlassurf(g_pResources->getDodoSurf(),2,2);
+	gemSprite->setatlastoduck(g_pResources->getDodoToDuck());
+	gemSprite->setatlasduck(g_pResources->getDodoDuck());
+	gemSprite->setatlasjump(g_pResources->getDodoJump());
+	gemSprite->setatlasdive(g_pResources->getDodoDive());
+	gemSprite->setatlasfall(g_pResources->getDodoFall());
 	gemSprite->start();
 
 	gemSprite->m_W = (float)gemSprite->GetImage()->GetWidth();
