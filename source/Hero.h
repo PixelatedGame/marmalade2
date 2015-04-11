@@ -102,6 +102,7 @@ class Hero : public Entity
 
 	static Hero* Single_instance;
 	CTween *tween = 0;
+	CAtlas *hero_atlas;
 	Hero();
 public:
 	static Hero *get_instance();
@@ -111,7 +112,7 @@ public:
 	void changeState(HeroState * next_state);
 	//void update_hero(float, float);  //need to check if change_location doing update_hero...
 	void changelocation(float, float);
-
+	void SetImage(CIw2DImage* pImage, int x_frames=2, int y_frames=2);
 
 };
 

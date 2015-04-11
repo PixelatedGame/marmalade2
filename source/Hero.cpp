@@ -345,8 +345,9 @@ high_boundry(g_graphicsScaleHeight * HIGH_BOUNDRY){
 
 void Hero::changelocation(float next_Y, float change_time = 0.5f){
 	if (tween) {
-		tween->Cancel();
+		//tween->Cancel();
 		//tween->Restart();
+
 	}
 	tween = g_pSceneManager->GetCurrent()->GetTweener().Tween(change_time,
 		FLOAT, &this->m_Y, next_Y,
@@ -374,4 +375,13 @@ void Hero::release()
 void Hero::hurt()
 {
 
+}
+
+void Hero::SetImage(CIw2DImage* pImage, int x_frames, int y_frames){
+	int frame_w = (int)(pImage->GetWidth() / x_frames);
+	int frame_h = (int)(pImage->GetHeight() / y_frames);
+	int frame_num = x_frames * y_frames;
+	hero_atlas = new CAtlas(frame_w, frame_h, frame_num, pImage);
+	SetAnimDuration(2);
+	SetAtlas(hero_atlas);
 }

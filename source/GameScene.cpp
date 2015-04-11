@@ -318,6 +318,7 @@ void GameScene::initHero()
 	gemSprite->m_ScaleY = graphicsScale / 3;
 	
 	addToLayer("heroLayer", gemSprite);
+
 }
 
 void GameScene::initEnemies()

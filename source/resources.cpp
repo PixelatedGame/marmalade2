@@ -17,7 +17,7 @@
 Resources::Resources()
 {
     // Load images
-    Gem = Iw2DCreateImage("textures/dodo-purple.png");
+    Gem = Iw2DCreateImage("textures/dodo-atlas.png");
     MenuBG = Iw2DCreateImage("textures/menu_bkg.jpg");
     GameBG = Iw2DCreateImage("textures/layers_0011_background.png");
     MenuButton = Iw2DCreateImage("textures/button_bg.png");
