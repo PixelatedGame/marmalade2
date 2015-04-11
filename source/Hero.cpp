@@ -395,7 +395,7 @@ void Hero::hurt()
 {
 
 }
-
+/*
 void Hero::SetImage(CIw2DImage* pImage, int x_frames, int y_frames){
 	int frame_w = (int)(pImage->GetWidth() / x_frames);
 	int frame_h = (int)(pImage->GetHeight() / y_frames);
@@ -404,7 +404,11 @@ void Hero::SetImage(CIw2DImage* pImage, int x_frames, int y_frames){
 	SetAnimDuration(2);
 	SetAtlas(hero_atlas);
 }
+*/
 
+void Hero::start(){
+	current_state->start(this);
+}
 
 //Set animation for surf staet
 void Hero::setatlassurf(CIw2DImage* pImage, int x_frames, int y_frames){

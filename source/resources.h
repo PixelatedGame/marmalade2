@@ -33,7 +33,6 @@ using namespace Iw2DSceneGraph;
 class Resources
 {
 protected:
-    CIw2DImage*     Gem;
 	CIw2DImage*     DodoSurf;
 	CIw2DImage*     DodoToDuck;
 	CIw2DImage*     DodoDuck;
@@ -63,7 +62,7 @@ protected:
 	CIw2DImage* splash_back;
 	CIw2DImage* splash_front;
 public:
-    CIw2DImage*     getGem()                    { return Gem; }
+
 	CIw2DImage*     getDodoSurf()                    { return DodoSurf; }
 	CIw2DImage*     getDodoToDuck()                    { return DodoToDuck; }
 	CIw2DImage*     getDodoDuck()                    { return DodoDuck; }

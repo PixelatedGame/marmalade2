@@ -17,7 +17,6 @@
 Resources::Resources()
 {
     // Load images
-    Gem = Iw2DCreateImage("textures/dodo-atlas.png");
 	DodoSurf = Iw2DCreateImage("textures/dodo-atlas.png");
 	DodoToDuck = Iw2DCreateImage("textures/dodo-jump-4.png");
 	DodoDuck = Iw2DCreateImage("textures/dodo-jump-2.png");
@@ -56,8 +55,13 @@ Resources::Resources()
 
 Resources::~Resources()
 {
+	delete DodoSurf;
+	delete DodoToDuck;
+	delete DodoDuck;
+	delete DodoJump;
+	delete DodoDive;
+	delete DodoFall;
     delete GemAtlas;
-    delete Gem;
     delete MenuBG;
     delete GameBG;
     delete MenuButton;

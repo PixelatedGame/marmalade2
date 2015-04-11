@@ -115,7 +115,8 @@ public:
 	void changeState(HeroState * next_state);
 	//void update_hero(float, float);  //need to check if change_location doing update_hero...
 	void changelocation(float, float);
-	void SetImage(CIw2DImage* pImage, int x_frames=2, int y_frames=2);
+	void start();
+//	void SetImage(CIw2DImage* pImage, int x_frames=2, int y_frames=2);
 	void setatlassurf(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
 	void setatlastoduck(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
 	void setatlasduck(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
