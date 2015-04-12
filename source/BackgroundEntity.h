@@ -11,15 +11,15 @@ class BackgroundEntity : public CSprite
 {
 private:
 	float speed = 0;
-	
+	CAtlas * atlas;
 	
 	
 
 public:
 	
 	virtual ~BackgroundEntity();
-	BackgroundEntity(CIw2DImage * BackgroundEntity_image, float x=0, float y=0);
-	
+	BackgroundEntity(CIw2DImage * BackgroundEntity_image, float x = 0, float y = 0, int x_frames = 1, int y_frames = 1);
+//	BackgroundEntity(CIw2DImage * BackgroundEntity_image, float x = 0, float y = 0);
 	
 	
 
