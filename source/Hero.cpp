@@ -206,12 +206,23 @@ high_boundry(g_graphicsScaleHeight * HIGH_BOUNDRY){
 };
 
 void Hero::changelocation(float next_Y, float change_time = 0.5f){
-	if (tween) {
-		//tween->Cancel();
-		//tween->Restart();
-
+	/*
+	if (hero_tween!=0 && hero_tween->IsAlive()) {
+		
+		//hero_tween->Pause();
+		hero_tween->Cancel();
+		//hero_tween->Terminate();
+		hero_tween=0;
+			
 	}
-	tween = g_pSceneManager->GetCurrent()->GetTweener().Tween(change_time,
+	else{
+		hero_tween = 0;
+	}
+	
+	*/
+	g_pSceneManager->GetCurrent()->GetTweener().Clear_this(hero_tween);
+
+	hero_tween = g_pSceneManager->GetCurrent()->GetTweener().Tween(change_time,
 		FLOAT, &this->m_Y, next_Y,
 		EASING, Ease::sineIn,
 		END);
@@ -227,7 +238,7 @@ void Hero::changeState(HeroState * next_state){
 void Hero::touch()
 {
 
-
+	
 	current_state->handleInput(this, true);
 }
 void Hero::release()

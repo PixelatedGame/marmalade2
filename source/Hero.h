@@ -106,7 +106,7 @@ class Hero : public Entity
 	HeroStateDive * state_dive;
 
 	static Hero* Single_instance;
-	CTween *tween = 0;
+	CTween *hero_tween = 0;
 	Hero();
 public:
 	static Hero *get_instance();
