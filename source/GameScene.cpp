@@ -24,6 +24,7 @@
 #include "resources.h"
 #include "Shark.h"
 #include "BackgroundEntity.h"
+#include "Coin.h"
 
 GameScene::~GameScene()
 {
@@ -158,6 +159,7 @@ void GameScene::Update(float deltaTime, float alphaMul)
 	Score::instance()->add_score(5);
 
 	// Check collision with enemies
+	
 	Entity * hero_sprite = gemSprite;
 	if (enemyLayer->check_collision(hero_sprite)){
 		if ((lifeMeter->get_life() > 0) && (!hero_sprite->is_hurt())) {
@@ -172,6 +174,8 @@ void GameScene::Update(float deltaTime, float alphaMul)
 		} 
 	};
 
+	itemLayer->check_collision(hero_sprite);
+	
 	std::stringstream str;
 	str << Score::instance()->get_score();
 	scoreLabel->SetText(str.str());
@@ -259,7 +263,8 @@ void GameScene::InitLayers()
 	AddChild(backgroundLayer);
 	enemyLayer = new Layer();
 	AddChild(enemyLayer);
-
+	itemLayer = new Layer();
+	AddChild(itemLayer);
 	foregroundLayer = new Layer();
 	AddChild(foregroundLayer);
 	heroLayer = new Layer();
@@ -269,6 +274,7 @@ void GameScene::InitLayers()
 
 	layerMap["backgroundLayer"] = backgroundLayer;
 	layerMap["enemyLayer"] = enemyLayer;
+	layerMap["itemLayer"] = itemLayer;
 	layerMap["heroLayer"] = heroLayer;
 	layerMap["foregroundLayer"] = foregroundLayer;
 	layerMap["uiLayer"] = uiLayer;
@@ -287,18 +293,10 @@ void GameScene::Init()
     initUI();
 	newGame();
 	initEnemies();
-
+	initItems();
 	initHero();
 
-	Shark * sharky = new Shark();
-	addToLayer("enemyLayer", sharky);
 	
-	IwTween::CTween * tween = m_Tweener.Tween(1.0f,
-		FLOAT, &sharky->m_X, 0.0f - sharky->m_W,
-		REPEAT,
-		EASING, Ease::sineIn,
-		END);
-	//tween->Cancel();
 	
 
 
@@ -331,5 +329,21 @@ void GameScene::initHero()
 
 void GameScene::initEnemies()
 {
-	
+	Shark * sharky = new Shark();
+	addToLayer("enemyLayer", sharky);
+
+	IwTween::CTween * tween = m_Tweener.Tween(1.0f,
+		FLOAT, &sharky->m_X, 0.0f - sharky->m_W,
+		REPEAT,
+		EASING, Ease::sineIn,
+		END);
+	//tween->Cancel();
+}
+
+void GameScene::initItems()
+{
+	Coin * coin = new Coin(g_pResources->getCoin(), 150, 100);
+	coin->m_ScaleX = g_graphicsScaleWidth / 17;
+	coin->m_ScaleY = g_graphicsScaleWidth / 17;
+	addToLayer("itemLayer", coin);
 }

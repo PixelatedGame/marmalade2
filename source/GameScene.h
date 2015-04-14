@@ -53,6 +53,7 @@ private:
 	void addToLayer(std::string layerName, CDrawable * drawable);
 	Layer * backgroundLayer;
 	Layer * enemyLayer;
+	Layer * itemLayer;
 	Layer * heroLayer;
 	Layer * foregroundLayer;
 	Layer * uiLayer;
@@ -73,6 +74,7 @@ public:
 	void initHero();
 
 	void initEnemies();
+	void initItems();
 
     // Update the game
     void            Update(float deltaTime = 0.0f, float alphaMul = 1.0f);

@@ -50,6 +50,7 @@ protected:
 
 	CIw2DImage* Sky;
 	CIw2DImage* Shark;
+	CIw2DImage* Coin;
 	CIw2DImage* Island;
 	CIw2DImage* DodoJump1;
 	CIw2DImage* DodoJump2;
@@ -88,6 +89,7 @@ public:
 	CIw2DImage*     getDodoJump6()              { return DodoJump6; }
 	CIw2DImage*     getDodoHead()              { return DodoHead; }
 	CIw2DImage*     getShark()              { return Shark; }
+	CIw2DImage*     getCoin()               { return Coin; }
     CIw2DFont*      getFont()                   { return Font; }
     CAtlas*         getGemAtlas()               { return GemAtlas; }
 

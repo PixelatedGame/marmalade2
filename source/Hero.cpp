@@ -220,7 +220,7 @@ void Hero::changelocation(float next_Y, float change_time = 0.5f){
 	}
 	
 	*/
-	g_pSceneManager->GetCurrent()->GetTweener().Clear_this(hero_tween);
+	//g_pSceneManager->GetCurrent()->GetTweener().Clear_this(hero_tween);
 
 	hero_tween = g_pSceneManager->GetCurrent()->GetTweener().Tween(change_time,
 		FLOAT, &this->m_Y, next_Y,

@@ -40,6 +40,8 @@ files
 	Powerup.cpp
 	Life.cpp
 	Score.cpp
+	Item.cpp
+	Coin.cpp
 
     audio.h
     GameScene.h
@@ -61,6 +63,8 @@ files
 	Powerup.h
 	Life.h
 	Score.h
+	Item.h
+	Coin.h
 	
 }
 

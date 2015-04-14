@@ -31,6 +31,7 @@ Resources::Resources()
     PlayButton = Iw2DCreateImage("textures/play.png");
 
 	Shark = Iw2DCreateImage("textures/layers_0005_shark.png");
+	Coin = Iw2DCreateImage("textures/coin.png");
 	Sky = Iw2DCreateImage("textures/layers_0010_sky.png");
 	Island = Iw2DCreateImage("textures/layers_0005_island_and_sun.png");
 	wave = Iw2DCreateImage("textures/layers_0009_wave.png");
