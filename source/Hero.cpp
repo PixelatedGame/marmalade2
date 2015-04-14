@@ -53,7 +53,7 @@ HeroStateSurf::HeroStateSurf(float high, float low) : HeroState(high, low) {};
 
 void HeroStateSurf::touch(Hero*const& my_hero)
 {
-	my_hero->killtween();
+	//my_hero->killtween();
 	my_hero->changeState(my_hero->state_toduck);
 }
 
