@@ -90,19 +90,29 @@ void GameScene::Update(float deltaTime, float alphaMul)
 
     // Update base scene
     Scene::Update(deltaTime, alphaMul);
-
-
-	//interaction: screen touch
-	if (m_IsInputActive && g_pInput->m_Touched)
-	{
-		gemSprite->touch();
+	
+	//touch state machine
+	switch (touchstate){
+	case true:
+		//check untouch screen
+		if (m_IsInputActive && !g_pInput->m_Touched)
+		{
+			gemSprite->release();
+		}
+		touchstate = false;
+	case false:
+		//touch screen
+		if (m_IsInputActive && g_pInput->m_Touched)
+		{
+			gemSprite->touch();
+		}
+		touchstate = true;
 	}
 
-	//interaction: untouch screen
-	if (m_IsInputActive && !g_pInput->m_Touched)
-	{
-		gemSprite->release();
-	}
+
+
+	
+
 	
 	//update enemies
 //	enemies->update(0.1f);
@@ -193,7 +203,8 @@ void GameScene::addToLayer(std::string layerName, CDrawable * drawable)
 // Initialise the games user interface
 void GameScene::initUI()
 {
-	
+	touchstate = false;
+
 	BackgroundEntity* wallpaperSprite = new BackgroundEntity(g_pResources->getGameBG());
 	addToLayer("backgroundLayer", wallpaperSprite);
 

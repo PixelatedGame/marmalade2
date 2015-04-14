@@ -49,7 +49,7 @@ protected:
 	float               graphicsScale;                  // Graphics are designed for 768 wide screen so we scale to native screen size
 
 private:
-	
+	bool touchstate;
 	void addToLayer(std::string layerName, CDrawable * drawable);
 	Layer * backgroundLayer;
 	Layer * enemyLayer;

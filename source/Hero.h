@@ -36,6 +36,7 @@ public:
 	float get_high_boundry();
 	virtual void start(Hero*const&) = 0;
 	void SetAtlas(CIw2DImage* pImage, int x_frames = 2, int y_frames = 2);
+	virtual void Update(Hero*const&) = 0;
 };
 
 class HeroStateSurf : public HeroState {
@@ -44,6 +45,7 @@ class HeroStateSurf : public HeroState {
 public:
 	HeroStateSurf(float high, float low);
 	void start(Hero*const&);
+	void Update(Hero*const&);
 };
 
 class HeroStateToDuck : public HeroState {
@@ -52,6 +54,7 @@ class HeroStateToDuck : public HeroState {
 public:
 	HeroStateToDuck(float high, float low);
 	void start(Hero*const&);
+	void Update(Hero*const&);
 };
 
 class HeroStateDuck : public HeroState {
@@ -60,6 +63,7 @@ class HeroStateDuck : public HeroState {
 public:
 	HeroStateDuck(float high, float low);
 	void start(Hero*const&);
+	void Update(Hero*const&);
 };
 
 class HeroStateJump : public HeroState {
@@ -68,6 +72,7 @@ class HeroStateJump : public HeroState {
 public:
 	HeroStateJump(float high, float low);
 	void start(Hero*const&);
+	void Update(Hero*const&);
 };
 class HeroStateFall : public HeroState {
 	void touch(Hero*const&);
@@ -75,6 +80,7 @@ class HeroStateFall : public HeroState {
 public:
 	HeroStateFall(float high, float low);
 	void start(Hero*const&);
+	void Update(Hero*const&);
 };
 class HeroStateDive : public HeroState {
 	void touch(Hero*const&);
@@ -82,6 +88,7 @@ class HeroStateDive : public HeroState {
 public:
 	HeroStateDive(float high, float low);
 	void start(Hero*const&);
+	void Update(Hero*const&);
 };
 
 
@@ -110,11 +117,13 @@ class Hero : public Entity
 	Hero();
 public:
 	static Hero *get_instance();
+	void Update(float, float);
 	void touch();
 	void release();
 	void hurt();
 	void changeState(HeroState * next_state);
 	void changelocation(float, float);
+	void killtween();
 	void start();
 	void setatlassurf(CIw2DImage* pImage, int x_frames = 1, int y_frames = 1);
 	void setatlastoduck(CIw2DImage* pImage, int x_frames = 1, int y_frames = 1);

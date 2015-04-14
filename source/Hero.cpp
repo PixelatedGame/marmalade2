@@ -53,6 +53,7 @@ HeroStateSurf::HeroStateSurf(float high, float low) : HeroState(high, low) {};
 
 void HeroStateSurf::touch(Hero*const& my_hero)
 {
+	my_hero->killtween();
 	my_hero->changeState(my_hero->state_toduck);
 }
 
@@ -65,6 +66,10 @@ void HeroStateSurf::start(Hero*const& my_hero){
 	my_hero->SetAnimDuration(2);
 	my_hero->SetAtlas(state_atlas);
 }
+
+
+void HeroStateSurf::Update(Hero*const& my_hero){
+}
 //-----------------------Hero State To Duck ----------------------------------------
 
 HeroStateToDuck::HeroStateToDuck(float high, float low) : HeroState(high, low) {};
@@ -72,13 +77,12 @@ HeroStateToDuck::HeroStateToDuck(float high, float low) : HeroState(high, low) {
 
 void HeroStateToDuck::touch(Hero*const& my_hero)
 {
-	if (is_below_low_boundry(my_hero))
 
-		my_hero->changeState(my_hero->state_duck);
 }
 
 void HeroStateToDuck::release(Hero*const& my_hero)
 {
+	my_hero->killtween();
 	my_hero->changeState(my_hero->state_jump);
 }
 
@@ -86,6 +90,13 @@ void HeroStateToDuck::start(Hero*const& my_hero){
 	my_hero->changelocation(get_low_boundry(), 0.5f);
 	my_hero->SetAnimDuration(2);
 	my_hero->SetAtlas(state_atlas);
+}
+
+
+void HeroStateToDuck::Update(Hero*const& my_hero){
+	if (is_below_low_boundry(my_hero)){
+		my_hero->changeState(my_hero->state_duck);
+	}
 }
 
 //----------------------Hero State Duck------------------------------------------------
@@ -99,6 +110,7 @@ void HeroStateDuck::touch(Hero*const& my_hero)
 
 void HeroStateDuck::release(Hero*const& my_hero)
 {
+	//no need to kill tween -> no tween here
 	my_hero->changeState(my_hero->state_jump);
 }
 
@@ -109,19 +121,21 @@ void HeroStateDuck::start(Hero*const& my_hero){
 	my_hero->SetAtlas(state_atlas);
 }
 
+void HeroStateDuck::Update(Hero*const& my_hero){
+
+}
 //----------------------Hero State Jump------------------------------------------------
 HeroStateJump::HeroStateJump(float high, float low) : HeroState(high, low) {};
 
 
 void HeroStateJump::touch(Hero*const& my_hero)
 {
+	my_hero->killtween();
 	my_hero->changeState(my_hero->state_dive);
 }
 
 void HeroStateJump::release(Hero*const& my_hero)
 {
-	if (is_above_high_boundry(my_hero))
-		my_hero->changeState(my_hero->state_fall);
 }
 
 void HeroStateJump::start(Hero*const& my_hero){
@@ -130,19 +144,23 @@ void HeroStateJump::start(Hero*const& my_hero){
 	my_hero->SetAtlas(state_atlas);
 }
 
+void HeroStateJump::Update(Hero*const& my_hero){
+	if (is_above_high_boundry(my_hero)){
+		my_hero->changeState(my_hero->state_fall);
+	}
+}
 //----------------------Hero State Fall------------------------------------------------
 HeroStateFall::HeroStateFall(float high, float low) : HeroState(high, low) {};
 
 
 void HeroStateFall::touch(Hero*const& my_hero)
 {
+	my_hero->killtween();
 	my_hero->changeState(my_hero->state_dive);
 }
 
 void HeroStateFall::release(Hero*const& my_hero)
 {
-	if (is_below_low_boundry(my_hero))
-		my_hero->changeState(my_hero->state_surf);
 }
 
 void HeroStateFall::start(Hero*const& my_hero){
@@ -151,20 +169,24 @@ void HeroStateFall::start(Hero*const& my_hero){
 	my_hero->SetAtlas(state_atlas);
 }
 
+void HeroStateFall::Update(Hero*const& my_hero){
+	if (is_below_low_boundry(my_hero)){
+		my_hero->changeState(my_hero->state_surf);
+	}
+}
+
 //----------------------Hero State Dive------------------------------------------------
 HeroStateDive::HeroStateDive(float high, float low) : HeroState(high, low) {};
 
 
 void HeroStateDive::touch(Hero*const& my_hero)
 {
-	if (is_below_low_boundry(my_hero))
-		my_hero->changeState(my_hero->state_toduck);
+
 }
 
 void HeroStateDive::release(Hero*const& my_hero)
 {
-	if (is_below_low_boundry(my_hero))
-		my_hero->changeState(my_hero->state_surf);
+
 }
 
 void HeroStateDive::start(Hero*const& my_hero){
@@ -174,6 +196,11 @@ void HeroStateDive::start(Hero*const& my_hero){
 	my_hero->SetAtlas(state_atlas);
 }
 
+void HeroStateDive::Update(Hero*const& my_hero){
+	if (is_below_low_boundry(my_hero)){
+		my_hero->changeState(my_hero->state_surf);
+	}
+}
 
 //-------------------------Hero-------------------------------------------
 Hero * Hero::Single_instance = NULL;
@@ -205,31 +232,29 @@ high_boundry(g_graphicsScaleHeight * HIGH_BOUNDRY){
 
 };
 
+void Hero::Update(float deltaTime, float alphaMul){
+	Entity::Update(deltaTime, alphaMul);
+	current_state->Update(this);
+
+}
+
 void Hero::changelocation(float next_Y, float change_time = 0.5f){
-	/*
-	if (hero_tween!=0 && hero_tween->IsAlive()) {
-		
-		//hero_tween->Pause();
-		hero_tween->Cancel();
-		//hero_tween->Terminate();
-		hero_tween=0;
-			
-	}
-	else{
-		hero_tween = 0;
-	}
-	
-	*/
-	g_pSceneManager->GetCurrent()->GetTweener().Clear_this(hero_tween);
 
 	hero_tween = g_pSceneManager->GetCurrent()->GetTweener().Tween(change_time,
 		FLOAT, &this->m_Y, next_Y,
 		EASING, Ease::sineIn,
-		END);
-
-	
+		END);	
 }
 
+void Hero::killtween(){
+	if (hero_tween!=0){
+		if (hero_tween->IsAnimating()){
+//			hero_tween->Pause();
+//			hero_tween->Cancel();
+//			hero_tween = 0;
+		}
+	}
+}
 void Hero::changeState(HeroState * next_state){
 	current_state = next_state;
 	current_state->start(this);
