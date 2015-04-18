@@ -390,6 +390,7 @@ void CTweenManager::kill_this(int tween_id){
 	for (std::vector<CTween>::iterator it = m_Tweens.begin(); it != m_Tweens.end(); it++){
 		if (it->id == tween_id){
 			it->Cancel();
+			break;
 		}
 	}
 }
