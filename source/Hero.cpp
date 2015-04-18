@@ -240,20 +240,24 @@ void Hero::Update(float deltaTime, float alphaMul){
 
 void Hero::changelocation(float next_Y, float change_time = 0.5f){
 
-	hero_tween = g_pSceneManager->GetCurrent()->GetTweener().Tween(change_time,
+	g_pSceneManager->GetCurrent()->GetTweener().Tween(change_time,
 		FLOAT, &this->m_Y, next_Y,
 		EASING, Ease::sineIn,
 		END);	
+	tween_id = g_pSceneManager->GetCurrent()->GetTweener().get_id();
 }
 
 void Hero::killtween(){
-	if (hero_tween!=0){
+	g_pSceneManager->GetCurrent()->GetTweener().kill_this(tween_id);
+	
+/*	if (hero_tween!=0){
 		if (hero_tween->IsAnimating()){
 //			hero_tween->Pause();
 //			hero_tween->Cancel();
 //			hero_tween = 0;
 		}
 	}
+	*/
 }
 void Hero::changeState(HeroState * next_state){
 	current_state = next_state;

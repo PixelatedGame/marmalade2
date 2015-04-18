@@ -11,7 +11,6 @@ subprojects
     iw2d
     iw2dscenegraph
     iw2dscenegraphcore
-    iwtween
     SoundEngine
     ../../../MarmaladeExampleResources
 
@@ -21,6 +20,7 @@ files
 {
     [source]
     (source)
+	iwtween.cpp
     audio.cpp
     GameScene.cpp
     input.cpp
@@ -42,7 +42,8 @@ files
 	Score.cpp
 	Item.cpp
 	Coin.cpp
-
+	
+	iwtween.h
     audio.h
     GameScene.h
     input.h

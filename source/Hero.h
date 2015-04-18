@@ -113,7 +113,7 @@ class Hero : public Entity
 	HeroStateDive * state_dive;
 
 	static Hero* Single_instance;
-	CTween *hero_tween = 0;
+	int tween_id;
 	Hero();
 public:
 	static Hero *get_instance();
