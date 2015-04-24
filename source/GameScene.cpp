@@ -218,7 +218,7 @@ void GameScene::initUI()
 	BackgroundEntity* islandSprite = new BackgroundEntity(g_pResources->getIsland(), 0.3f);
 	addToLayer("backgroundLayer", islandSprite);
 
-	BackgroundEntity* waveSprite = new BackgroundEntity(g_pResources->getWave(),0, 0.78f);
+	BackgroundEntity* waveSprite = new BackgroundEntity(g_pResources->getWave(),0, 0.78f,1,2);
 	addToLayer("foregroundLayer", waveSprite);
 
 
@@ -340,6 +340,8 @@ void GameScene::initHero()
 
 void GameScene::initEnemies()
 {
+	
+	/*
 	Shark * sharky = new Shark();
 	addToLayer("enemyLayer", sharky);
 
@@ -348,7 +350,21 @@ void GameScene::initEnemies()
 		REPEAT,
 		EASING, Ease::sineIn,
 		END);
-	//tween->Cancel();
+
+		*/
+
+	Enemy * enemy = new Enemy();
+	addToLayer("enemyLayer", enemy);
+	enemy->SetAnimation(g_pResources->getShark(), 2, 2);
+
+	IwTween::CTween * tween = m_Tweener.Tween(1.0f,
+		FLOAT, &enemy->m_X, 0.0f - enemy->m_W,
+		REPEAT,
+		EASING, Ease::sineIn,
+		END);
+	
+	enemy->SetMovment();
+
 }
 
 void GameScene::initItems()

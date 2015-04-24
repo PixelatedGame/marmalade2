@@ -20,6 +20,7 @@
 #include "scene.h"
 #include "hero.h"
 #include "Life.h"
+#include "Enemy.h"
 #include "Score.h"
 
 
